@@ -7,7 +7,7 @@ Software solucion a requerimientos planteados en el ciclo 3 de Mision Tic 2022 -
 
 [Esteban Andrey Gómez A](https://github.com/unawaretub86)
 
-[Vivian Alexandra Mejia Sanchez](https://github.com/VivianMejia)
+[Vivian Alexandra Mejia Sanchez](https://github.com/VivianMejia) - practicando practicando :)
 
 [Kevin David Guevara Manosalva](https://github.com/KevinG090)
 
