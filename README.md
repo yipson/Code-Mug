@@ -9,6 +9,6 @@ Software solucion a requerimientos planteados en el ciclo 3 de Mision Tic 2022 -
 
 [Vivian Alexandra Mejia Sanchez](https://github.com/VivianMejia) - *(ANALISTA)* - Me gusta bailar :) 
 
-[Kevin David Guevara Manosalva ](https://github.com/KevinG090) - *(SCRUM MASTER)* - Me gusta leer, ver peliculas de terror y escuchar musica 
+[Kevin David Guevara Manosalva ](https://github.com/KevinG090) - *(SCRUM MASTER)* - Me gusta leer
 
 [Sebastian Valencia Ceron](https://github.com/yipson) - *(PRODUCT OWNER)* - Hola desde master branch
