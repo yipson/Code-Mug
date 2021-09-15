@@ -3,7 +3,7 @@
 Software solucion a requerimientos planteados en el ciclo 3 de Mision Tic 2022 - Universidad de Antioquia
 
 ### Desarrolladores:
-[Jorge Luis Olarte Vargas](https://github.com/jolarte8811) - Me gusta lecturar de suspenso y el anime
+[Jorge Luis Olarte Vargas](https://github.com/jolarte8811) -*(Administrador DB) Me gusta lecturar de suspenso y el anime
 
 [Esteban Andrey Gómez A](https://github.com/unawaretub86) - *(Desarrollador)* - Hola mundo desde Git :) 
 
