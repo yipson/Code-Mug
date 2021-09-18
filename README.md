@@ -7,7 +7,7 @@ El equipo Code Mug va analizar, diseñar y construir una aplicación software qu
 
 [Esteban Andrey Gómez A](https://github.com/unawaretub86)
 
-[Vivian Alexandra Mejia Sanchez](https://github.com/VivianMejia) - practicando practicando :)
+[Vivian Alexandra Mejia Sanchez](https://github.com/VivianMejia) - Analista
 
 [Kevin David Guevara Manosalva](https://github.com/KevinG090)
 
