@@ -4,14 +4,15 @@ El equipo Code Mug va analizar, diseñar y construir una aplicación software qu
 
 
 ### Desarrolladores:
-[Jorge Luis Olarte Vargas](https://github.com/jolarte8811) -Administrador de BD- Me gusta lecturar de suspenso y el anime, caminar, viajar en moto
 
-[Esteban Andrey Gómez A](https://github.com/unawaretub86)- Desarrollador
+[Jorge Luis Olarte Vargas](https://github.com/jolarte8811) - development
 
-[Vivian Alexandra Mejia Sanchez](https://github.com/VivianMejia) -Analista - Hola desde development :)
+[Esteban Andrey Gómez A](https://github.com/unawaretub86) - development
 
-[Kevin David Guevara Manosalva](https://github.com/KevinG090) - Scrum Master
+[Vivian Alexandra Mejia Sanchez](https://github.com/VivianMejia) - development
 
-[Sebastian Valencia Ceron](https://github.com/yipson) - Product Owner- Hola desde developer branch
+[Kevin David Guevara Manosalva](https://github.com/KevinG090) - development
+
+[Sebastian Valencia Ceron](https://github.com/yipson) - development
 
 Ciclo 3 de Mision Tic 2022 - Universidad de Antioquia
