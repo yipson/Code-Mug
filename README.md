@@ -7,12 +7,12 @@ El equipo Code Mug va analizar, diseñar y construir una aplicación software qu
 
 [Jorge Luis Olarte Vargas](https://github.com/jolarte8811) - development
 
-[Esteban Andrey Gómez A](https://github.com/unawaretub86) - development.
+[Esteban Andrey Gómez A](https://github.com/unawaretub86) - development
 
 [Vivian Alexandra Mejia Sanchez](https://github.com/VivianMejia) - development
 
-[Kevin David Guevara Manosalva](https://github.com/KevinG090) - development.
+[Kevin David Guevara Manosalva](https://github.com/KevinG090) - development
 
-[Sebastian Valencia Ceron](https://github.com/yipson) - development..
+[Sebastian Valencia Ceron](https://github.com/yipson) - development
 
 Ciclo 3 de Mision Tic 2022 - Universidad de Antioquia

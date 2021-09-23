@@ -3,9 +3,16 @@
     padding: 0px
 }
 .section{
-    display: flex
+    
 
 }
+
+/* Contenedor */
+.contenedor{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 
 .derechaArriba{
     display: flex;
@@ -24,13 +31,11 @@
 .izquierda h2{text-align:center}
 /*Botones*/
 /*poner los botones sin el formato de lista*/
-.main{
-    list-style: none;
-    display: flex; 
-    justify-content:space-around;
-}
 
-.firstButton{
+
+
+
+.botonLogin{
     font-size: 15px;
     color: white;
     background: #81D2C7;
@@ -38,20 +43,7 @@
     border-radius: 25px ;
     padding: 7px 10px;
 }
-.firstButton:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-    box-shadow: 1.5px 1.5px #416788;
-}
-.secondButton{
-    font-size: 15px;
-    color: white;
-    background: #81D2C7;
-    border: 0px;
-    border-radius: 25px ;
-    padding: 7px 10px;
-}
-.secondButton:hover{
+.botonLogin:hover{
     cursor: pointer;
     transform: scale(1.05);
     box-shadow: 1.5px 1.5px #416788;
@@ -85,10 +77,10 @@
 }
 
 /*checkbox*/
-.Checkbox2{
+.checkbox2{
     justify-content:space-around;
 }
-.Checkbox2 label{ /*texto: Forgot your Password*/
+.checkbox2 label{ /*texto: Forgot your Password*/
     padding-left: 1.3em;
     position:relative;
     color: #4c4c4c;
@@ -100,7 +92,7 @@
     top: -20px;/*en esta parte hay se le puede configurar la altura del texto*/
     
 }
-.Checkbox2 input[type="checkbox"]{/*cuadrito donde aparece el check*/
+.checkbox2 input[type="checkbox"]{/*cuadrito donde aparece el check*/
     
     appearance: none;
     -webkit-appearance: none;
@@ -113,7 +105,7 @@
     align-items: center;
     justify-content: center;
 }
-.Checkbox2 input[type="checkbox"]:after{/*se pone la forma junto con sus caracteristicas*/
+.checkbox2 input[type="checkbox"]:after{/*se pone la forma junto con sus caracteristicas*/
     font-family: "Font Awesome 5 Free";/*fuente para que se vea el check*/
     content: "\f00c";
     font-size: 20px;
@@ -122,9 +114,9 @@
     display: none;
       
 }
-.Checkbox2 input[type="checkbox"]:checked{ /*color del cuadrito al seleccionar la opcion de : forgot....*/
+.checkbox2 input[type="checkbox"]:checked{ /*color del cuadrito al seleccionar la opcion de : forgot....*/
     background: #0774D9;
 }
-.Checkbox2 input[type="checkbox"]:checked::after{
+.checkbox2 input[type="checkbox"]:checked::after{
     display: block;
 }
