@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    
+}
+nav{
+    text-decoration: none;
+    align-items: center;
+    background-color: #24252A;
+}
+.button{
+    border: none;
+    font-size: 25px;
+    color:white;
+    padding: 20px;
+    background-color: #24252A;
+}
+.button_logout{
+    position: absolute; top: 2%; right:30px;
+    border: none;
+    font-size: 25px;
+    color:white;
+    padding: 10px 35px;
+    border-radius: 50px;
+    background-color: turquoise;
+}
