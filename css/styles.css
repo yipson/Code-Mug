@@ -3,7 +3,7 @@
     padding: 0px
 }
 .section{
-    
+    margin: auto;
 
 }
 
@@ -14,18 +14,10 @@
 }
 
 
-.derechaArriba{
-    display: flex;
-    justify-content: space-between;
-}
-
-
 .from{
     display: inline
 }
-.clearfix{
-    clear:both
-}
+
 
 .izquierda h1{text-align:center}
 .izquierda h2{text-align:center}
