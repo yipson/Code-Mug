@@ -1,10 +1,15 @@
+:root{
+    --gris: #516063;
+    --verde: #81D2C7;
+}
+
 *{
     margin: 0px;
     padding: 0px
 }
 .section{
-    margin: auto;
-
+    padding-block: 150px;
+    padding-inline: 100px;
 }
 
 /* Contenedor */
@@ -13,20 +18,26 @@
     grid-template-columns: 1fr 1fr;
 }
 
+/* Lado izquierdo */
+.izquierda{
+    background-color: var(--verde);
+}
+.izquierda h1{text-align:center}
+.izquierda h2{text-align:center}
 
+/* Lado derecho */
+.derecha{
+    background-color: var(--gris);
+}
+
+
+
+/* Login */
 .from{
     display: inline
 }
 
-
-.izquierda h1{text-align:center}
-.izquierda h2{text-align:center}
 /*Botones*/
-/*poner los botones sin el formato de lista*/
-
-
-
-
 .botonLogin{
     font-size: 15px;
     color: white;
@@ -106,7 +117,8 @@
     display: none;
       
 }
-.checkbox2 input[type="checkbox"]:checked{ /*color del cuadrito al seleccionar la opcion de : forgot....*/
+/*color del cuadrito al seleccionar la opcion de : forgot....*/
+.checkbox2 input[type="checkbox"]:checked{ 
     background: #0774D9;
 }
 .checkbox2 input[type="checkbox"]:checked::after{
