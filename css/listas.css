@@ -19,12 +19,6 @@ html{
     background-color: var(--gisOscuro);
 }
 
-nav{
-    text-decoration: none;
-    align-items: center;
-    background-color: var(--negro);
-    margin-bottom: 2.5rem;
-}
 
 /* listado de ventas */
 
@@ -36,15 +30,22 @@ nav{
     margin-bottom: 2.5rem;
 }
 
-.button-ventas{
+.button-g{
+    cursor: pointer;
     border: none;
+    background-color: var(--negro);
+}
+.button-g:hover{
+    transform: scale(1.04 ,1.04);
+    color: rgb(208, 242, 250); ; 
+}
+
+.button-ventas{
     font-size: 25px;
     color: var(--blanco);
     padding: 20px;
-    background-color: var(--negro);
     border-right: solid 1px var(--gris);
-    cursor: pointer;
-}
+    }
 .button_logout{
     position: absolute; top: 2%; right:30px;
     border: none;
@@ -53,7 +54,6 @@ nav{
     padding: 10px 35px;
     border-radius: 50px;
     background-color: var(--verde);
-    cursor: pointer;
 }
 
 /* Titulo y boton (nueva venta) */
@@ -74,7 +74,6 @@ nav{
     margin-top: 1rem;
     padding: 1rem 1rem;
     width: 20rem;
-    cursor: pointer;
     color: var(--blanco);
     margin-left: .2rem;
 }
