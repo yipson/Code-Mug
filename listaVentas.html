@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/listas.css">
-    <title>navbar</title>
+    <title>Listado Ventas</title>
 </head>
 <body>
     <header>
@@ -21,6 +21,104 @@
         </div>
     </header>
 
+    <div class="titulo-contenedor">
+        <h1>LISTADO VENTAS</h1>
+
+        <input type="button" class="boton-venta" value="+ Nueva venta">
+    </div>
+    
+
+    <div class="fecha-contenedor">
+        <div class="filtro-fecha">
+            <p>Desde: </p>
+            <input type="date" class="fecha">
+        </div>
+        <div class="filtro-fecha">
+            <p>Hasta: </p>
+        <input type="date" class='feha'>
+        </div>
+    </div>
+
+
+    <section class="section-ventas">
+        <table style="width: 100%;" border="1">
+            <thead>
+                <th>
+                    <td>Fecha</td>
+                    <td>Vendedor</td>
+                    <td>Estado</td>
+                    <td>Total</td>
+                    <td>Accion</td>
+                </th>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td>12/09/2021</td>
+                    <td>Carlos Montes</td>
+                    <td>Embalaje</td>
+                    <td>$ 100.000</td>
+                    <td> 
+                        <a href="#">Ver</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>15/09/2021</td>
+                    <td>Valentina Lucumi</td>
+                    <td>Despacho</td>
+                    <td>$ 500.000</td>
+                    <td>
+                        <a href="#">Ver</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>16/09/2021</td>
+                    <td>Esteban Gomez</td>
+                    <td>Ruta</td>
+                    <td>$ 200.000</td>
+                    <td>
+                        <a href="#">Ver</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>17/09/2021</td>
+                    <td>Vivian</td>
+                    <td>Ubicacion</td>
+                    <td>$ 300.000</td>
+                    <td>
+                        <a href="#">Ver</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>18/09/2021</td>
+                    <td>Jorge</td>
+                    <td>Recepcion</td>
+                    <td>$ 900.000</td>
+                    <td>
+                        <a href="#">Ver</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>18/09/2021</td>
+                    <td>Kevin</td>
+                    <td>Creacion</td>
+                    <td>$ 1'000.000</td>
+                    <td>
+                        <a href="#">Ver</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+    <!-- Estados de las ventas: -->
+    <!-- Creacion, embalaje, despacho, ruta, ubicacion, recepcion -->
     
 </body>
 </html>
