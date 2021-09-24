@@ -1,34 +1,37 @@
 :root{
+    --azulOscuro: #416788;
     --gris: #516063;
-    --verde: #81D2C7;
+    --gisOscuro: #4c4c4c;
+    --blanco: white;
+    --verde: turquoise;
     --negro: #1b1b1b;
 }
-
 *{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    
 }
+
+
 nav{
     text-decoration: none;
     align-items: center;
-    background-color: #24252A;
+    background-color: var(--negro);
 }
 .button{
     border: none;
     font-size: 25px;
-    color:white;
+    color: var(--blanco);
     padding: 20px;
     background-color: var(--negro);
+    border-right: solid 1px var(--gris);
 }
 .button_logout{
     position: absolute; top: 2%; right:30px;
     border: none;
     font-size: 25px;
-    color:white;
+    color: var(--gris);
     padding: 10px 35px;
     border-radius: 50px;
-    /* background-color: turquoise; */
     background-color: var(--verde);
 }
