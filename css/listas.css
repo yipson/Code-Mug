@@ -1,27 +1,85 @@
+:root{
+    --azul: #416788;
+    --gris: #516063;
+    --gisOscuro: #4c4c4c;
+    --blanco: white;
+    --verde: turquoise;
+    --negro: #1b1b1b;
+}
 *{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    
 }
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: var(--gisOscuro);
+}
+
 nav{
     text-decoration: none;
     align-items: center;
-    background-color: #24252A;
+    background-color: var(--negro);
+    margin-bottom: 2.5rem;
 }
 .button{
     border: none;
     font-size: 25px;
-    color:white;
+    color: var(--blanco);
     padding: 20px;
-    background-color: #24252A;
+    background-color: var(--negro);
+    border-right: solid 1px var(--gris);
 }
 .button_logout{
     position: absolute; top: 2%; right:30px;
     border: none;
     font-size: 25px;
-    color:white;
+    color: var(--negro);
     padding: 10px 35px;
     border-radius: 50px;
-    background-color: turquoise;
+    background-color: var(--verde);
+}
+
+/* Titulo y boton (nueva venta) */
+.titulo-contenedor {
+    display: flex;
+    margin-bottom: 3rem;
+    margin-left: 2rem;
+}
+.titulo-contenedor h1 {
+    width: 50rem;
+    font-size: 5rem;
+}
+.boton-venta{
+    background-color: var(--azul);
+    border: none;
+    border-radius: 1rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    width: 20rem;
+}
+
+/* Filtro de fecha */
+.fecha-contenedor {
+    display: flex;
+    margin-bottom: 2.5rem;
+    margin-left: 2.5rem;
+}
+.filtro-fecha {
+    display: flex;
+    width: 30rem;
+    
+}
+.fecha {
+    width: 15rem;
+}
+
+
+/* Seccion Listado de Ventas */
+.section-ventas {
+
 }
