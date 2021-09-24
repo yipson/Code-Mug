@@ -1,9 +1,18 @@
 :root{
     --azulOscuro: #416788;
-    --gris: #516063;
+    --grisClaro: #d5e8ec;
     --gisOscuro: #4c4c4c;
     --blanco: white;
     --verde: turquoise;
+    --azul: #416788;
+    --grisMedio: #516063;
+    --negro: #1b1b1b;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
 html {
@@ -14,7 +23,9 @@ html {
     background-color: var(--gisOscuro);
 }
 
-
+a{
+    text-decoration: none;
+}
 .contenedor {
     width: 95%;
     max-width: 1200px;
@@ -31,6 +42,8 @@ h3 {
     font-size: 3rem;
     text-align: center;
 }
+
+/* Globales arriba */
 
 
 /* login */

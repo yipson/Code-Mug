@@ -12,9 +12,9 @@
         <div class="menu">
             <nav>
                 <ul>
-                    <a href="#"><button class="button">Usuarios</button></a>
-                    <a href="#"><button class="button">Vendedores</button></a>
-                    <a href="#"><button class="button">Ventas</button></a>
+                    <a href="#"><button class="button-ventas">Usuarios</button></a>
+                    <a href="#"><button class="button-ventas">Vendedores</button></a>
+                    <a href="#"><button class="button-ventas">Ventas</button></a>
                     <a href="#"><button class="button_logout">logout</button></a>
                 </ul>
             </nav>
@@ -23,8 +23,9 @@
 
     <div class="titulo-contenedor">
         <h1>LISTADO VENTAS</h1>
-
-        <input type="button" class="boton-venta" value="+ Nueva venta">
+        <button class="boton-venta">
+            Agregar venta
+        </button>
     </div>
     
 
@@ -39,86 +40,54 @@
         </div>
     </div>
 
-
     <section class="section-ventas">
-        <table style="width: 100%;" border="1">
-            <thead>
-                <th>
-                    <td>Fecha</td>
-                    <td>Vendedor</td>
-                    <td>Estado</td>
-                    <td>Total</td>
-                    <td>Accion</td>
-                </th>
-            </thead>
-            <tbody>
-
-                <tr>
-                    <td>1</td>
-                    <td>12/09/2021</td>
-                    <td>Carlos Montes</td>
-                    <td>Embalaje</td>
-                    <td>$ 100.000</td>
-                    <td> 
-                        <a href="#">Ver</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>15/09/2021</td>
-                    <td>Valentina Lucumi</td>
-                    <td>Despacho</td>
-                    <td>$ 500.000</td>
-                    <td>
-                        <a href="#">Ver</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>16/09/2021</td>
-                    <td>Esteban Gomez</td>
-                    <td>Ruta</td>
-                    <td>$ 200.000</td>
-                    <td>
-                        <a href="#">Ver</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>17/09/2021</td>
-                    <td>Vivian</td>
-                    <td>Ubicacion</td>
-                    <td>$ 300.000</td>
-                    <td>
-                        <a href="#">Ver</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>18/09/2021</td>
-                    <td>Jorge</td>
-                    <td>Recepcion</td>
-                    <td>$ 900.000</td>
-                    <td>
-                        <a href="#">Ver</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>18/09/2021</td>
-                    <td>Kevin</td>
-                    <td>Creacion</td>
-                    <td>$ 1'000.000</td>
-                    <td>
-                        <a href="#">Ver</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
+      <table class="ventas">
+        <thead>
+          <tr>
+            <th scope="row">No°</th>
+            <th>Fecha</th>
+            <th>Vendedor</th>
+            <th>Total Factura</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td> <td>Actions</td> <td><a href="#">ver</a></td>
+        </tr>
+        <tr>
+          <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td> <td>Actions</td> <td><a href="#">ver</a></td>
+        </tr>
+        <tr>
+          <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td> <td>Actions</td> <td><a href="#">ver</a></td>
+        </tr>
+        <tr>
+          <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td> <td>Actions</td> <td><a href="#">ver</a></td>
+        </tr>
+        <tr>
+          <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td> <td>Actions</td> <td><a href="#">ver</a></td>
+        </tr>
+      </table>
+    </div>
     </section>
     <!-- Estados de las ventas: -->
     <!-- Creacion, embalaje, despacho, ruta, ubicacion, recepcion -->
+
+    <!-- footer -->
+    <footer>
+        <div class="footer">
+            <nav class="paginacion">
+                <ul>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                </ul>
+            </nav>
+        </div>
+    </footer>
     
 </body>
 </html>
