@@ -3,38 +3,104 @@
     --verde: #81D2C7;
 }
 
-*{
-    margin: 0px;
-    padding: 0px
-}
-.section{
-    padding-block: 150px;
-    padding-inline: 100px;
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #4c4c4c;
 }
 
-/* Contenedor */
-.contenedor{
+
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.6rem;
+}
+h3 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+/* login */
+.login{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20rem;
+    margin-bottom: 20rem;
 }
 
 /* Lado izquierdo */
 .izquierda{
+    margin-top: 5rem;
+    border-radius: 6px;
     background-color: var(--verde);
+    margin-bottom: 10rem;
+    padding: 10rem;
 }
-.izquierda h1{text-align:center}
-.izquierda h2{text-align:center}
 
 /* Lado derecho */
 .derecha{
+    margin-top: 5rem;
     background-color: var(--gris);
+    margin-bottom: 10rem;
+    align-items: center;
+    border-radius: 6px;
 }
 
+.derecha-form{
+    margin-top: 5rem;
+    text-align: left;
+}
 
+input{
+    text-align: left;
+    padding-left: -1rem;
+    outline: none;
+}
+ .linea {
+  background-color: rgba(250, 250, 250, 0.631);
+  border-top: 1px solid white;
+  height: 1px;
+  max-width: 80%;
+  padding: 0;
+  margin: 1rem 0 2rem 2rem; 
+}
 
-/* Login */
-.from{
-    display: inline
+.forma input{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    margin: 1rem 0 1rem 1rem; 
+    margin-left: 2rem;
+    color: white;
+    font-weight: bold;
+    max-width: 80%;
+}
+
+.email{
+    text-align: left;
+}
+
+.texto-izquierda{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.sub-texto-izquierda{
+    text-align: center;
+    font-size: medium;
+    color: white;
 }
 
 /*Botones*/
@@ -43,8 +109,11 @@
     color: white;
     background: #81D2C7;
     border: 0px;
-    border-radius: 25px ;
-    padding: 7px 10px;
+    border-radius: 15px ;
+    padding: 0.5rem 5rem 1rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    font-weight: bolder;
 }
 .botonLogin:hover{
     cursor: pointer;
@@ -57,17 +126,22 @@
 .x{
     border-bottom-style: solid ;
     border-bottom-width: 2px;
-    border-bottom-color: black; 
+    border-bottom-color: white; 
 }
 .enlace{
     font-size: 20px;
-    color:black;
+    color:white;
     text-decoration: none;
     font-family: "Font Awesome 5 Free";
     padding:5px;
+    margin-left: 0.5rem;   
+}
+
+.button{
+    background-color: transparent;
+    border: none;
 }
 .enlace::before{
-    content: "\f100";
     color: black;
     font-size: 20px;
     font-weight: 900;
@@ -86,7 +160,7 @@
 .checkbox2 label{ /*texto: Forgot your Password*/
     padding-left: 1.3em;
     position:relative;
-    color: #4c4c4c;
+    color: white;
     font-size: 15px;
     font-family: 'Poppins' ,sans-serif;
     font-weight: 600;
@@ -107,6 +181,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 2rem;
+    margin-top: 2rem;
 }
 .checkbox2 input[type="checkbox"]:after{/*se pone la forma junto con sus caracteristicas*/
     font-family: "Font Awesome 5 Free";/*fuente para que se vea el check*/
@@ -124,3 +200,4 @@
 .checkbox2 input[type="checkbox"]:checked::after{
     display: block;
 }
+
