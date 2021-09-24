@@ -88,6 +88,7 @@ input{
     max-width: 80%;
 }
 
+
 .email{
     text-align: left;
 }
@@ -101,7 +102,6 @@ input{
     text-align: center;
     font-size: medium;
     color: white;
-}
 
 /*Botones*/
 .botonLogin{
