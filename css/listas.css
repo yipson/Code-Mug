@@ -1,3 +1,9 @@
+:root{
+    --gris: #516063;
+    --verde: #81D2C7;
+    --negro: #1b1b1b;
+}
+
 *{
     box-sizing: border-box;
     margin: 0px;
@@ -14,7 +20,7 @@ nav{
     font-size: 25px;
     color:white;
     padding: 20px;
-    background-color: #24252A;
+    background-color: var(--negro);
 }
 .button_logout{
     position: absolute; top: 2%; right:30px;
@@ -23,5 +29,6 @@ nav{
     color:white;
     padding: 10px 35px;
     border-radius: 50px;
-    background-color: turquoise;
+    /* background-color: turquoise; */
+    background-color: var(--verde);
 }

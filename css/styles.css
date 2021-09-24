@@ -1,6 +1,7 @@
 :root{
     --gris: #516063;
-    --verde: #81D2C7;
+    --blanco: white;
+    --verde: turquoise;
 }
 
 html {
@@ -70,7 +71,7 @@ input{
 }
  .linea {
   background-color: rgba(250, 250, 250, 0.631);
-  border-top: 1px solid white;
+  border-top: 1px solid var(--blanco);
   height: 1px;
   max-width: 80%;
   padding: 0;
@@ -83,7 +84,7 @@ input{
     border: none;
     margin: 1rem 0 1rem 1rem; 
     margin-left: 2rem;
-    color: white;
+    color: var(--blanco);
     font-weight: bold;
     max-width: 80%;
 }
@@ -101,13 +102,13 @@ input{
 .sub-texto-izquierda{
     text-align: center;
     font-size: medium;
-    color: white;
+    color: var(--gris);
 }
 /*Botones*/
 .botonLogin{
     font-size: 15px;
-    color: white;
-    background: #81D2C7;
+    color: var(--gris);
+    background: var(--verde);
     border: 0px;
     border-radius: 15px ;
     padding: 0.5rem 5rem 1rem;
@@ -126,11 +127,11 @@ input{
 .x{
     border-bottom-style: solid ;
     border-bottom-width: 2px;
-    border-bottom-color: white; 
+    border-bottom-color: var(--blanco); 
 }
 .enlace{
     font-size: 20px;
-    color:white;
+    color:var(--blanco);
     text-decoration: none;
     font-family: "Font Awesome 5 Free";
     padding:5px;
@@ -160,7 +161,7 @@ input{
 .checkbox2 label{ /*texto: Forgot your Password*/
     padding-left: 1.3em;
     position:relative;
-    color: white;
+    color: var(--blanco);
     font-size: 15px;
     font-family: 'Poppins' ,sans-serif;
     font-weight: 600;
@@ -189,7 +190,7 @@ input{
     content: "\f00c";
     font-size: 20px;
     font-weight: 900;
-    color: white ;
+    color: var(--blanco) ;
     display: none;
       
 }
