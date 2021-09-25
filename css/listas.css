@@ -80,18 +80,30 @@ nav{
 }
 
 /* Filtro de fecha */
+
+.espacio {
+    margin-right: 10px;
+   
+}
 .fecha-contenedor {
     display: flex;
     margin-bottom: 2.5rem;
     margin-left: 2.5rem;
+    
+   
+
 }
 .filtro-fecha {
     display: flex;
     width: 30rem;
+    align-items: center;
+   
     
 }
 .fecha {
     width: 15rem;
+    border-radius: 10px;
+    
 }
 
 /* tabla */
@@ -136,3 +148,28 @@ tr:hover td{
 .footer{
 
 }
+.center {
+    text-align: center;
+  }
+  
+  .pagination {
+    display: inline-block;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+  }
+  
+  .pagination a.active {
+    background-color: turquoise;
+    color: white;
+    border: 1px solid turquoise;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: rgb(221, 221, 221);}
