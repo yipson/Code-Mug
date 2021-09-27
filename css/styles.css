@@ -390,3 +390,25 @@ tr:hover td {
 .pagination a:hover:not(.active) {
   background-color: rgb(221, 221, 221);
 }
+
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items:right;
+}
+
+label
+{
+    display: block;
+}
+
+label span
+{
+    display: inline-block;
+    text-align: right;
+    width: 100px;
+}
