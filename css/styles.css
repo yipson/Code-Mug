@@ -277,6 +277,10 @@ nav {
 }
 
 /* Titulo y boton (nueva venta) */
+.info{
+  display: flex;
+  justify-content: space-between;
+}
 .titulo-contenedor {
   display: flex;
   margin-bottom: 3rem;
@@ -391,16 +395,6 @@ tr:hover td {
   background-color: rgb(221, 221, 221);
 }
 
-.form {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  align-items:right;
-}
-
 label
 {
     display: block;
@@ -412,3 +406,20 @@ label span
     text-align: right;
     width: 100px;
 }
+
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: right;
+}
+
+.form input {
+  width: 90%;
+  height: 30px;
+  margin: 0.5rem;
+}
+
