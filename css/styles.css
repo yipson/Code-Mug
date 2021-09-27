@@ -442,7 +442,8 @@ tr:hover td {
   color: rgb(208, 242, 250);
 }
 
-.cerrar-pop-venta{
+/* eliminando boton X */
+/* .cerrar-pop-venta{
   background-color: var(--rojo);
   border: 0;
   border-radius: 6px;
@@ -455,7 +456,7 @@ tr:hover td {
 
 .cerrar-pop-venta:hover{
   transform: scale(1.04, 1.04); 
-}
+} */
 
 .popup h1{
   margin: 10px;
