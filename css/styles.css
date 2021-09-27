@@ -259,10 +259,13 @@ nav {
 }
 
 .button-ventas {
+  border: none;
   font-size: 25px;
   color: var(--blanco);
   padding: 20px;
+  background-color: var(--negro);
   border-right: solid 1px var(--gris);
+  cursor: pointer;
 }
 .button_logout {
   position: absolute;
@@ -406,20 +409,16 @@ label span
     text-align: right;
     width: 100px;
 }
-
-.form {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  align-items: right;
+.controls {
+  width: fit-content;
+  padding: 10px ;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
 }
 
-.form input {
-  width: 90%;
-  height: 30px;
-  margin: 0.5rem;
+.alinear{
+  text-align: right;
 }
 
