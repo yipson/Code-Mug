@@ -24,11 +24,18 @@
             </nav>
         </div>
     </header>
-    <div class="login">
+    <div class="producto">
         <h1>NUEVO PRODUCTO</h1>
         <form method="post">
-            <input type="text" name="p" placeholder="Producto" required="required" />
-            <input type="number" number="p" placeholder="Precio" required="required" />
+            <label> 
+                <span>Nombre</span>
+                <input type="text" name="n" required="required" />
+            </label>
+            <label>
+                <span>Precio</span>
+                <input type="text" number="p" required="required" />
+            </label>
+           
             <button type="submit" class="btn btn-primary btn-block btn-large">Guardar</button>
         </form>
     </div>    
