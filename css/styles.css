@@ -391,9 +391,6 @@ tr:hover td {
   background-color: rgb(221, 221, 221);
 }
 
-.producto{
-  text-align: center;
-}
 label
 {
     display: block;
@@ -404,4 +401,28 @@ label span
     display: inline-block;
     text-align: right;
     width: 100px;
+}
+.producto {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: fit-content;
+  padding: 10px ;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+}
+
+.estilizar {
+  color: var(--theme-button-filled-color);
+  background-color: var(--theme-button-filled-background-color);
+  border-color: var(--theme-button-filled-border-color);
+  box-shadow: inset 0 1px 0 0 hsl(0deg 0% 100% / 70%);
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.boton{
+  padding-bottom: 39rem;
 }
