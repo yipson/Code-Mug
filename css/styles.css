@@ -430,3 +430,10 @@ label span
   border-radius: 5px;
   margin-bottom: 15px;
 }
+
+.section_busqueda_lista_venta{
+  display: block;
+  flex-direction: column;
+  
+
+}
