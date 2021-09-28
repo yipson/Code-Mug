@@ -518,3 +518,46 @@ label span
 .popup h1{
   margin: 10px;
 }
+
+/*Pantalla De Actualizar El Producto*/
+.main-div{  /*div general*/
+  font-family: 'Roboto', sans-serif;;
+}
+.Cuadro-de-datos{/*formato de parrafos e input*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  background-color: transparent;
+  padding: 10px;
+}
+.titulo-actualizar-producto{/*titulo-actualizar-producto*/
+  text-align: center;
+  background: transparent;
+  padding-bottom: 55px;
+}
+input{ /*inputs generales*/
+  text-align: left;
+  border-radius: 5px;
+  background-color: var(--theme-button-filled-background-color);
+  border-color: var(--theme-button-filled-color);
+  border-width: 1.9px;
+}
+p{
+  background: transparent;
+}
+.p1{
+  margin-right: 65px;
+  margin-left: -116px;
+}
+.p2{
+  padding: 0px 20px;
+}
+.p3{
+  padding: 0px 33px 0px 19px;
+}
+.margen{ /*padding button "actualizar" */
+  text-align:center ;
+  padding: 100px;
+  padding-bottom: 15.2rem;
+}
