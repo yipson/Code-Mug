@@ -22,7 +22,7 @@ html {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-color: var(--gisOscuro);
+  background-color: var(--grisClaro);
   box-sizing: border-box;
 }
 
@@ -35,6 +35,11 @@ html {
 a {
   text-decoration: none;
 }
+
+a:visited{
+  color: white;
+}
+
 .contenedor {
   width: 95%;
   max-width: 1200px;
@@ -83,6 +88,7 @@ h3 {
   align-items: center;
   border-radius: 6px;
   font-weight: bold;
+  background-color: var(--gisOscuro);
 }
 
 .from{
