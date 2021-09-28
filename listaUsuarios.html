@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Listado de Usuarios</title>
+</head>
+<body class="ventas">
+    <header>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <a href="#"><button class="button-ventas button-g">Usuarios</button></a>
+                    <a href="#"><button class="button-ventas button-g">Vendedores</button></a>
+                    <a href="#"><button class="button-ventas button-g">Ventas</button></a>
+                    <a href="#"><button class="button_logout button-g">logout</button></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="titulo-contenedor">
+        <h1>LISTA DE USUARIOS</h1>
+        <button id="open" class="boton-venta button-g">
+            Nuevo Usuario
+        </button>
+        
+        <div id="contenedorpopup" class="contenedor-pop">
+          <div class="popup" > 
+            <h1>
+              Usuario Actualizado Exitosamete   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checks" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M7 12l5 5l10 -10" />
+                            <path d="M2 12l5 5m5 -5l5 -5" />
+                            </svg>
+            </h1>
+            <button class="boton-ver-ventas">
+              Ver Usuarios
+            </button>
+            <button class="boton-nueva-venta">
+              Nuevo Usuario 
+            </button>
+            <!-- boton X eliminado -->
+            <!-- <button id="cerrar" class="cerrar-pop-venta"> 
+              X
+            </button> -->
+          </div>
+        </div>
+    </div>
+    <section class="section-ventas">
+      <table class="ventas">
+        <thead>
+          <tr>
+            <th scope="row">No°</th>
+            <th>Nombre</th>
+            <th>Numero</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>1</td> <td>Name</td> <td>Number</td> <td>Email</td> <td>Actions</td> <td><a href="#">Editar</a></td>
+        </tr>
+        <tr>
+          <td>1</td> <td>Name</td> <td>Number</td> <td>Email</td> <td>Actions</td> <td><a href="#">Editar</a></td>
+        </tr>
+        <tr>
+          <td>1</td> <td>Name</td> <td>Number</td> <td>Email</td> <td>Actions</td> <td><a href="#">Editar</a></td>
+        </tr>
+        <tr>
+          <td>1</td> <td>Name</td> <td>Number</td> <td>Email</td> <td>Actions</td> <td><a href="#">Editar</a></td>
+        </tr>
+        <tr>
+          <td>1</td> <td>Name</td> <td>Number</td> <td>Email</td> <td>Actions</td> <td><a href="#">Editar</a></td>
+        </tr>
+      </table>
+    </div>
+    </section>
+    <!-- Estados de las ventas: -->
+    <!-- Creacion, embalaje, despacho, ruta, ubicacion, recepcion -->
+
+    <!-- footer -->
+    <footer>
+      <div class="center">
+        <div class="pagination">
+          <a href="#">&laquo;</a>
+          <a href="#">1</a>
+          <a href="#" class="active">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">6</a>
+          <a href="#">&raquo;</a>
+          </div>
+        </div>
+    </footer>
+   
+    <script src="js/popup.js"></script>
+</body>
+</html>

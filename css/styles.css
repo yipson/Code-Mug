@@ -449,9 +449,10 @@ label span
 
 .boton{
   padding-bottom: 39rem;
-/* Creando pop-up VentaAgregada  */
+
 }
 
+/* Creando pop-up VentaAgregada  */
 .contenedor-pop{
   position: fixed;
   top: 0;
