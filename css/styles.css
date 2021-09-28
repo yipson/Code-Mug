@@ -394,3 +394,14 @@ tr:hover td {
 .producto{
   text-align: center;
 }
+label
+{
+    display: block;
+}
+
+label span
+{
+    display: inline-block;
+    text-align: right;
+    width: 100px;
+}
