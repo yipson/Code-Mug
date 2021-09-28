@@ -290,7 +290,7 @@ nav {
   background-color: var(--azul);
   border: none;
   border-radius: 1rem;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-top: 1rem;
   padding: 1rem 1rem;
   width: 20rem;
@@ -360,9 +360,6 @@ tr:hover td {
   background-color: var(--grisClaro);
 }
 
-.footer {
-  
-}
 .center {
   text-align: center;
 }
@@ -390,6 +387,7 @@ tr:hover td {
 .pagination a:hover:not(.active) {
   background-color: rgb(221, 221, 221);
 }
+
 
 label
 {
