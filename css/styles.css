@@ -35,11 +35,6 @@ html {
 a {
   text-decoration: none;
 }
-
-a:visited{
-  color: white;
-}
-
 .contenedor {
   width: 95%;
   max-width: 1200px;
@@ -260,6 +255,11 @@ nav {
   border: none;
   background-color: var(--negro);
 }
+
+.a-visited:visited{
+  color: var(--blanco);
+}
+
 .button-g:hover {
   transform: scale(1.04, 1.04);
   color: rgb(208, 242, 250);
@@ -274,6 +274,9 @@ nav {
   border-right: solid 1px var(--gris);
   cursor: pointer;
 }
+
+
+
 .button_logout {
   position: absolute;
   top: 2%;
@@ -311,7 +314,9 @@ nav {
   color: var(--blanco);
   margin-left: 0.2rem;
   cursor: pointer;
+  color: var(--blanco);
 }
+
 
 /* Filtro de fecha */
 
@@ -359,6 +364,7 @@ td {
   font-size: medium;
 }
 
+
 thead {
   background-color: var(--azulOscuro);
   color: var(--blanco);
@@ -391,6 +397,7 @@ tr:hover td {
   transition: background-color 0.3s;
   border: 1px solid var(--negro);
   margin: 0 4px;
+  
 }
 
 .pagination a.active {
@@ -428,6 +435,7 @@ label span
 
 .alinear{
   text-align: left;
+  border-bottom: 8px solid var(--azulOscuro);
 }
 
 .estilizar {
