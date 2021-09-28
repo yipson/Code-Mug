@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Nuevo Producto</title>
+</head>
+<body class="ventas">
+    <header>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <a href="#"><button class="button-ventas button-g">Usuarios</button></a>
+                    <a href="#"><button class="button-ventas button-g">Vendedores</button></a>
+                    <a href="#"><button class="button-ventas button-g">Ventas</button></a>
+                    <a href="#"><button class="button_logout button-g">logout</button></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="producto boton">
+        <h1>NUEVO PRODUCTO</h1>
+        <form method="post">
+            <label> 
+                <span>Nombre</span>
+                <input class="estilizar" type="text" name="n" required="required" />
+            </label>
+            <label>
+                <span>Precio</span>
+                <input class="estilizar" type="text" number="p" required="required" />
+            </label>
+           
+            <button class="boton-venta button-g" type="submit" class="btn btn-primary btn-block btn-large">Guardar</button>
+        </form>
+    </div>    
+</body>
+</html>
