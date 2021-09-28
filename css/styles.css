@@ -362,6 +362,7 @@ tr:hover td {
   background-color: var(--grisClaro);
 }
 
+
 .footer {
   
 }
@@ -405,7 +406,6 @@ tr:hover td {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
   opacity: 0;
   pointer-events: none;
 }
