@@ -369,13 +369,6 @@ tr:hover td {
   background-color: var(--grisClaro);
 }
 
-<<<<<<< HEAD
-=======
-
-.footer {
-  
-}
->>>>>>> HU_007
 .center {
   text-align: center;
 }
@@ -404,7 +397,6 @@ tr:hover td {
   background-color: rgb(221, 221, 221);
 }
 
-<<<<<<< HEAD
 label
 {
     display: block;
@@ -443,8 +435,8 @@ label span
 
 .boton{
   padding-bottom: 39rem;
-=======
 /* Creando pop-up VentaAgregada  */
+}
 
 .contenedor-pop{
   position: fixed;
@@ -510,5 +502,4 @@ label span
 
 .popup h1{
   margin: 10px;
->>>>>>> HU_007
 }
