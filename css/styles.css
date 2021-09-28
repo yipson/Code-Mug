@@ -7,7 +7,8 @@
   --azul: #416788;
   --grisMedio: #516063;
   --negro: #1b1b1b;
-  --fuente-principal: font-family: 'Roboto', sans-serif;;
+  --fuente-principal: font-family: 'Roboto', sans-serif;
+  --rojo: red;
 }
 
 * {
@@ -219,7 +220,7 @@ input {
 
 .checkbox2 input[type="checkbox"]:after {
   /*se pone la forma junto con sus caracteristicas*/
-  font-family: var(--fuente-principal); /*fuente para que se vea el check*/
+  font-family: "Font Awesome 5 free"; /*fuente para que se vea el check*/
   content: "\f00c";
   font-size: 20px;
   font-weight: 900;
@@ -299,10 +300,11 @@ nav {
   border-radius: 1rem;
   font-size: 3rem;
   margin-top: 1rem;
-  padding: 1rem 1rem;
-  width: 20rem;
+  padding: 10px 25px;
+  width: 15rem;
   color: var(--blanco);
   margin-left: 0.2rem;
+  cursor: pointer;
 }
 
 /* Filtro de fecha */
@@ -367,6 +369,13 @@ tr:hover td {
   background-color: var(--grisClaro);
 }
 
+<<<<<<< HEAD
+=======
+
+.footer {
+  
+}
+>>>>>>> HU_007
 .center {
   text-align: center;
 }
@@ -395,6 +404,7 @@ tr:hover td {
   background-color: rgb(221, 221, 221);
 }
 
+<<<<<<< HEAD
 label
 {
     display: block;
@@ -433,4 +443,72 @@ label span
 
 .boton{
   padding-bottom: 39rem;
+=======
+/* Creando pop-up VentaAgregada  */
+
+.contenedor-pop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.popup{
+  background-color: var(--blanco);
+  width: 60rem;
+  max-width: 100%;
+  padding: 3rem 5rem;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.boton-ver-ventas, .boton-nueva-venta{
+  background-color: var(--verde);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--blanco);
+  font-size: medium;
+  padding: 10px 25px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.contenedor-pop.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.boton-ver-ventas:hover, .boton-nueva-venta:hover {
+  transform: scale(1.04, 1.04);
+  color: rgb(208, 242, 250);
+}
+
+/* eliminando boton X */
+/* .cerrar-pop-venta{
+  background-color: var(--rojo);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--blanco);
+  font-size: medium;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cerrar-pop-venta:hover{
+  transform: scale(1.04, 1.04); 
+} */
+
+.popup h1{
+  margin: 10px;
+>>>>>>> HU_007
 }
