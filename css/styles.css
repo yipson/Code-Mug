@@ -356,6 +356,9 @@ nav {
   text-align: left;
   border-collapse: collapse;
 }
+.separacion{
+  width: 25%;
+}
 
 th,
 td {
@@ -446,7 +449,10 @@ label span
   border-radius: 5px;
   margin-bottom: 15px;
 }
-
+.controls{
+  position: absolute; right: 50px;
+  font-size: 18px;
+}
 .boton{
   padding-bottom: 39rem;
 
