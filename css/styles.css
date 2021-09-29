@@ -1,7 +1,7 @@
 :root {
   --azulOscuro: #416788;
   --grisClaro: #d5e8ec;
-  --gisOscuro: #4c4c4c;
+  --grisOscuro: #4c4c4c;
   --blanco: white;
   --verde: turquoise;
   --azul: #416788;
@@ -83,7 +83,7 @@ h3 {
   align-items: center;
   border-radius: 6px;
   font-weight: bold;
-  background-color: var(--gisOscuro);
+  background-color: var(--grisOscuro);
 }
 
 .from{
@@ -560,4 +560,33 @@ p{
   text-align:center ;
   padding: 100px;
   padding-bottom: 15.2rem;
+}
+.x{
+  width: 20rem;
+}
+
+/* Busqueda */
+.contenedor-busqueda{
+  align-items: center;
+  border: 1px solid #b1b1b1;
+  border-radius: .5rem;
+  height: 13rem;
+  margin-right: 6rem;
+  padding: .5rem 1rem;
+}
+.text-buscar {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.select{
+  font-size: 2rem;
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+.contenedor-busqueda > input {
+  height: 2.5rem;
+  width: 20rem;
+  font-size: 2rem;
 }
