@@ -618,44 +618,43 @@ p{
 
 
 /* Contenedor Actualizar Usuarios*/
-  .contenedor4x5{display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-  }
-  
-  .contenedor4x5 >div{
-  /*border: 1px solid;*/
-  display:inline-flex;
-  align-items: center;
-  flex-direction: row;
-  width:200px;
-  align-items: center;
-  justify-content: center;
-  font-size: medium;
-  background-color: transparent;
-  padding: 10px;
-  }
-  
-  .centrar{
-  text-align:center;
-  align-items: center;}
-  
-  
-  
-  .C1{
-  grid-column: 1 / 4;}
-  .C2{grid-column: 2 / 4;}
-  .C3{
-  grid-column: 3 / 4;}
-  
-  /* GRID ACTUALIZAR USUARIO*/
-  .C4{grid-column: 4 / 4;}
-  .R1{grid-row: 1/5;}
-  .R2{grid-row: 2/5;}
-  .R3{grid-row: 3/5;}
-  .R4{grid-row: 4/5;}
-  .R5{grid-row: 5/5;}
+.contenedor4x5{display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
 
+.contenedor4x5 >div{
+/*border: 1px solid;*/
+display:inline-flex;
+align-items: center;
+flex-direction: row;
+width:200px;
+align-items: center;
+justify-content: center;
+font-size: medium;
+background-color: transparent;
+padding: 10px;
+}
 
-  
-  }
+.centrar{
+text-align:center;
+align-items: center;
+}
+
+.C1{
+grid-column: 1 / 4;
+}
+.C2{grid-column: 2 / 4;
+}
+.C3{
+grid-column: 3 / 4;
+}
+
+/* GRID ACTUALIZAR USUARIO*/
+.C4{grid-column: 4 / 4;}
+.R1{grid-row: 1/5;}
+.R2{grid-row: 2/5;}
+.R3{grid-row: 3/5;}
+.R4{grid-row: 4/5;}
+.R5{grid-row: 5/5;}
+
