@@ -432,8 +432,9 @@ label span
 }
 
 .section_busqueda_lista_venta{
-  display: block;
+  display: inline;
   flex-direction: column;
+  padding-left: 250px;
   
 
 }
