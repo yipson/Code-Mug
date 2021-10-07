@@ -3,15 +3,15 @@ import React from "react";
 export const ListadoUsuarios = () => {
   return (
     <div>
-      <body class="ventas">
-        <div class="titulo-contenedor">
+      <body className="ventas">
+        <div className="titulo-contenedor">
           <h1>LISTA DE USUARIOS</h1>
-          <button id="open" class="boton-venta button-g">
+          <button id="open" className="boton-venta button-g">
             Nuevo Usuario
           </button>
         </div>
-        <section class="section-ventas">
-          <table class="ventas">
+        <section className="section-ventas">
+          <table className="ventas">
             <thead>
               <tr>
                 <th scope="row">No°</th>

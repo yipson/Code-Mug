@@ -3,34 +3,34 @@ import React from "react";
 export const NuevoProducto = () => {
   return (
     <div>
-      <body class="ventas">
+      <body className="ventas">
         <header>
-          <div class="menu">
+          <div className="menu">
             <nav>
               <ul>
                 <a href="#">
-                  <button class="button-ventas button-g">Usuarios</button>
+                  <button className="button-ventas button-g">Usuarios</button>
                 </a>
                 <a href="#">
-                  <button class="button-ventas button-g">Vendedores</button>
+                  <button className="button-ventas button-g">Vendedores</button>
                 </a>
                 <a href="#">
-                  <button class="button-ventas button-g">Ventas</button>
+                  <button className="button-ventas button-g">Ventas</button>
                 </a>
                 <a href="#">
-                  <button class="button_logout button-g">logout</button>
+                  <button className="button_logout button-g">logout</button>
                 </a>
               </ul>
             </nav>
           </div>
         </header>
-        <div class="producto boton">
+        <div className="producto boton">
           <h1>NUEVO PRODUCTO</h1>
           <form method="post">
             <label>
               <span>Nombre</span>
               <input
-                class="estilizar"
+                className="estilizar"
                 type="text"
                 name="n"
                 required="required"
@@ -39,7 +39,7 @@ export const NuevoProducto = () => {
             <label>
               <span>Precio</span>
               <input
-                class="estilizar"
+                className="estilizar"
                 type="text"
                 number="p"
                 required="required"
@@ -47,9 +47,9 @@ export const NuevoProducto = () => {
             </label>
 
             <button
-              class="boton-venta button-g"
+              className="boton-venta button-g"
               type="submit"
-              class="btn btn-primary btn-block btn-large"
+              className="btn btn-primary btn-block btn-large"
             >
               Guardar
             </button>

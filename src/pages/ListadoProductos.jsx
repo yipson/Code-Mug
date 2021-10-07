@@ -3,41 +3,41 @@ import React from "react";
 export const ListadoProductos = () => {
   return (
     <div>
-      <body class="ventas">
+      <body className="ventas">
         <header>
-          <div class="menu">
+          <div className="menu">
             <nav>
               <ul>
                 <a href="#">
-                  <button class="button-ventas button-g">Usuarios</button>
+                  <button className="button-ventas button-g">Usuarios</button>
                 </a>
                 <a href="#">
-                  <button class="button-ventas button-g">Vendedores</button>
+                  <button className="button-ventas button-g">Vendedores</button>
                 </a>
                 <a href="#">
-                  <button class="button-ventas button-g">Ventas</button>
+                  <button className="button-ventas button-g">Ventas</button>
                 </a>
                 <a href="#">
-                  <button class="button_logout button-g">logout</button>
+                  <button className="button_logout button-g">logout</button>
                 </a>
               </ul>
             </nav>
           </div>
         </header>
 
-        <div class="info">
-          <div class="titulo-contenedor">
+        <div className="info">
+          <div className="titulo-contenedor">
             <h1>LISTADO PRODUCTOS</h1>
-            <button class="boton-venta button-g">
-              <a class="a-visited" href="nuevoProducto.html">
+            <button className="boton-venta button-g">
+              <a className="a-visited" href="nuevoProducto.html">
                 Nuevo Producto
               </a>
             </button>
           </div>
 
-          <div class="contenedor-busqueda">
-            <p class="text-buscar">Buscar:</p>
-            <div class="select">
+          <div className="contenedor-busqueda">
+            <p className="text-buscar">Buscar:</p>
+            <div className="select">
               <select>
                 <option value="" selected disabled>
                   Buscar por:
@@ -50,8 +50,8 @@ export const ListadoProductos = () => {
           </div>
         </div>
 
-        <section class="section-ventas">
-          <table class="ventas">
+        <section className="section-ventas">
+          <table className="ventas">
             <thead>
               <tr>
                 <th scope="row">Id °</th>
@@ -92,7 +92,7 @@ export const ListadoProductos = () => {
               <td>acb</td>
             </tr>
 
-            <tfoot class="alinear"></tfoot>
+            <tfoot className="alinear"></tfoot>
           </table>
         </section>
         {/* <!-- Estados de las ventas: -->
