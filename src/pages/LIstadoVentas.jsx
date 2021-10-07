@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LIstadoVentas = () => {
+const ListadoVentas = () => {
   return (
     <div>
       <body class="ventas">
@@ -111,3 +111,5 @@ export const LIstadoVentas = () => {
     </div>
   );
 };
+
+export default ListadoVentas;
