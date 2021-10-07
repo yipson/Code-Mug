@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const formNuevaVenta = () => {
   return (
     <>
       <div>
+        <Link to='/NuevaVenta'>
         <div>
           <form cellspacing="6">
             <div className="controls">
@@ -62,6 +64,7 @@ const formNuevaVenta = () => {
           </tfoot>
         </table>
       </section>
+    </Link>
     </>
   );
 };

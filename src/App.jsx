@@ -1,14 +1,22 @@
-import React from "react";
 import "./App.css";
 import "./normalize.css";
-// import "./layout/Paginador";
-// import "./layout/Header";
-import { Login } from "./components/Login";
+import ListadoVentas from "pages/ListadoVentas";
+import { Login } from "../src/components/Login";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Layout } from "Layout/Layout";
 
 const App = () => {
   return (
-    <div>
-      <Login />
+    <div className="App">
+      <Router>
+        <Layout>
+          <Switch>
+            <Route path="/ListadoVentas">
+              <ListadoVentas />
+            </Route>
+          </Switch>
+        </Layout>
+      </Router>
     </div>
   );
 };
