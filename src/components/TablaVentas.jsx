@@ -3,8 +3,8 @@ import React from 'react';
 function TablaVentas(){
 return (
 
-    <section class="section-ventas">
-    <table class="ventas">
+    <section className="section-ventas">
+    <table className="ventas">
       <thead>
         <tr>
           <th scope="row">No°</th>
@@ -31,7 +31,7 @@ return (
         <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td> <td>Actions</td> <td><a href="#">Editar</a></td>
       </tr>
       
-      <tfoot class="alinear">
+      <tfoot className="alinear">
         <tr>
           <td></td>
           <td></td>

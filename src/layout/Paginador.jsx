@@ -14,7 +14,7 @@ return (
       <a href="#">&raquo;</a>
       </div>
     </div>
-)
+);
 
 }
 export default Paginador;
