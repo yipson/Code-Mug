@@ -3,21 +3,21 @@ import React from "react";
 export const LIstadoVentas = () => {
   return (
     <div>
-      <body class="ventas">
-        <div class="info">
-          <div class="titulo-contenedor">
+      <body className="ventas">
+        <div className="info">
+          <div className="titulo-contenedor">
             <h1>LISTADO VENTAS</h1>
-            <button class="boton-venta button-g">
-              <a class="a-visited" href="nuevaVenta.html">
+            <button className="boton-venta button-g">
+              <a className="a-visited" href="nuevaVenta.html">
                 {" "}
                 Agregar venta
               </a>
             </button>
           </div>
 
-          <div class="contenedor-busqueda">
-            <h2 class="center"> Buscar</h2>
-            <div class="select">
+          <div className="contenedor-busqueda">
+            <h2 className="center"> Buscar</h2>
+            <div className="select">
               <select>
                 <option value="" selected disabled>
                   Buscar por:
@@ -31,20 +31,20 @@ export const LIstadoVentas = () => {
           </div>
         </div>
 
-        <div class="fecha-contenedor">
-          <div class="filtro-fecha">
-            <p class="espacio">Desde: </p>
-            <input type="date" class="fecha" />
+        <div className="fecha-contenedor">
+          <div className="filtro-fecha">
+            <p className="espacio">Desde: </p>
+            <input type="date" className="fecha" />
           </div>
-          <div class="filtro-fecha">
-            <p class="espacio">Hasta: </p>
+          <div className="filtro-fecha">
+            <p className="espacio">Hasta: </p>
 
-            <input type="date" class="fecha" />
+            <input type="date" className="fecha" />
           </div>
         </div>
 
-        <section class="section-ventas">
-          <table class="ventas">
+        <section className="section-ventas">
+          <table className="ventas">
             <thead>
               <tr>
                 <th scope="row">No°</th>
@@ -91,7 +91,7 @@ export const LIstadoVentas = () => {
               </td>
             </tr>
 
-            <tfoot class="alinear">
+            <tfoot className="alinear">
               <tr>
                 <td></td>
                 <td></td>

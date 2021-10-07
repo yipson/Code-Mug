@@ -3,21 +3,21 @@ import React from "react";
 export const NuevaVenta = () => {
   return (
     <div>
-      <body class="ventas">
-        <div class="info">
-          <div class="titulo-contenedor">
+      <body className="ventas">
+        <div className="info">
+          <div className="titulo-contenedor">
             <h1>NUEVA VENTA</h1>
-            <button id="open" class="boton-venta button-g">
+            <button id="open" className="boton-venta button-g">
               Guardar
             </button>
 
-            <div id="contenedorpopup" class="contenedor-pop">
-              <div class="popup">
+            <div id="contenedorpopup" className="contenedor-pop">
+              <div className="popup">
                 <h1>
                   Venta Agregada{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-checks"
+                    className="icon icon-tabler icon-tabler-checks"
                     width="44"
                     height="44"
                     viewBox="0 0 24 24"
@@ -32,10 +32,10 @@ export const NuevaVenta = () => {
                     <path d="M2 12l5 5m5 -5l5 -5" />
                   </svg>
                 </h1>
-                <button class="boton-ver-ventas">Ver Ventas</button>
-                <button class="boton-nueva-venta">Nueva Venta</button>
+                <button className="boton-ver-ventas">Ver Ventas</button>
+                <button className="boton-nueva-venta">Nueva Venta</button>
                 {/* <!-- boton X eliminado --> */}
-                {/* <!-- <button id="cerrar" class="cerrar-pop-venta"> 
+                {/* <!-- <button id="cerrar" className="cerrar-pop-venta"> 
               X
             </button> --> */}
               </div>
@@ -44,26 +44,26 @@ export const NuevaVenta = () => {
 
           <div>
             <form cellspacing="6">
-              <div class="controls">
+              <div className="controls">
                 <label>
                   <span>Cliente</span>
-                  <input class="estilizar" type="text" />
+                  <input className="estilizar" type="text" />
                 </label>
                 <label>
                   <span>Direccion</span>
-                  <input class="estilizar" type="text" />
+                  <input className="estilizar" type="text" />
                 </label>
                 <label>
                   <span>Contacto</span>
-                  <input class="estilizar" type="text" />
+                  <input className="estilizar" type="text" />
                 </label>
               </div>
             </form>
           </div>
         </div>
 
-        <section class="section-ventas">
-          <table class="ventas">
+        <section className="section-ventas">
+          <table className="ventas">
             <thead>
               <tr>
                 <th scope="row">Cantidad</th>
@@ -91,7 +91,7 @@ export const NuevaVenta = () => {
                 <td>Total</td>
               </tr>
             </tbody>
-            <tfoot class="alinear">
+            <tfoot className="alinear">
               <tr>
                 <td></td>
                 <td></td>
