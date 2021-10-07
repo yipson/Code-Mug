@@ -1,20 +1,20 @@
 import "./App.css";
 import "./normalize.css";
-import ListadoVentas from "./pages/ListadoVentas";
-import Header from "./Layout/Header";
+import ListadoVentas from "pages/ListadoVentas";
 import { Login } from "../src/components/Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Layout } from "Layout/Layout";
 
 const App = () => {
   return (
     <Router>
-      <Header>
+      <Layout>
         <Switch>
-          <Route path="./pages/ListadoVentas.jsx">
+          <Route path="/ListadoVentas">
             <ListadoVentas />
           </Route>
         </Switch>
-      </Header>
+      </Layout>
     </Router>
   );
 };
