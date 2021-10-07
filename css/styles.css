@@ -204,7 +204,6 @@ input {
 }
 
 .checkbox2 input[type="checkbox"] {
-  /*cuadrito donde aparece el check*/
   appearance: none;
   -webkit-appearance: none;
   height: 20px;

@@ -1,9 +1,14 @@
 import "./App.css";
 import "./normalize.css";
 import "./layout/Paginador";
+import { Login } from "../src/components/Login";
 
-function App() {
-  return <div></div>;
-}
+const App = () => {
+  return (
+    <div>
+      <Login />
+    </div>
+  );
+};
 
 export default App;
