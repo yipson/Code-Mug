@@ -26,7 +26,10 @@ export const Login = () => {
 
                     <div className="linea"></div>
                   </form>
-                  <button className="botonLogin">login</button>
+                  <button className="botonLogin">
+                    login
+                    <a href="/src/pages/NuevaVenta.jsx"> </a>
+                  </button>
                 </div>
 
                 <div className="checkbox2">
@@ -48,3 +51,5 @@ export const Login = () => {
     </div>
   );
 };
+
+export default Login;

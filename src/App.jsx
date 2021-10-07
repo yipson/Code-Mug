@@ -1,14 +1,13 @@
-import React from "react";
-import "./App.css";
-import "./normalize.css";
-// import "./layout/Paginador";
-// import "./layout/Header";
-import { Login } from "./components/Login";
+import Index from "pages/Index";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "styles/styles.css";
 
 const App = () => {
   return (
-    <div>
-      <Login />
+    <div className="App">
+      <Router path="/">
+        <Index />
+      </Router>
     </div>
   );
 };

@@ -3,14 +3,13 @@ import css from "App.css";
 
 const ListadoVentas = () => {
   return (
-    <div>
+    <>
       <body className="ventas">
         <div className="info">
           <div className="titulo-contenedor">
             <h1>LISTADO VENTAS</h1>
             <button className="boton-venta button-g">
               <a className="a-visited" href="nuevaVenta.html">
-                {" "}
                 Agregar venta
               </a>
             </button>
@@ -109,7 +108,7 @@ const ListadoVentas = () => {
 
         <script src="js/popup.js"></script>
       </body>
-    </div>
+    </>
   );
 };
 

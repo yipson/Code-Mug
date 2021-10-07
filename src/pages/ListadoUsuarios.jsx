@@ -65,3 +65,4 @@ export const ListadoUsuarios = () => {
     </div>
   );
 };
+export default ListadoUsuarios;
