@@ -1,5 +1,8 @@
 import "./App.css";
 import "./normalize.css";
+import "./components/Paginador"
+
+
 
 function App() {
   return (
@@ -13,6 +16,7 @@ function App() {
               "22 Neque porro quisquam est qui dolorem ipsum quia dolor sit
               amet, consectetur, adipisci velit..."
             </h2>
+            
           </div>
 
           {/* <!-- Lado de Login --> */}
