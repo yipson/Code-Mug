@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Header = () => {
     return (
         <div>
@@ -14,7 +13,7 @@ const Header = () => {
       </nav>
             
         </div>
-    )
+    );
 }
 
 export default Header;
