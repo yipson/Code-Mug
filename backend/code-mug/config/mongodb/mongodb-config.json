@@ -1,8 +1,0 @@
-{
-    "mongodb": {
-        "server": "cluster0.5kmqj.mongodb.net",
-        "database": "code-mug",
-        "user": "code-mug-db",
-        "password": "79ktnBhz2fc35LzQ"
-    }
-}
