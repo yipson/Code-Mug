@@ -12,6 +12,7 @@
     var ProductoModel = require('./producto.module')().ProductoModel;
 
     function createProducto(producto) {
+        console.log(producto);
         return ProductoModel.create(producto);
     }
 
@@ -34,7 +35,7 @@
     function deleteProducto(productoId) {
         return ProductoModel
             .findByIdAndRemove(productoId)
-            .exec();
+            .exec()
     }
 
 })();

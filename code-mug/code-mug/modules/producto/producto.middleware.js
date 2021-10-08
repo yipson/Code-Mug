@@ -9,8 +9,9 @@
         removeProducto: removeProducto
     };
 
-    var ProductoService = require('./producto.model')().ProductoService;
+    var ProductoService = require('./producto.module')().ProductoService;
     const { BadRequest } = require('../util/errors');
+
 
     function addProducto(req, res, next) {
         const { nombre, precio } = req.body;

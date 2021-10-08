@@ -31,10 +31,12 @@
             res.status(200).json(req.response);
         });
 
-    router.put('/:productoId',
+    router.delete('/:productoId',
         ProductoMiddleware.removeProducto,
         function (req, res) {
             res.status(200).json(req.response);
         });
+
+    module.exports = router;
 
 })();
