@@ -8,6 +8,7 @@ var app = express();
 
 var MongoDBUtil = require('./modules/mongodb/mongodb.module').MongoDBUtil;
 var ProductoController = require('./modules/producto/producto.module')().ProductoController;
+var UsuarioController = require('./modules/usuario/usuario.module')().UsuarioController;
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -17,6 +18,7 @@ app.use(cookieParser());
 MongoDBUtil.init();
 
 app.use('/productos', ProductoController);
+app.use('/usuarios', UsuarioController);
 
 app.get('/', function (req, res) {
   var pkg = require(path.join(__dirname, 'package.json'));
