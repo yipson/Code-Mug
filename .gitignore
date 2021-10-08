@@ -24,5 +24,5 @@ yarn-error.log*
 
 
 #Backend
-code-mug/node_modules/
-code-mug/code-mug/node_modules/
+backend/node_modules/
+backend/code-mug/node_modules/
