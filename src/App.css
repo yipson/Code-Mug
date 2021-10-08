@@ -62,7 +62,7 @@ h3 {
   overflow-y: hidden;
 }
 
-.mainContainer > main {
+.mainContainer > nav {
   height: 100%;
   overflow-y: scroll;
 }
@@ -219,7 +219,6 @@ input {
 }
 
 .checkbox2 input[type="checkbox"] {
-  /*cuadrito donde aparece el check*/
   appearance: none;
   -webkit-appearance: none;
   height: 20px;
@@ -364,9 +363,13 @@ nav {
 
 .ventas {
   width: 100%;
+  height: 100%;
   background-color: var(--blanco);
   text-align: left;
   border-collapse: collapse;
+}
+.separacion {
+  width: 25%;
 }
 
 th,
@@ -400,7 +403,13 @@ tr:hover td {
   display: inline-block;
 }
 
-.pagination a {
+.actualizarUsuario {
+  display: grid;
+  grid-template-columns: repeat(1fr, 1fr);
+  border: solid red;
+  flex-direction: column;
+}
+.pagination button {
   color: var(--negro);
   float: left;
   padding: 8px 16px;
@@ -410,13 +419,13 @@ tr:hover td {
   margin: 0 4px;
 }
 
-.pagination a.active {
+.pagination button.active {
   background-color: var(--verde);
   color: var(--blanco);
   border: 1px solid var(--verde);
 }
 
-.pagination a:hover:not(.active) {
+.pagination button:hover:not(.active) {
   background-color: rgb(221, 221, 221);
 }
 
@@ -454,7 +463,11 @@ label span {
   border-radius: 5px;
   margin-bottom: 15px;
 }
-
+.controls {
+  position: absolute;
+  right: 50px;
+  font-size: 18px;
+}
 .boton {
   padding-bottom: 39rem;
 }
@@ -542,12 +555,31 @@ label span {
   background-color: transparent;
   padding: 10px;
 }
+
+.Cuadro-de-datos2 {
+  /*formato de parrafos e input*/
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  background-color: transparent;
+  padding: 10px;
+}
 .titulo-actualizar-producto {
   /*titulo-actualizar-producto*/
   text-align: center;
   background: transparent;
   padding-bottom: 55px;
 }
+
+.titulo-actualizar-usuario {
+  /*titulo-actualizar-Usuario*/
+  text-align: center;
+  background: transparent;
+  padding-bottom: 55px;
+}
+
 input {
   /*inputs generales*/
   text-align: left;
@@ -603,4 +635,59 @@ p {
   height: 2.5rem;
   width: 20rem;
   font-size: 2rem;
+}
+
+/* Contenedor Actualizar Usuarios*/
+.contenedor4x5 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.contenedor4x5 > div {
+  /*border: 1px solid;*/
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.centrar {
+  text-align: center;
+  align-items: center;
+}
+
+.C1 {
+  grid-column: 1 / 4;
+}
+.C2 {
+  grid-column: 2 / 4;
+}
+.C3 {
+  grid-column: 3 / 4;
+}
+
+/* GRID ACTUALIZAR USUARIO*/
+.C4 {
+  grid-column: 4 / 4;
+}
+.R1 {
+  grid-row: 1/5;
+}
+.R2 {
+  grid-row: 2/5;
+}
+.R3 {
+  grid-row: 3/5;
+}
+.R4 {
+  grid-row: 4/5;
+}
+.R5 {
+  grid-row: 5/5;
 }

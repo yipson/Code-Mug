@@ -1,12 +1,16 @@
+import Header from "components/Header";
+import Paginador from "components/Paginador";
+import popup from "js/popup";
 import React from "react";
 
-const actualizarVenta = () => {
+const ActualizarVenta = () => {
   return (
     <div>
+      <Header />
       <div className="info">
         <div className="titulo-contenedor">
           <h1>ID Venta</h1>
-          <button id="open" className="boton-venta button-g x">
+          <button id="open" onClick={popup} className="boton-venta button-g x">
             Actualizar
           </button>
 
@@ -60,8 +64,9 @@ const actualizarVenta = () => {
       </div>
 
       <script src="js/popup.js"></script>
+      <Paginador />
     </div>
   );
 };
 
-export default actualizarVenta;
+export default ActualizarVenta;

@@ -1,4 +1,5 @@
 import React from "react";
+import loginEnter from "components/Login";
 
 export const Login = () => {
   return (
@@ -26,9 +27,8 @@ export const Login = () => {
 
                     <div className="linea"></div>
                   </form>
-                  <button className="botonLogin">
-                    login
-                    <a href="/src/pages/NuevaVenta.jsx"> </a>
+                  <button onClick={loginEnter} className="botonLogin">
+                    <a href="/LIstadoVentas"> login</a>
                   </button>
                 </div>
 

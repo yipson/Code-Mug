@@ -400,7 +400,7 @@ tr:hover td {
   display: inline-block;
 }
 
-.pagination a {
+.pagination button {
   color: var(--negro);
   float: left;
   padding: 8px 16px;
@@ -410,13 +410,13 @@ tr:hover td {
   margin: 0 4px;
 }
 
-.pagination a.active {
+.pagination button.active {
   background-color: var(--verde);
   color: var(--blanco);
   border: 1px solid var(--verde);
 }
 
-.pagination a:hover:not(.active) {
+.pagination button:hover:not(.active) {
   background-color: rgb(221, 221, 221);
 }
 

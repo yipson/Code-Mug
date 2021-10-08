@@ -1,35 +1,17 @@
+import Header from "components/Header";
+import Paginador from "components/Paginador";
 import React from "react";
 
 export const ListadoProductos = () => {
   return (
     <div>
+      <Header />
       <body className="ventas">
-        <header>
-          <div className="menu">
-            <nav>
-              <ul>
-                <a href="#">
-                  <button className="button-ventas button-g">Usuarios</button>
-                </a>
-                <a href="#">
-                  <button className="button-ventas button-g">Vendedores</button>
-                </a>
-                <a href="#">
-                  <button className="button-ventas button-g">Ventas</button>
-                </a>
-                <a href="#">
-                  <button className="button_logout button-g">logout</button>
-                </a>
-              </ul>
-            </nav>
-          </div>
-        </header>
-
         <div className="info">
           <div className="titulo-contenedor">
             <h1>LISTADO PRODUCTOS</h1>
             <button className="boton-venta button-g">
-              <a className="a-visited" href="nuevoProducto.html">
+              <a className="a-visited" href="/NuevoProducto">
                 Nuevo Producto
               </a>
             </button>
@@ -100,6 +82,7 @@ export const ListadoProductos = () => {
 
         <script src="js/popup.js"></script>
       </body>
+      <Paginador />
     </div>
   );
 };

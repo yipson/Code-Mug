@@ -1,15 +1,17 @@
 import React from "react";
-import css from "App.css";
+import Paginador from "components/Paginador";
+import Header from "components/Header";
 
 const ListadoVentas = () => {
   return (
     <>
+      <Header />
       <body className="ventas">
         <div className="info">
           <div className="titulo-contenedor">
             <h1>LISTADO VENTAS</h1>
             <button className="boton-venta button-g">
-              <a className="a-visited" href="nuevaVenta.html">
+              <a className="a-visited" href="/NuevaVenta">
                 Agregar venta
               </a>
             </button>
@@ -59,35 +61,35 @@ const ListadoVentas = () => {
               <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
               <td>Actions</td>{" "}
               <td>
-                <a href="#">Editar</a>
+                <a href="/">Editar</a>
               </td>
             </tr>
             <tr>
               <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
               <td>Actions</td>{" "}
               <td>
-                <a href="#">Editar</a>
+                <a href="/">Editar</a>
               </td>
             </tr>
             <tr>
               <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
               <td>Actions</td>{" "}
               <td>
-                <a href="#">Editar</a>
+                <a href="/">Editar</a>
               </td>
             </tr>
             <tr>
               <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
               <td>Actions</td>{" "}
               <td>
-                <a href="#">Editar</a>
+                <a href="/">Editar</a>
               </td>
             </tr>
             <tr>
               <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
               <td>Actions</td>{" "}
               <td>
-                <a href="#">Editar</a>
+                <a href="/">Editar</a>
               </td>
             </tr>
 
@@ -107,6 +109,7 @@ const ListadoVentas = () => {
     <!-- Creacion, embalaje, despacho, ruta, ubicacion, recepcion --> */}
 
         <script src="js/popup.js"></script>
+        <Paginador />
       </body>
     </>
   );

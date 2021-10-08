@@ -1,8 +1,12 @@
+import Header from "components/Header";
+import Paginador from "components/Paginador";
+import popup from "js/popup";
 import React from "react";
 
 export const ActualizarUsuario = () => {
   return (
     <div>
+      <Header />
       <body className="ventas">
         <main className="centrar main-div">
           <h1 className="centrar">Editar Usuario</h1>
@@ -18,10 +22,8 @@ export const ActualizarUsuario = () => {
               <input
                 type="text"
                 className="input1"
-                placeholder="Digite su nombre"
-              >
-                {" "}
-              </input>
+                placeholder={"Digite su nombre"}
+              />
             </div>
 
             <div className="C1 R3">
@@ -29,9 +31,11 @@ export const ActualizarUsuario = () => {
             </div>
 
             <div className="C2 R3">
-              <input type="text" className="input1" placeholder="Digite Numero">
-                {" "}
-              </input>
+              <input
+                type="text"
+                className="input1"
+                placeholder={"Digite Numero"}
+              />
             </div>
 
             <div className="C1 R5">
@@ -42,10 +46,8 @@ export const ActualizarUsuario = () => {
               <input
                 type="email"
                 className="input1"
-                placeholder="Digite su Email"
-              >
-                {" "}
-              </input>
+                placeholder={"Digite su Email"}
+              />
             </div>
 
             <div className="C3 R2">
@@ -71,45 +73,44 @@ export const ActualizarUsuario = () => {
               </select>
             </div>
           </div>
-          <div className="margen">
-            <button className="boton-venta button-g x " id="open">
-              Actualizar
-            </button>
+        </main>
+        <div className="margen">
+          <button onClick={popup} className="boton-venta button-g x " id="open">
+            Actualizar
+          </button>
 
-            <div id="contenedorpopup" className="contenedor-pop">
-              <div className="popup">
-                <h1>
-                  Usuario Actualizado Exitosamente{" "}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="icon icon-tabler icon-tabler-checks"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#2c3e50"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M7 12l5 5l10 -10" />
-                    <path d="M2 12l5 5m5 -5l5 -5" />
-                  </svg>
-                </h1>
-                <button className="boton-ver-ventas">Ver Usuarios</button>
-                <button className="boton-nueva-venta">Nuevo Usuario</button>
-                {/* <!-- boton X eliminado --> */}
-                {/* <!<button id="cerrar" className="cerrar-pop-venta"> 
-              X
-            </button> --> */}
-              </div>
+          <div id="contenedorpopup" className="contenedor-pop">
+            <div className="popup">
+              <h1>
+                Usuario Actualizado Exitosamente{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-checks"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="#2c3e50"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M7 12l5 5l10 -10" />
+                  <path d="M2 12l5 5m5 -5l5 -5" />
+                </svg>
+              </h1>
+              <button className="boton-ver-ventas">Ver Usuario</button>
+              <button className="boton-nueva-venta">Nuevo Usuario</button>
+              {/* <!-- boton X eliminado --> */}
+              <button id="cerrar" className="cerrar-pop-venta"></button>
             </div>
           </div>
-        </main>
-
-        <script src="js/popup.js"></script>
+        </div>
       </body>
+      <script src="js/popup.js"></script>
+      <Paginador />
     </div>
   );
 };
+export default ActualizarUsuario;

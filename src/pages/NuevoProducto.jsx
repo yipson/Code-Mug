@@ -1,29 +1,12 @@
+import Header from "components/Header";
+import Paginador from "components/Paginador";
 import React from "react";
 
 export const NuevoProducto = () => {
   return (
     <div>
+      <Header />
       <body className="ventas">
-        <header>
-          <div className="menu">
-            <nav>
-              <ul>
-                <a href="#">
-                  <button className="button-ventas button-g">Usuarios</button>
-                </a>
-                <a href="#">
-                  <button className="button-ventas button-g">Vendedores</button>
-                </a>
-                <a href="#">
-                  <button className="button-ventas button-g">Ventas</button>
-                </a>
-                <a href="#">
-                  <button className="button_logout button-g">logout</button>
-                </a>
-              </ul>
-            </nav>
-          </div>
-        </header>
         <div className="producto boton">
           <h1>NUEVO PRODUCTO</h1>
           <form method="post">
@@ -47,15 +30,15 @@ export const NuevoProducto = () => {
             </label>
 
             <button
-              className="boton-venta button-g"
               type="submit"
-              className="btn btn-primary btn-block btn-large"
+              className="btn btn-primary btn-block btn-large boton-venta button-g"
             >
               Guardar
             </button>
           </form>
         </div>
       </body>
+      <Paginador />
     </div>
   );
 };
