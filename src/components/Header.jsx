@@ -5,16 +5,16 @@ const Header = () => {
     <div>
       <nav>
         <ul>
-          <a href="">
+          <a href="/">
             <button className="button-ventas button-g">Usuarios</button>
           </a>
-          <a href="">
+          <a href="/">
             <button className="button-ventas button-g">Vendedores</button>
           </a>
-          <a href="">
+          <a href="/">
             <button className="button-ventas button-g">Ventas</button>
           </a>
-          <a href="">
+          <a href="/">
             <button className="button_logout button-g">
               <a href="/Index">Logout</a>
             </button>

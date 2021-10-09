@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const TablaVentas = () => {
   return (
@@ -19,35 +18,35 @@ const TablaVentas = () => {
           <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
           <td>Actions</td>{" "}
           <td>
-            <a href="#">Editar</a>
+            <a href="/">Editar</a>
           </td>
         </tr>
         <tr>
           <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
           <td>Actions</td>{" "}
           <td>
-            <a href="#">Editar</a>
+            <a href="/">Editar</a>
           </td>
         </tr>
         <tr>
           <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
           <td>Actions</td>{" "}
           <td>
-            <a href="#">Editar</a>
+            <a href="/">Editar</a>
           </td>
         </tr>
         <tr>
           <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
           <td>Actions</td>{" "}
           <td>
-            <a href="#">Editar</a>
+            <a href="/">Editar</a>
           </td>
         </tr>
         <tr>
           <td>123412</td> <td>Date</td> <td>Seller</td> <td>Total</td>{" "}
           <td>Actions</td>{" "}
           <td>
-            <a href="#">Editar</a>
+            <a href="/">Editar</a>
           </td>
         </tr>
 
