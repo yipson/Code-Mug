@@ -542,22 +542,19 @@ label span {
 }
 
 /*Pantalla De Actualizar El Producto*/
+/*div general*/
 .main-div {
-  /*div general*/
   font-family: "Roboto", sans-serif;
 }
 .Cuadro-de-datos {
   /*formato de parrafos e input*/
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: medium;
   background-color: transparent;
   padding: 10px;
 }
 
+/*formato de parrafos e input*/
 .Cuadro-de-datos2 {
-  /*formato de parrafos e input*/
   grid-column: 1;
   display: flex;
   align-items: center;
@@ -566,15 +563,15 @@ label span {
   background-color: transparent;
   padding: 10px;
 }
+/*titulo-actualizar-producto*/
 .titulo-actualizar-producto {
-  /*titulo-actualizar-producto*/
   text-align: center;
   background: transparent;
   padding-bottom: 55px;
 }
 
+/*titulo-actualizar-Usuario*/
 .titulo-actualizar-usuario {
-  /*titulo-actualizar-Usuario*/
   text-align: center;
   background: transparent;
   padding-bottom: 55px;

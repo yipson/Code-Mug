@@ -1,7 +1,7 @@
 import Paginador from "components/Paginador";
 import React from "react";
 import Header from "../components/Header";
-import "../styles/styles.css";
+// import "../styles/styles.css";
 import popup from "js/popup";
 
 const ActualizarProducto = () => {
