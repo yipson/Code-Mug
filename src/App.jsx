@@ -4,7 +4,7 @@ import ActualizarUsuario from "pages/ActualizarUsuario";
 import ActualizarVenta from "pages/ActualizarVenta";
 // import Layout from "Layout/Layout";
 import Index from "pages/Index";
-import { ListadoProductos } from "pages/ListadoProductos";
+import ListadoProductos from "pages/ListadoProductos";
 import ListadoUsuarios from "pages/ListadoUsuarios";
 import ListadoVentas from "pages/LIstadoVentas";
 import { NuevoProducto } from "pages/NuevoProducto";
