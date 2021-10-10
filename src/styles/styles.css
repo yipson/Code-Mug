@@ -312,6 +312,8 @@ nav {
   display: flex;
   justify-content: space-between;
 }
+/* no tocar info por que es general y afecta todos los div de info */
+
 .titulo-contenedor {
   display: flex;
   margin-bottom: 3rem;
@@ -631,4 +633,14 @@ p {
   justify-content: center;
   margin-top: 1rem;
   text-align: center;
+}
+
+/* nueva venta pagina css */
+.nueva-venta-div {
+  display: grid;
+}
+
+.nueva-venta-tabla {
+  width: 180rem;
+  background-color: red;
 }
