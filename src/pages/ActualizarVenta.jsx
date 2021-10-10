@@ -105,7 +105,6 @@ const ActualizarVenta = () => {
                   </table>
                 </section>
        </body>
-
       <script src="js/popup.js"></script>
       <Paginador />
     </div>

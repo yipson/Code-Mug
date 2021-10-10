@@ -7,40 +7,17 @@ export const NuevaVenta = () => {
   return (
     <div>
       <Header />
-      <div>
         <body className="ventas">
           <div className="info">
             <div className="titulo-contenedor">
-              <div className="nueva-venta-div">
+              {/* <div className="nueva-venta-div"> */}
                 <h1>NUEVA VENTA</h1>
-                <button
-                  onClick={popup}
-                  id="open"
-                  className="boton-venta button-g"
-                >
+                <button onClick={popup} id="open" className="boton-venta button-g" >
                   Guardar
-                </button>
-                <div>
-                  <div>
-                    <form cellspacing="6">
-                      <div className="controls">
-                        <label>
-                          <span>Cliente</span>
-                          <input className="estilizar" type="text" />
-                        </label>
-                        <label>
-                          <span>Direccion</span>
-                          <input className="estilizar" type="text" />
-                        </label>
-                        <label>
-                          <span>Contacto</span>
-                          <input className="estilizar" type="text" />
-                        </label>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div className="section-ventas nueva-venta-tabla ">
+                </button> 
+                  
+                
+                {/* <div className="section-ventas nueva-venta-tabla ">
                   <table className="ventas ">
                     <thead>
                       <tr>
@@ -78,7 +55,7 @@ export const NuevaVenta = () => {
                       </tr>
                     </tfoot>
                   </table>
-                </div>
+                </div> */}
               </div>
               <div id="contenedorpopup" className="contenedor-pop">
                 <div className="popup">
@@ -106,11 +83,69 @@ export const NuevaVenta = () => {
                   {/* <!-- boton X eliminado --> */}
                   <button id="cerrar" className="cerrar-pop-venta"></button>
                 </div>
-              </div>
+              {/* </div> */}
             </div>
-          </div>
+            <div>
+                    <form cellspacing="6">
+                      <div className="controls">
+                        <label>
+                          <span>Cliente</span>
+                          <input className="estilizar" type="text" />
+                        </label>
+                        <label>
+                          <span>Direccion</span>
+                          <input className="estilizar" type="text" />
+                        </label>
+                        <label>
+                          <span>Contacto</span>
+                          <input className="estilizar" type="text" />
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+            <section className="section-ventas">
+                  <table className="ventas">
+                    <thead>
+                      <tr>
+                        <th scope="row">Cantidad</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                      <td className="separacion">
+                        <input type="Num" placeholder="Escriba el numero"/>
+                      </td>
+                        <td>
+                          <selection>
+                            <select name="Descripcion">
+                              <option>"1"</option>
+
+                              <option>"2"</option>
+
+                              <option>"3"</option>
+                            </select>
+                          </selection>
+                        </td>
+
+                        <td>Price</td>
+                        <td>Total</td>
+                      </tr>
+                    </tbody>
+                    <tfoot className="alinear">
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Total:</td>
+                        <td>Sub-Total</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </section>
         </body>
-      </div>
       <script src="js/popup.js"></script>
       <Paginador />
     </div>
