@@ -262,7 +262,7 @@ nav {
   text-decoration: none;
   align-items: center;
   background-color: var(--negro);
-  margin-bottom: 2.5rem;
+  margin-bottom: 0rem;
 }
 
 .button-g {
@@ -314,7 +314,7 @@ nav {
 }
 .titulo-contenedor h1 {
   width: 50rem;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 .boton-venta {
   background-color: var(--azul);
@@ -327,7 +327,7 @@ nav {
   color: var(--blanco);
   margin-left: 0.2rem;
   cursor: pointer;
-  color: var(--blanco);
+  
 }
 
 /* Filtro de fecha */
@@ -367,8 +367,15 @@ nav {
   background-color: var(--blanco);
   text-align: left;
   border-collapse: collapse;
+  
 }
-
+.controls {
+  position: absolute;
+  right: 50px;
+}
+.separacion {
+  width: 25%;
+}
 th,
 td {
   padding: 2rem;
