@@ -8,72 +8,74 @@ export const ActualizarUsuario = () => {
     <div>
       <Header />
       <body className="ventas">
-        <main className="centrar main-div">
-          <h1 className="centrar">Editar Usuario</h1>
+        <div className="main-div">
+          <div className="contenido">
+            <h1 className="centrar">Editar Usuario</h1>
 
-          <h2 className="centrar">Id #</h2>
+            <h2 className="centrar">Id #</h2>
+          </div>
 
           <div className="contenedor4x5">
             <div className="C1 R1">
               <p className="p2">Nombre:</p>
-            </div>
 
-            <div className="C2 R1">
-              <input
-                type="text"
-                className="input1"
-                placeholder={"Digite su nombre"}
-              />
-            </div>
+              <div className="C2 R1">
+                <input
+                  type="text"
+                  className="input1"
+                  placeholder={"Digite su nombre"}
+                />
+              </div>
 
-            <div className="C1 R3">
-              <p className="p2">Numero:</p>
-            </div>
+              <div className="C1 R3">
+                <p className="p2">Numero:</p>
+              </div>
 
-            <div className="C2 R3">
-              <input
-                type="text"
-                className="input1"
-                placeholder={"Digite Numero"}
-              />
-            </div>
+              <div className="C2 R3">
+                <input
+                  type="text"
+                  className="input1"
+                  placeholder={"Digite Numero"}
+                />
+              </div>
 
-            <div className="C1 R5">
-              <p className="p2">Email:</p>
-            </div>
+              <div className="C1 R5">
+                <p className="p2">Email:</p>
+              </div>
 
-            <div className="C2 R5">
-              <input
-                type="email"
-                className="input1"
-                placeholder={"Digite su Email"}
-              />
-            </div>
+              <div className="C2 R5">
+                <input
+                  type="email"
+                  className="input1"
+                  placeholder={"Digite su Email"}
+                />
+              </div>
 
-            <div className="C3 R2">
-              <p className="p2">Estado:</p>
-            </div>
+              <div className="C3 R2">
+                <p className="p2">Estado:</p>
+              </div>
 
-            <div className="C4 R2">
-              <select>
-                <option>Activo</option>
-                <option>Inactivo</option>
-              </select>
-            </div>
+              <div className="C4 R2">
+                <select>
+                  <option>Activo</option>
+                  <option>Inactivo</option>
+                </select>
+              </div>
 
-            <div className="C3 R4">
-              <p className="p2">Rol:</p>
-            </div>
+              <div className="C3 R4">
+                <p className="p2">Rol:</p>
+              </div>
 
-            <div className="C4 R4">
-              <select>
-                <option>Administrador</option>
-                <option>Cliente</option>
-                <option>Vendedor</option>
-              </select>
+              <div className="C4 R4">
+                <select>
+                  <option>Administrador</option>
+                  <option>Cliente</option>
+                  <option>Vendedor</option>
+                </select>
+              </div>
             </div>
           </div>
-        </main>
+        </div>
         <div className="margen">
           <button onClick={popup} className="boton-venta button-g x " id="open">
             Actualizar

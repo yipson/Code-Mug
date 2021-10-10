@@ -11,73 +11,75 @@ export const NuevaVenta = () => {
         <body className="ventas">
           <div className="info">
             <div className="titulo-contenedor">
-              <h1>NUEVA VENTA</h1>
-              <button
-                onClick={popup}
-                id="open"
-                className="boton-venta button-g"
-              >
-                Guardar
-              </button>
-              <div>
+              <div className="nueva-venta-div">
+                <h1>NUEVA VENTA</h1>
+                <button
+                  onClick={popup}
+                  id="open"
+                  className="boton-venta button-g"
+                >
+                  Guardar
+                </button>
                 <div>
-                  <form cellspacing="6">
-                    <div className="controls">
-                      <label>
-                        <span>Cliente</span>
-                        <input className="estilizar" type="text" />
-                      </label>
-                      <label>
-                        <span>Direccion</span>
-                        <input className="estilizar" type="text" />
-                      </label>
-                      <label>
-                        <span>Contacto</span>
-                        <input className="estilizar" type="text" />
-                      </label>
-                    </div>
-                  </form>
+                  <div>
+                    <form cellspacing="6">
+                      <div className="controls">
+                        <label>
+                          <span>Cliente</span>
+                          <input className="estilizar" type="text" />
+                        </label>
+                        <label>
+                          <span>Direccion</span>
+                          <input className="estilizar" type="text" />
+                        </label>
+                        <label>
+                          <span>Contacto</span>
+                          <input className="estilizar" type="text" />
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div className="section-ventas nueva-venta-tabla ">
+                  <table className="ventas ">
+                    <thead>
+                      <tr>
+                        <th scope="row">Cantidad</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>123412</td>
+                        <td>
+                          <selection>
+                            <select name="Descripcion">
+                              <option>"1"</option>
+
+                              <option>"2"</option>
+
+                              <option>"3"</option>
+                            </select>
+                          </selection>
+                        </td>
+
+                        <td>Price</td>
+                        <td>Total</td>
+                      </tr>
+                    </tbody>
+                    <tfoot className="alinear">
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Total:</td>
+                        <td>Sub-Total</td>
+                      </tr>
+                    </tfoot>
+                  </table>
                 </div>
               </div>
-              <section className="section-ventas">
-                <table className="ventas">
-                  <thead>
-                    <tr>
-                      <th scope="row">Cantidad</th>
-                      <th>Descripcion</th>
-                      <th>Precio</th>
-                      <th>Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>123412</td>
-                      <td>
-                        <selection>
-                          <select name="Descripcion">
-                            <option>"1"</option>
-
-                            <option>"2"</option>
-
-                            <option>"3"</option>
-                          </select>
-                        </selection>
-                      </td>
-
-                      <td>Price</td>
-                      <td>Total</td>
-                    </tr>
-                  </tbody>
-                  <tfoot className="alinear">
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td>Total:</td>
-                      <td>Sub-Total</td>
-                    </tr>
-                  </tfoot>
-                </table>
-              </section>
               <div id="contenedorpopup" className="contenedor-pop">
                 <div className="popup">
                   <h1>

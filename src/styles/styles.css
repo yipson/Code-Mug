@@ -35,6 +35,11 @@ html {
 a {
   text-decoration: none;
 }
+
+a:visited {
+  color: var(--blanco);
+}
+
 .contenedor {
   width: 95%;
   max-width: 1200px;
@@ -307,6 +312,8 @@ nav {
   display: flex;
   justify-content: space-between;
 }
+/* no tocar info por que es general y afecta todos los div de info */
+
 .titulo-contenedor {
   display: flex;
   margin-bottom: 3rem;
@@ -539,6 +546,18 @@ label span {
 .main-div {
   /*div general*/
   font-family: "Roboto", sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.contenido {
+  margin-top: 2rem;
+}
+.contenenido,
+h2 {
+  text-align: center;
+  font-size: 3rem;
 }
 .Cuadro-de-datos {
   /*formato de parrafos e input*/
@@ -555,16 +574,18 @@ label span {
   background: transparent;
   padding-bottom: 55px;
 }
-input {
+.input1 {
   /*inputs generales*/
   text-align: left;
   border-radius: 5px;
   background-color: var(--theme-button-filled-background-color);
   border-color: var(--theme-button-filled-color);
   border-width: 1.9px;
+  text-align: center;
 }
 p {
   background: transparent;
+  font-size: 1.5rem;
 }
 .p1 {
   margin-right: 65px;
@@ -572,6 +593,7 @@ p {
 }
 .p2 {
   padding: 0px 20px;
+  margin: 10px;
 }
 .p3 {
   padding: 0px 33px 0px 19px;
@@ -610,4 +632,22 @@ p {
   height: 2.5rem;
   width: 20rem;
   font-size: 2rem;
+}
+
+.contenedor4x5 {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* nueva venta pagina css */
+.nueva-venta-div {
+  display: grid;
+}
+
+.nueva-venta-tabla {
+  width: 180rem;
+  background-color: red;
 }
