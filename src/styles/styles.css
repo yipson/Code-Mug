@@ -162,8 +162,8 @@ input {
   color: var(--gris);
   background: var(--verde);
   border: 0px;
-  border-radius: 15px;
-  padding: 0.5rem 5rem 1rem;
+  border-radius: 2px;
+  padding: 0.5rem 7.5rem 1rem;
   margin-top: 2rem;
   margin-left: 2rem;
   font-weight: bolder;
@@ -173,20 +173,27 @@ input {
   transform: scale(1.05);
   box-shadow: 1.5px 1.5px var(--azulOscuro);
 }
-
+.remember-and-forgot{
+  display: flex;
+  justify-items: left;
+  align-items: left;
+  
+}
 /*hipervinculo*/
 .x {
-  border-bottom-style: solid;
+  border-bottom-style: solid ;
   border-bottom-width: 2px;
   border-bottom-color: var(--blanco);
 }
 .enlace {
-  font-size: 20px;
+  font-weight: bolder;
+  display:flex;
+  font-size: 15px;
   color: var(--blanco);
   text-decoration: none;
-  font-family: var(--fuente-principal);
+  /* font-family: var(--fuente-principal); */
   padding: 5px;
-  margin-left: 0.5rem;
+  margin-left: 2rem;
 }
 
 .button {
@@ -196,7 +203,6 @@ input {
 .enlace::before {
   color: black;
   font-size: 20px;
-  font-weight: 900;
 }
 .x:hover {
   border-bottom-color: var(--verde);
@@ -208,16 +214,16 @@ input {
 /*checkbox*/
 .checkbox2 {
   justify-content: space-around;
+  margin-right: 2rem;
 }
-
+.checkbox2-2{
+  margin-left: 19px;
+}
 .checkbox2 label {
-  /*texto: Forgot your Password*/
-  padding-left: 1.3em;
+  /*texto: Remember username*/
   position: relative;
   color: var(--blanco);
   font-size: 15px;
-  font-family: var(--fuente-principal);
-  font-weight: 600;
   cursor: pointer;
   left: 25px;
   top: -20px; /*en esta parte hay se le puede configurar la altura del texto*/
@@ -251,12 +257,19 @@ input {
 
 /*color del cuadrito al seleccionar la opcion de : forgot....*/
 .checkbox2 input[type="checkbox"]:checked {
-  background: var(--verde);
+  background: var(--verde);   
 }
 
 .checkbox2 input[type="checkbox"]:checked::after {
   display: block;
 }
+.button-google{
+  /* margin-left: 5rem; */
+  width: auto;
+  margin: 0px 20px 10px 20px ;
+}
+
+
 
 /* ----------------------------------------------------------------------- */
 
