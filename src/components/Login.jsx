@@ -1,7 +1,13 @@
 import React from "react";
+import GoogleLogin from "react-google-login";
 import loginEnter from "components/Login";
 
 export const Login = () => {
+  const responseGoogle = (response) => {
+    console.log(response);
+    console.log(response.profileObj);
+  };
+
   return (
     <div>
       <div className="main">
@@ -42,6 +48,16 @@ export const Login = () => {
                       &lsaquo; Forgot your Password ?
                     </a>
                   </button>
+                </div>
+                <div>
+                  <GoogleLogin
+                    clientId="451355320708-5s48t28g525l19p64jhu0m08jhginp5s.apps.googleusercontent.com"
+                    buttonText="continue with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={"single_host_origin"}
+                  />
+                  ,
                 </div>
               </div>
             </div>
