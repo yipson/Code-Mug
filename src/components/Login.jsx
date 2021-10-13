@@ -27,9 +27,19 @@ export const Login = () => {
               <div className="derecha-form">
                 <div className="forma">
                   <form className="from">
-                    <input type="email" placeholder={"Email or Username"} />
+
+                    <label className="simbolos-login">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder={"Email or Username"} required />
+                    </label>
+
                     <div className="linea"></div>
-                    <input type="password" placeholder={"Password"} />
+
+                    <label className="simbolos-login">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder={"Password"} required />
+                    </label>
+
                     <div className="linea"></div>
 
                     <div className="remember-and-forgot">
