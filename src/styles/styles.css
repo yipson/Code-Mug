@@ -121,12 +121,15 @@ input {
   padding-left: -1rem;
   outline: none;
 }
+::placeholder{
+  color: rgb(126, 123, 123);
+}
 
 .linea {
   background-color: rgba(250, 250, 250, 0.631);
   border-top: 1px solid var(--blanco);
   height: 1px;
-  max-width: 80%;
+  max-width: 90%;
   padding: 0;
   margin: 1rem 0 2rem 2rem;
 }
@@ -156,16 +159,32 @@ input {
   font-size: medium;
   color: var(--gris);
 }
+.or{
+  color: rgb(126, 123, 123)
+}
 /*Botones*/
+.botones{
+  display: flex;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-items: center; 
+}
+
+.button-google{
+  margin-right: 2rem; 
+  /* width: auto;
+  margin: 0px 20px 10px 20px ;  */
+}
+
 .botonLogin {
   font-size: 15px;
   color: var(--gris);
   background: var(--verde);
   border: 0px;
   border-radius: 2px;
-  padding: 0.5rem 7.5rem 1rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
+  padding: 1rem 7.5rem 1rem;
+  /* margin-top: 2rem;*/
+  margin-left: 2rem; 
   font-weight: bolder;
 }
 .botonLogin:hover {
@@ -175,8 +194,9 @@ input {
 }
 .remember-and-forgot{
   display: flex;
-  justify-items: left;
-  align-items: left;
+  justify-content:space-evenly;
+  align-items: center;
+  margin-top: -20px;
   
 }
 /*hipervinculo*/
@@ -193,7 +213,8 @@ input {
   text-decoration: none;
   /* font-family: var(--fuente-principal); */
   padding: 5px;
-  margin-left: 2rem;
+  margin-top: -5px;
+  /* margin-right: 2rem; */
 }
 
 .button {
@@ -213,11 +234,11 @@ input {
 
 /*checkbox*/
 .checkbox2 {
-  justify-content: space-around;
-  margin-right: 2rem;
+  justify-content: space-evenly;
+  margin-right: 9rem;
 }
 .checkbox2-2{
-  margin-left: 19px;
+  margin-left: 19px;/*se da este espacio para poder acceder al*/
 }
 .checkbox2 label {
   /*texto: Remember username*/
@@ -225,8 +246,8 @@ input {
   color: var(--blanco);
   font-size: 15px;
   cursor: pointer;
-  left: 25px;
-  top: -20px; /*en esta parte hay se le puede configurar la altura del texto*/
+  left: 45px;
+  top: -30px; /*en esta parte hay se le puede configurar la altura del texto*/
 }
 
 .checkbox2 input[type="checkbox"] {
@@ -263,11 +284,9 @@ input {
 .checkbox2 input[type="checkbox"]:checked::after {
   display: block;
 }
-.button-google{
-  /* margin-left: 5rem; */
-  width: auto;
-  margin: 0px 20px 10px 20px ;
-}
+
+
+
 
 
 

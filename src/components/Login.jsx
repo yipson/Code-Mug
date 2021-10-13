@@ -30,35 +30,39 @@ export const Login = () => {
                     <input type="email" placeholder={"Email or Username"} />
                     <div className="linea"></div>
                     <input type="password" placeholder={"Password"} />
-
                     <div className="linea"></div>
+
+                    <div className="remember-and-forgot">
+                      <div className="checkbox2">
+                        <input type="checkbox" name={"checkbox2"} id={"checkbox2"} />
+                        <label htmlForm="checkbox2" className="checkbox2-text">Remember Username</label>
+                      </div>
+
+                      <div className="enlace">
+                        <button className="button">
+                          <a href="hipervinculo.html" className="x enlace">
+                          &lsaquo; Forgot your Password ?</a>
+                        </button>
+                      </div>
+                   </div>
                   </form>
+                </div>
+
+                <div className="botones">
                   <button onClick={loginEnter} className="botonLogin">
                     <a href="/LIstadoVentas"> login</a>
                   </button>
-                </div>
-
-                <div className="remember-and-forgot">
-                  <div className="checkbox2">
-                    <input type="checkbox" name={"checkbox2"} id={"checkbox2"} />
-                    <label htmlForm="checkbox2" className="checkbox2-2">Remember Username</label>
+                  <div className="or"><p>or</p></div>
+                  <div class="button-google" >
+                    <GoogleLogin
+                      
+                      clientId="451355320708-5s48t28g525l19p64jhu0m08jhginp5s.apps.googleusercontent.com"
+                      buttonText="continue with Google"
+                      onSuccess={responseGoogle}
+                      onFailure={responseGoogle}
+                      cookiePolicy={"single_host_origin"}
+                    />
                   </div>
-                  <div className="enlace">
-                    <button className="button">
-                      <a href="hipervinculo.html" className="x enlace">
-                      &lsaquo; Forgot your Password ?</a>
-                    </button>
-                  </div>
-                </div>
-                <div class="button-google" >
-                  <GoogleLogin
-                    
-                    clientId="451355320708-5s48t28g525l19p64jhu0m08jhginp5s.apps.googleusercontent.com"
-                    buttonText="continue with Google"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={"single_host_origin"}
-                  />
                 </div>
               </div>
             </div>
