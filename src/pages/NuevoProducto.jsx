@@ -2,7 +2,7 @@ import Header from "components/Header";
 import Paginador from "components/Paginador";
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import popup from "js/popup";
+import { popup } from "../js/popup";
 
 export const NuevoProducto = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
@@ -123,7 +123,6 @@ export const NuevoProducto = () => {
               <button id="cerrar" className="cerrar-pop-venta"></button>
             </div>
           </div>
-
           {/* <section className="section-ventas">
             <table className="ventas">
               <thead>
