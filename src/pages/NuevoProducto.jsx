@@ -99,7 +99,7 @@ export const NuevoProducto = () => {
           <div id="contenedorpopup" className="contenedor-pop">
             <div className="popup">
               <h1>
-                Usuario Actualizado Exitosamente{" "}
+                Producto Agregado Exitosamente{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="icon icon-tabler icon-tabler-checks"
@@ -117,8 +117,8 @@ export const NuevoProducto = () => {
                   <path d="M2 12l5 5m5 -5l5 -5" />
                 </svg>
               </h1>
-              <button className="boton-ver-ventas">Ver Usuario</button>
-              <button className="boton-nueva-venta">Nuevo Usuario</button>
+              <button className="boton-ver-ventas">Ver Producto</button>
+              <button className="boton-nueva-venta">Nuevo Producto</button>
               {/* <!-- boton X eliminado --> */}
               <button id="cerrar" className="cerrar-pop-venta"></button>
             </div>
