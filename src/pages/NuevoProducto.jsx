@@ -2,6 +2,7 @@ import Header from "components/Header";
 import Paginador from "components/Paginador";
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { popup } from "../js/popup";
 
 export const NuevoProducto = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
@@ -87,12 +88,41 @@ export const NuevoProducto = () => {
             <button
               type="submit"
               className="btn btn-primary btn-block btn-large boton-venta button-g"
+              onClick={popup}
+              id="open"
             >
               Guardar
             </button>
           </form>
           <hr />
 
+          <div id="contenedorpopup" className="contenedor-pop">
+            <div className="popup">
+              <h1>
+                Usuario Actualizado Exitosamente{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-checks"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="#2c3e50"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M7 12l5 5l10 -10" />
+                  <path d="M2 12l5 5m5 -5l5 -5" />
+                </svg>
+              </h1>
+              <button className="boton-ver-ventas">Ver Usuario</button>
+              <button className="boton-nueva-venta">Nuevo Usuario</button>
+              {/* <!-- boton X eliminado --> */}
+              <button id="cerrar" className="cerrar-pop-venta"></button>
+            </div>
+          </div>
           {/* <section className="section-ventas">
             <table className="ventas">
               <thead>
