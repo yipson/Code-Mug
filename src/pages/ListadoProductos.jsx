@@ -2,10 +2,42 @@ import Header from "components/Header";
 import Paginador from "components/Paginador";
 import React, { useState, useEffect, Component } from "react";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
-const PATH_PRODUCTOS = "productos";
+const ListadoProductos = () => {
 
-class ListadoProductos extends Component {
+  const [mostrarTabla, setMostrarTabla] = useState(true);
+  const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
+   const [loading, setLoading] = useState(false);
+   const [ListProductos, setListProductos] = useState([]);
+  
+  useEffect(() => {
+    const fetchProductos = async () => {
+      setLoading(true);
+      await obtenerProductos(
+        (response) => {
+          console.log('la respuesta que se recibio fue', response);
+          setListProductos(response.data);
+          setEjecutarConsulta(false);
+          setLoading(false);
+        },
+        (error) => {
+          console.error('Salio un error:', error);
+          setLoading(false);
+        }
+      );
+    };
+    console.log('consulta', ejecutarConsulta);
+    if (ejecutarConsulta) {
+      fetchProductos();
+    }
+  }, [ejecutarConsulta]);
+
+  useEffect(() => {
+    //obtener lista de vehículos desde el backend
+    if (mostrarTabla) {
+      setEjecutarConsulta(true);
+    }
+  }, [mostrarTabla]);
+
   constructor(props) {
     super(props);
 
@@ -28,26 +60,24 @@ class ListadoProductos extends Component {
     this.setState({ modalActualizar: true, form: dato });
   };
 
-  cargarProductos() {
-    this.setState({ mostrarCargando: true });
-    fetch(`${BASE_URL}${PATH_PRODUCTOS}`)
-      .then((result) => result.json())
-      .then(
-        (result) => {
-          this.setState({ data: result, mostrarCargando: false });
-        },
-        // Nota: es importante manejar errores aquí y no en
-        // un bloque catch() para que no interceptemos errores
-        // de errores reales en los componentes.
-        (error) => {
-          console.log(error);
-        }
-      );
-  }
+  // cargarProductos() {
+  //   this.setState({ mostrarCargando: true });
+  //   fetch(`${BASE_URL}${PATH_PRODUCTOS}`)
+  //     .then((result) => result.json())
+  //     .then(
+  //       (result) => {
+  //         this.setState({ data: result, mostrarCargando: false });
+  //       },
+  //       // Nota: es importante manejar errores aquí y no en
+  //       // un bloque catch() para que no interceptemos errores
+  //       // de errores reales en los componentes.
+  //       (error) => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   // const { data: productos } = componentDidMount;
-
-  render() {
     return (
       <>
         <Header />
@@ -112,5 +142,5 @@ class ListadoProductos extends Component {
       </>
     );
   }
-}
+
 export default ListadoProductos;
