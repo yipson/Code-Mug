@@ -77,7 +77,9 @@ export const NuevaVenta = () => {
                   <path d="M2 12l5 5m5 -5l5 -5" />
                 </svg>
               </h1>
-              <button className="boton-ver-ventas">Ver Ventas</button>
+              <button className="boton-ver-ventas">
+                  <a href="/ListadoVentas">Ver Ventas</a>
+                </button>
               <button className="boton-nueva-venta">Nueva Venta</button>
               {/* <!-- boton X eliminado --> */}
               <button id="cerrar" className="cerrar-pop-venta"></button>

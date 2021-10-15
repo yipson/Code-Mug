@@ -102,7 +102,9 @@ export const ActualizarUsuario = () => {
                   <path d="M2 12l5 5m5 -5l5 -5" />
                 </svg>
               </h1>
-              <button className="boton-ver-ventas">Ver Usuario</button>
+              <button className="boton-ver-ventas">
+                <a href="/ListadoUsuarios">Ver Usuarios</a>
+              </button>
               <button className="boton-nueva-venta">Nuevo Usuario</button>
               {/* <!-- boton X eliminado --> */}
               <button id="cerrar" className="cerrar-pop-venta"></button>

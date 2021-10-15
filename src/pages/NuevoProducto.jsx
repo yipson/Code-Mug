@@ -13,6 +13,7 @@ export const NuevoProducto = () => {
     // setProductos(productosBackend);
   }, []);
 
+
   const dataForm = useRef("null");
 
   const enviarFormulario = async (e) => {
@@ -117,7 +118,9 @@ export const NuevoProducto = () => {
                   <path d="M2 12l5 5m5 -5l5 -5" />
                 </svg>
               </h1>
-              <button className="boton-ver-ventas">Ver Producto</button>
+              <button  className="boton-ver-ventas">
+                <a href="/ListadoProductos">Ver Productos</a>
+              </button>
               <button className="boton-nueva-venta">Nuevo Producto</button>
               {/* <!-- boton X eliminado --> */}
               <button id="cerrar" className="cerrar-pop-venta"></button>
