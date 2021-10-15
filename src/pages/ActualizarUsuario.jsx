@@ -3,7 +3,7 @@ import Paginador from "components/Paginador";
 import popup from "js/popup";
 import React from "react";
 
-export const ActualizarUsuario = () => {
+export const ActualizarUsuario = ({usuarioModificar}) => {
   return (
     <div>
       <Header />
@@ -12,7 +12,7 @@ export const ActualizarUsuario = () => {
           <div className="contenido">
             <h1 className="centrar">Editar Usuario</h1>
 
-            <h2 className="centrar">Id #</h2>
+            <h2 className="centrar">Id <input readonly></input></h2>
           </div>
 
           <div className="contenedor4x5">
