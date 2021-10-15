@@ -1,5 +1,5 @@
 export const popup = () => {
-  const open = document.querySelector("#open");
+  // const open = document.querySelector("#open");
   const contenedorpopup = document.querySelector("#contenedorpopup");
   const cerrar = document.querySelector("#cerrar");
   contenedorpopup.classList.add("show");
