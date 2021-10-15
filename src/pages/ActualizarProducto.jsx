@@ -55,7 +55,9 @@ const ActualizarProducto = () => {
                 </h1>
                 <button className="boton-ver-ventas">Ver Productos</button>
                 <button className="boton-nueva-venta">Nuevo Producto</button>
+
                 {/* <!-- boton X eliminado --> */}
+               
                 <button id="cerrar" className="cerrar-pop-venta"></button>
               </div>
             </div>
