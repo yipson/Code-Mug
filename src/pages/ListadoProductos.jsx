@@ -1,7 +1,7 @@
 import Header from "components/Header";
 import Paginador from "components/Paginador";
-import React, { useState, useEffect, Component } from "react";
-import { obtenerProductos } from "../utils/api";
+import React, { useState, useEffect } from "react";
+// import { obtenerProductos } from "../utils/api";
 
 
 const ListadoProductos = () => {
