@@ -149,9 +149,9 @@ const ListadoUsuarios = () => {
                   <td>{dato.email}</td>
                   <td>{dato.rol}</td>
                   <td><button id={dato._id}  onClick={actualizarUsuario} >
-                    <a href = "/ActualizarUsuario?id={dato._id}">Editar</a>
+                    <a  href = "/ActualizarUsuario" >Editar</a>
                     </button></td>
-                </tr>
+                </tr> 
                 ))}
             </tbody>
             {console.log(listaUsuarios)}

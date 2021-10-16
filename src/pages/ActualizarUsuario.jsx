@@ -2,6 +2,7 @@ import Header from "components/Header";
 import Paginador from "components/Paginador";
 import popup from "js/popup";
 import React from "react";
+// import actualizarUsuario from "ListadoUsuarios";{/* esto es nuevo */}
 
 export const ActualizarUsuario = ({usuarioModificar}) => {
   return (
@@ -11,12 +12,24 @@ export const ActualizarUsuario = ({usuarioModificar}) => {
         <div className="main-div">
           <div className="contenido">
             <h1 className="centrar">Editar Usuario</h1>
-
-            <h2 className="centrar">Id <input readonly></input></h2>
+            {/* <h2 className="centrar">Id <input readonly></input></h2> */}
           </div>
 
           <div className="contenedor4x5">
             <div className="C1 R1">
+
+              <div className="C1 R3">
+                <p className="p2">ID:</p>
+              </div>
+              <div className="C2 R1">
+                <input
+                  readOnly
+                  className="input1"
+                  placeholder={"AQUI VA LA ID"}
+                />
+              </div>
+
+
               <p className="p2">Nombre:</p>
 
               <div className="C2 R1">
