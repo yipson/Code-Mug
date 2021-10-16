@@ -6,7 +6,13 @@ import React, { useState, useEffect } from "react";
 
 const ListadoProductos = () => {
 
-  const [listaProductos, setListaProductos] = useState([]);
+  const [listaProductos, setListaProductos] = useState([
+    // data: data,
+    // form: {
+    //   nombre: "",
+    //   precio: ""
+    // }
+  ]);
 
   const url = "http://localhost:3030/productos"
 
@@ -19,6 +25,22 @@ const ListadoProductos = () => {
     }
     fetchData()
   }, [])
+
+  const actualizarProducto = (e) => {
+    let arregloProductos = listaProductos;
+    let productoModificar;
+    arregloProductos.map((registro) => {
+      if (e.target.id === registro._id) {
+        productoModificar = registro;
+        console.log(productoModificar);
+      }
+    });
+    setListaProductos({
+      ...listaProductos,
+      form: productoModificar
+    });
+    // setModalActualizar(true);
+  };
 
   return (
     <div>
@@ -66,7 +88,14 @@ const ListadoProductos = () => {
                   <td> {id + 1} </td>
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
-                  <td>acciones</td>
+                  <td>
+                    <button
+                      class="" id={dato._id}
+                      onClick={actualizarProducto}
+                    >
+                      Editar
+                    </button>
+                  </td>
                 </tr>
                 ))}
             </tbody>
