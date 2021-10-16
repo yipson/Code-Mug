@@ -57,7 +57,8 @@ export const ListadoUsuarios = () => {
               <td>1</td> <td>Name</td> <td>Number</td> <td>Email</td>{" "}
               <td>Actions</td>{" "}
               <td>
-                <a href="/">Editar</a>
+                  <button>Editar</button>
+                  
               </td>
             </tr>
           </table>
