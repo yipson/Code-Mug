@@ -33,7 +33,7 @@ const ListadoProductos = () => {
   const [paisSeleccionado, setPaisSeleccionado] = useState({
     id: '',
     nombre: '',
-    minutos: ''
+    precio: ''
   });
 
   const seleccionarPais=(dato, caso)=>{
@@ -49,19 +49,19 @@ const ListadoProductos = () => {
     }));
   }
   const editar=()=>{
-    var dataNueva=data;
-    dataNueva.map(pais=>{
+    var productoNuevo=productos;
+    productoNuevo.map(pais=>{
       if(pais.id===paisSeleccionado.id){
-        pais.minutos=paisSeleccionado.minutos;
+        pais.precio=paisSeleccionado.precio;
         pais.nombre=paisSeleccionado.nombre;
       }
     });
-    setData(dataNueva);
+    setProductos(productoNuevo);
     setModalEditar(false);
   }
 
   const eliminar =()=>{
-    setData(data.filter(pais=>pais.id!==paisSeleccionado.id));
+    setProductos(productos.filter(pais=>pais.id!==paisSeleccionado.id));
     setModalEliminar(false);
   }
 
@@ -72,10 +72,10 @@ const ListadoProductos = () => {
 
   const insertar =()=>{
     var valorInsertar=paisSeleccionado;
-    valorInsertar.id=data[data.length-1].id+1;
-    var dataNueva = data;
-    dataNueva.push(valorInsertar);
-    setData(dataNueva);
+    valorInsertar.id=productos[productos.length-1].id+1;
+    var productoNuevo = productos;
+    productoNuevo.push(valorInsertar);
+    setProductos(productoNuevo);
     setModalInsertar(false);
   }
 
@@ -152,9 +152,10 @@ const ListadoProductos = () => {
                 {productos.map((dato, id)=>(
                 <tr key={dato._id}>
                   <td> # {id + 1} </td>
+                  {/* <td>#{dato.id}</td> */}
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
-                  <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button> {"   "} 
+                  <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato,'Editar')}>Editar</button> {"   "} 
                   <button className="btn btn-danger" onClick={()=>seleccionarPais(dato, 'Eliminar')}>Eliminar</button></td>
                   {/* <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button>
                    </td> */}
@@ -165,10 +166,10 @@ const ListadoProductos = () => {
 
             <tfoot className="alinear"></tfoot>
           </table>
-          <Modal isOpen={modalEditar}>
+      <Modal isOpen={modalEditar}>
         <ModalHeader>
           <div>
-            <h3>Editar País</h3>
+            <h3>Editar Producto</h3>
           </div>
         </ModalHeader>
         <ModalBody>
@@ -179,11 +180,11 @@ const ListadoProductos = () => {
               readOnly
               type="text"
               name="id"
-              value={paisSeleccionado && paisSeleccionado.id}
+              value={paisSeleccionado.id}
             />
             <br />
 
-            <label>País</label>
+            <label>Producto</label>
             <input
               className="form-control"
               type="text"
@@ -193,12 +194,12 @@ const ListadoProductos = () => {
             />
             <br />
 
-            <label>Minutos</label>
+            <label>Precio</label>
             <input
               className="form-control"
               type="text"
-              name="minutos"
-              value={paisSeleccionado && paisSeleccionado.minutos}
+              name="precio"
+              value={paisSeleccionado && paisSeleccionado.precio}
               onChange={handleChange}
             />
             <br />
@@ -215,6 +216,7 @@ const ListadoProductos = () => {
             Cancelar
           </button>
         </ModalFooter>
+        {console.log(paisSeleccionado)}
       </Modal>
 
 
@@ -250,11 +252,13 @@ const ListadoProductos = () => {
               readOnly
               type="text"
               name="id"
-              value={data[data.length-1].id+1}  
-            />
+              // value={paisSeleccionado.id +1}
+              // value={paisSeleccionado[paisSeleccionado.id.length-1]dato.id+1}
+              // value={paisSeleccionado ? paisSeleccionado.nombre: ''}        
+              />
             <br />
 
-            <label>País</label>
+            <label>Nombre</label>
             <input
               className="form-control"
               type="text"
@@ -264,12 +268,12 @@ const ListadoProductos = () => {
             />
             <br />
 
-            <label>Minutos</label>
+            <label>Precio</label>
             <input
               className="form-control"
               type="text"
-              name="minutos"
-              value={paisSeleccionado ? paisSeleccionado.minutos: ''}
+              name="Precio"
+              value={paisSeleccionado ? paisSeleccionado.precio: ''}
               onChange={handleChange}
             />
             <br />
