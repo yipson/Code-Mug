@@ -1,10 +1,46 @@
 import Header from "components/Header";
 import Paginador from "components/Paginador";
 import popup from "js/popup";
-import React from "react";
+import React, { useState, useEffect }  from "react";
+import axios from 'axios';
 // import actualizarUsuario from "ListadoUsuarios";{/* esto es nuevo */}
 
 export const ActualizarUsuario = ({usuarioModificar}) => {
+
+  const [usuarios, setUsuarios] = useState([])
+  const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [busqueda, setBusqueda] = useState("")
+
+  const url = "http://localhost:3030/usuarios"
+
+  useEffect(()=>{
+    const fetchData = async () =>{
+      await axios(`${url}`)
+      .then(response => {
+        setUsuarios(response.data);
+        setListaUsuarios(response.data);
+      })
+      .catch(error => console.log(error))
+    }
+    fetchData()
+  }, [])
+
+  const buscadorDiv = (e) =>{
+    setBusqueda(e.target.value)
+    filtrar(e.target.value)
+    console.log('busqueda: '+e.target.value);
+  }
+
+  const filtrar = (terminoBusqueda) =>{
+    let ResultadoBusqueda = listaUsuarios.filter((elemento=>{
+      if(elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) 
+      ||elemento._id.includes(terminoBusqueda)){
+        return elemento;
+      }
+    }))
+    setUsuarios(ResultadoBusqueda)
+  }
+
   return (
     <div>
       <Header />
@@ -28,7 +64,10 @@ export const ActualizarUsuario = ({usuarioModificar}) => {
                   placeholder={"AQUI VA LA ID"}
                 />
               </div>
-
+                {/* <div className="contenedor-busqueda">
+                  <p className="text-buscar ">Buscar:</p>
+                  <input type="text" value={busqueda} onChange={buscadorDiv} />
+                </div> */}
 
               <p className="p2">Nombre:</p>
 
@@ -36,6 +75,8 @@ export const ActualizarUsuario = ({usuarioModificar}) => {
                 <input
                   type="text"
                   className="input1"
+                  value={busqueda} 
+                  onChange={buscadorDiv}
                   placeholder={"Digite su nombre"}
                 />
               </div>
