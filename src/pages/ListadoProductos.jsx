@@ -3,6 +3,8 @@ import Paginador from "components/Paginador";
 import React, { useState, useEffect } from "react";
 // import { obtenerProductos } from "../utils/api";
 import axios from 'axios';
+import {Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const ListadoProductos = () => {
@@ -96,11 +98,11 @@ const ListadoProductos = () => {
                   <td> # {id + 1} </td>
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
-                  <td>
-                    <a href={'/ActualizarProducto?id='+dato._id}
+                  <td><button className="btn btn-primary">Editar</button>
+                    {/* <a href={'/ActualizarProducto?id='+dato._id}
                     >
                       Editar
-                    </a>
+                    </a> */}
                   </td>
                 </tr>
                 ))}
