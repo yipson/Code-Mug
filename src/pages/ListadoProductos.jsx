@@ -87,7 +87,14 @@ const ListadoProductos = () => {
                   <td> # {id + 1} </td>
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
-                  <td>acciones</td>
+                  <td>
+                    <button
+                      class="" id={dato._id}
+                      onClick={actualizarProducto}
+                    >
+                      Editar
+                    </button>
+                  </td>
                 </tr>
                 ))}
             </tbody>

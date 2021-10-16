@@ -1,10 +1,44 @@
 import Paginador from "components/Paginador";
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import Header from "../components/Header";
 // import "../styles/styles.css";
 import popup from "js/popup";
+import axios from 'axios';
 
 const ActualizarProducto = () => {
+  const [usuarios, setUsuarios] = useState([])
+  const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [busqueda, setBusqueda] = useState("")
+
+  const url = "http://localhost:3030/usuarios"
+
+  useEffect(()=>{
+    const fetchData = async () =>{
+      await axios(`${url}`)
+      .then(response => {
+        setUsuarios(response.data);
+        setListaUsuarios(response.data);
+      })
+      .catch(error => console.log(error))
+    }
+    fetchData()
+  }, [])
+
+  const buscadorDiv = (e) =>{
+    setBusqueda(e.target.value)
+    filtrar(e.target.value)
+    console.log('busqueda: '+e.target.value);
+  }
+
+  const filtrar = (terminoBusqueda) =>{
+    let ResultadoBusqueda = listaUsuarios.filter((elemento=>{
+      if(elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) 
+      ||elemento._id.includes(terminoBusqueda)){
+        return elemento;
+      }
+    }))
+    setUsuarios(ResultadoBusqueda)
+  }
   return (
     <div>
       <Header />;
