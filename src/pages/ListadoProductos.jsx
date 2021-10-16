@@ -7,6 +7,15 @@ import axios from 'axios';
 
 const ListadoProductos = () => {
 
+  const queryParams = new URLSearchParams(window.location.search);  //esto es nuevo
+
+  const id = queryParams.get('id'); //esto es nuevo
+  const name = queryParams.get('name');//esto es nuevo
+  const type = queryParams.get('type');//esto es nuevo
+  
+  console.log(id, name, type);//esto es nuevo
+
+
   const [productos, setProductos] = useState([])
   const [listaProductos, setListaProductos] = useState([]);
   const [busqueda, setBusqueda] = useState("")
@@ -88,12 +97,10 @@ const ListadoProductos = () => {
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
                   <td>
-                    <button
-                      class="" id={dato._id}
-                      onClick={actualizarProducto}
+                    <a href={'/ActualizarProducto?id='+dato._id}
                     >
                       Editar
-                    </button>
+                    </a>
                   </td>
                 </tr>
                 ))}

@@ -6,6 +6,17 @@ import popup from "js/popup";
 import axios from 'axios';
 
 const ActualizarProducto = () => {
+
+  // const queryParams = new URLSearchParams(window.location.search);  //esto es nuevo
+
+  // const id = queryParams.get('id'); //esto es nuevo
+  // const name = queryParams.get('nombre');//esto es nuevo
+  // const type = queryParams.get('precio');//esto es nuevo
+  
+  // console.log(id, name, type);//esto es nuevo
+
+
+
   const [usuarios, setUsuarios] = useState([])
   const [listaUsuarios, setListaUsuarios] = useState([]);
   const [busqueda, setBusqueda] = useState("")
@@ -47,15 +58,20 @@ const ActualizarProducto = () => {
           <h1 className="titulo-actualizar-producto">Actualizar Producto</h1>
           <div className="Cuadro-de-datos">
             <p className="p1">Id</p>
-            <p className="extra">#####</p>
+            <input
+                  readOnly
+                  className="input1 extra"
+                  placeholder={"AQUI VA LA ID"}
+                />
+            {/* <p className="extra">#####</p> */}
           </div>
           <div className="Cuadro-de-datos">
             <p className="p2">Nombre</p>
-            <input type="Nombre" placeholder="Escriba el nombre" />
+            <input type="Nombre" className="input1" value={busqueda} onChange={buscadorDiv} placeholder="Escriba el nombre" />
           </div>
           <div className="Cuadro-de-datos">
             <p className="p3">Precio</p>
-            <input type="Precio" placeholder="Escriba el precio" />
+            <input type="Precio" className="input1"  placeholder="Escriba el precio" />  
           </div>
           <div className="margen">
             <button
