@@ -12,6 +12,8 @@ var ProductoController = require("./modules/producto/producto.module")()
   .ProductoController;
 var UsuarioController = require("./modules/usuario/usuario.module")()
   .UsuarioController;
+var VentaController = require("./modules/venta/venta.module")()
+.VentaController;
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -23,6 +25,7 @@ MongoDBUtil.init();
 app.use(cors());
 app.use("/productos", ProductoController);
 app.use("/usuarios", UsuarioController);
+app.use("/ventas", VentaController);
 
 app.get("/", function (req, res) {
   var pkg = require(path.join(__dirname, "package.json"));
