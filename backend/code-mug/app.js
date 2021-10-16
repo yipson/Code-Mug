@@ -5,8 +5,19 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+//   Firebase
+const admin = require("firebase-admin");
+const serviceAccount = require("./config/firebase/code-mug-9e7de-firebase-adminsdk-4xmef-d80e6a4f16.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+
+// Express
 var app = express();
 
+// Obteniendo controllers de module
 var MongoDBUtil = require("./modules/mongodb/mongodb.module").MongoDBUtil;
 var ProductoController = require("./modules/producto/producto.module")()
   .ProductoController;
@@ -20,9 +31,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// MongoBD
 MongoDBUtil.init();
-
 app.use(cors());
+
+// verificar que las credenciales de la peticion son validas antes de entrar al cualquier controler
+function checkAuth(req, res, next) {
+
+  if (req.headers?.authorization?.startsWith('Bearer ')) {
+    const idToken = req.headers.authorization.split('Bearer ')[1];
+    admin.auth().verifyIdToken(idToken)
+      .then(() => {
+        next()
+      }).catch((error) => {
+        res.status(403).send('Unauthorized.');
+      });
+
+  } else {
+    res.status(401).send('Unauthorized');
+  }
+}
+app.use('*', checkAuth);
+
+
+// Redireccionamiento a controladores
 app.use("/productos", ProductoController);
 app.use("/usuarios", UsuarioController);
 app.use("/ventas", VentaController);
