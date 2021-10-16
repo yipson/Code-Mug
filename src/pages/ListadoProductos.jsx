@@ -4,18 +4,18 @@ import React, { useState, useEffect } from "react";
 // import { obtenerProductos } from "../utils/api";
 import axios from 'axios';
 import {Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const ListadoProductos = () => {
 
-  const queryParams = new URLSearchParams(window.location.search);  //esto es nuevo
+  // const queryParams = new URLSearchParams(window.location.search);  //esto es nuevo
 
-  const id = queryParams.get('id'); //esto es nuevo
-  const name = queryParams.get('name');//esto es nuevo
-  const type = queryParams.get('type');//esto es nuevo
+  // const id = queryParams.get('id'); //esto es nuevo
+  // const name = queryParams.get('name');//esto es nuevo
+  // const type = queryParams.get('type');//esto es nuevo
   
-  console.log(id, name, type);//esto es nuevo
+  // console.log(id, name, type);//esto es nuevo
 
 
   const [productos, setProductos] = useState([])
@@ -23,6 +23,62 @@ const ListadoProductos = () => {
   const [busqueda, setBusqueda] = useState("")
 
   const url = "http://localhost:3030/productos"
+
+  const [modalEditar, setModalEditar] = useState(false);
+  const [modalEliminar, setModalEliminar] = useState(false);
+  const [modalInsertar, setModalInsertar] = useState(false);
+
+
+
+  const [paisSeleccionado, setPaisSeleccionado] = useState({
+    id: '',
+    nombre: '',
+    minutos: ''
+  });
+
+  const seleccionarPais=(dato, caso)=>{
+    setPaisSeleccionado(dato);
+    (caso==='Editar')?setModalEditar(true):setModalEliminar(true)
+  }
+
+  const handleChange=e=>{
+    const {name, value}=e.target;
+    setPaisSeleccionado((prevState)=>({
+      ...prevState,
+      [name]: value
+    }));
+  }
+  const editar=()=>{
+    var dataNueva=data;
+    dataNueva.map(pais=>{
+      if(pais.id===paisSeleccionado.id){
+        pais.minutos=paisSeleccionado.minutos;
+        pais.nombre=paisSeleccionado.nombre;
+      }
+    });
+    setData(dataNueva);
+    setModalEditar(false);
+  }
+
+  const eliminar =()=>{
+    setData(data.filter(pais=>pais.id!==paisSeleccionado.id));
+    setModalEliminar(false);
+  }
+
+  const abrirModalInsertar=()=>{
+    setPaisSeleccionado(null);
+    setModalInsertar(true);
+  }
+
+  const insertar =()=>{
+    var valorInsertar=paisSeleccionado;
+    valorInsertar.id=data[data.length-1].id+1;
+    var dataNueva = data;
+    dataNueva.push(valorInsertar);
+    setData(dataNueva);
+    setModalInsertar(false);
+  }
+
 
   useEffect(()=>{
     const fetchData = async () =>{
@@ -98,12 +154,10 @@ const ListadoProductos = () => {
                   <td> # {id + 1} </td>
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
-                  <td><button className="btn btn-primary">Editar</button>
-                    {/* <a href={'/ActualizarProducto?id='+dato._id}
-                    >
-                      Editar
-                    </a> */}
-                  </td>
+                  <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button> {"   "} 
+                  <button className="btn btn-danger" onClick={()=>seleccionarPais(dato, 'Eliminar')}>Eliminar</button></td>
+                  {/* <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button>
+                   </td> */}
                 </tr>
                 ))}
             </tbody>
@@ -111,6 +165,129 @@ const ListadoProductos = () => {
 
             <tfoot className="alinear"></tfoot>
           </table>
+          <Modal isOpen={modalEditar}>
+        <ModalHeader>
+          <div>
+            <h3>Editar País</h3>
+          </div>
+        </ModalHeader>
+        <ModalBody>
+          <div className="form-group">
+            <label>ID</label>
+            <input
+              className="form-control"
+              readOnly
+              type="text"
+              name="id"
+              value={paisSeleccionado && paisSeleccionado.id}
+            />
+            <br />
+
+            <label>País</label>
+            <input
+              className="form-control"
+              type="text"
+              name="nombre"
+              value={paisSeleccionado && paisSeleccionado.nombre}
+              onChange={handleChange}
+            />
+            <br />
+
+            <label>Minutos</label>
+            <input
+              className="form-control"
+              type="text"
+              name="minutos"
+              value={paisSeleccionado && paisSeleccionado.minutos}
+              onChange={handleChange}
+            />
+            <br />
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <button className="btn btn-primary" onClick={()=>editar()}>
+            Actualizar
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={()=>setModalEditar(false)}
+          >
+            Cancelar
+          </button>
+        </ModalFooter>
+      </Modal>
+
+
+      <Modal isOpen={modalEliminar}>
+        <ModalBody>
+          Estás Seguro que deseas eliminar el país {paisSeleccionado && paisSeleccionado.nombre}
+        </ModalBody>
+        <ModalFooter>
+          <button className="btn btn-danger" onClick={()=>eliminar()}>
+            Sí
+          </button>
+          <button
+            className="btn btn-secondary"
+            onClick={()=>setModalEliminar(false)}
+          >
+            No
+          </button>
+        </ModalFooter>
+      </Modal>
+
+
+        <Modal isOpen={modalInsertar}>
+        <ModalHeader>
+          <div>
+            <h3>Insertar País</h3>
+          </div>
+        </ModalHeader>
+        <ModalBody>
+          <div className="form-group">
+            <label>ID</label>
+            <input
+              className="form-control"
+              readOnly
+              type="text"
+              name="id"
+              value={data[data.length-1].id+1}  
+            />
+            <br />
+
+            <label>País</label>
+            <input
+              className="form-control"
+              type="text"
+              name="nombre"
+              value={paisSeleccionado ? paisSeleccionado.nombre: ''}
+              onChange={handleChange}
+            />
+            <br />
+
+            <label>Minutos</label>
+            <input
+              className="form-control"
+              type="text"
+              name="minutos"
+              value={paisSeleccionado ? paisSeleccionado.minutos: ''}
+              onChange={handleChange}
+            />
+            <br />
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <button className="btn btn-primary"
+          onClick={()=>insertar()}>
+            Insertar
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={()=>setModalInsertar(false)}
+          >
+            Cancelar
+          </button>
+        </ModalFooter>
+      </Modal>
         </section>
         {/* <!-- Estados de las ventas: -->
   <!-- Creacion, embalaje, despacho, ruta, ubicacion, recepcion --> */}
