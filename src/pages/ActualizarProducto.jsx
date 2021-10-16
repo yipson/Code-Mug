@@ -53,7 +53,9 @@ const ActualizarProducto = () => {
                     <path d="M2 12l5 5m5 -5l5 -5" />
                   </svg>
                 </h1>
-                <button className="boton-ver-ventas">Ver Productos</button>
+                <button  className="boton-ver-ventas">
+                <a href="/ListadoProductos">Ver Productos</a>
+              </button>
                 <button className="boton-nueva-venta">Nuevo Producto</button>
 
                 {/* <!-- boton X eliminado --> */}

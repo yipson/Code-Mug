@@ -2,23 +2,44 @@ import Header from "components/Header";
 import Paginador from "components/Paginador";
 import React, { useState, useEffect } from "react";
 // import { obtenerProductos } from "../utils/api";
+import axios from 'axios';
 
 
 const ListadoProductos = () => {
 
+  const [productos, setProductos] = useState([])
   const [listaProductos, setListaProductos] = useState([]);
+  const [busqueda, setBusqueda] = useState("")
 
   const url = "http://localhost:3030/productos"
 
   useEffect(()=>{
     const fetchData = async () =>{
-      await fetch(`${url}`)
-      .then(response => response.json())
-      .then(json => setListaProductos(json))
+      await axios(`${url}`)
+      .then(response => {
+        setProductos(response.data);
+        setListaProductos(response.data);
+      })
       .catch(error => console.log(error))
     }
     fetchData()
   }, [])
+
+  const buscadorDiv = (e) =>{
+    setBusqueda(e.target.value)
+    filtrar(e.target.value)
+    console.log('busqueda: '+e.target.value);
+  }
+
+  const filtrar = (terminoBusqueda) =>{
+    let ResultadoBusqueda = listaProductos.filter((elemento=>{
+      if(elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) 
+      || elemento._id.includes(terminoBusqueda)){
+        return elemento;
+      }
+    }))
+    setProductos(ResultadoBusqueda)
+  }
 
   return (
     <div>
@@ -36,7 +57,7 @@ const ListadoProductos = () => {
 
           <div className="contenedor-busqueda">
             <p className="text-buscar">Buscar:</p>
-            <div className="select">
+            {/* <div className="select">
               <select>
                 <option value="" selected disabled>
                   Buscar por:
@@ -44,8 +65,8 @@ const ListadoProductos = () => {
                 <option value="">Id</option>
                 <option value="">Descripcion</option>
               </select>
-            </div>
-            <input type="text" />
+            </div> */}
+            <input type="text" value={busqueda} onChange={buscadorDiv} />
           </div>
         </div>
 
@@ -61,16 +82,16 @@ const ListadoProductos = () => {
             </thead>
 
             <tbody>
-                {listaProductos.map((dato, id)=>(
+                {productos.map((dato, id)=>(
                 <tr key={dato._id}>
-                  <td> {id + 1} </td>
+                  <td> # {id + 1} </td>
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
                   <td>acciones</td>
                 </tr>
                 ))}
             </tbody>
-            {console.log(listaProductos)}
+            {/* {console.log(listaProductos)} */}
 
             <tfoot className="alinear"></tfoot>
           </table>
