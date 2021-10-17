@@ -2,9 +2,10 @@ import Header from "components/Header";
 import Paginador from "components/Paginador";
 import React, { useState, useEffect } from "react";
 // import { obtenerProductos } from "../utils/api";
-import axios from 'axios';
+
 import {Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 // import axios from "axios";
 
 
@@ -20,7 +21,7 @@ const ListadoProductos = () => {
   const [modalEliminar, setModalEliminar] = useState(false);
   const [modalInsertar, setModalInsertar] = useState(false);
 
-
+ 
 
   const [paisSeleccionado, setPaisSeleccionado] = useState({
     // id: '',
@@ -40,6 +41,27 @@ const ListadoProductos = () => {
       [name]: value
     }));
   }
+  const envioDatosActualizados = async (producto)=>{
+
+      const options = {
+        method: "PUT",//put
+        url: "http://localhost:3030/productos/"+producto._id,
+        headers: { "Content-Type": "application/json" },
+        data: { nombre: producto.nombre, precio: producto.precio},
+      };
+      await axios//
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        //llamar pop-up nuevo producto
+      })
+      .catch(function (error) {
+        console.error(error);
+        //lamar pop-up error nuevo producto
+      });
+  }
+ 
+
   const editar=(productoSeleccionado)=>{
     var productosNuevos=productos;
     productosNuevos.map(producto=>{
@@ -47,7 +69,8 @@ const ListadoProductos = () => {
         producto.precio=productoSeleccionado.precio;
         producto.nombre=productoSeleccionado.nombre;
         setProductos(productosNuevos);
-
+        envioDatosActualizados(producto)
+        
       }
     });
     setModalEditar(false);
@@ -144,12 +167,12 @@ const ListadoProductos = () => {
             <tbody>
                 {productos.map((dato, id)=>(
                 <tr key={dato._id}>
-                  <td> # {id + 1} </td>
+                  <td> {id + 1} </td>
                   {/* <td>#{dato.id}</td> */}
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
                   <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato,'Editar')}>Editar</button> {"   "} 
-                  <button className="btn btn-danger" onClick={()=>seleccionarPais(dato, 'Eliminar')}>Eliminar</button></td>
+                  <button className="btn btn-danger" /*onClick={()=>seleccionarPais(dato, 'Eliminar')}*/>Eliminar</button></td>
                   {/* <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button>
                    </td> */}
                 </tr>

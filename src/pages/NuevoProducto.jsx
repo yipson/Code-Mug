@@ -27,13 +27,13 @@ export const NuevoProducto = () => {
     console.log(nuevoProducto);
 
     const options = {
-      method: "POST",
-      url: "http://localhost:3030/productos",
+      method: "POST",//put
+      url: "http://localhost:3030/productos",//igual+/id(...._id)
       headers: { "Content-Type": "application/json" },
       data: { nombre: nuevoProducto.nombre, precio: nuevoProducto.precio },
     };
 
-    await axios
+    await axios//
       .request(options)
       .then(function (response) {
         console.log(response.data);
@@ -42,7 +42,7 @@ export const NuevoProducto = () => {
       .catch(function (error) {
         console.error(error);
         //lamar pop-up error nuevo producto
-      });
+    });
 
     setMostrarTabla(true);
   };
