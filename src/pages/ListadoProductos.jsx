@@ -5,18 +5,10 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import {Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import axios from "axios";
 
 
 const ListadoProductos = () => {
-
-  // const queryParams = new URLSearchParams(window.location.search);  //esto es nuevo
-
-  // const id = queryParams.get('id'); //esto es nuevo
-  // const name = queryParams.get('name');//esto es nuevo
-  // const type = queryParams.get('type');//esto es nuevo
-  
-  // console.log(id, name, type);//esto es nuevo
-
 
   const [productos, setProductos] = useState([])
   const [listaProductos, setListaProductos] = useState([]);
@@ -31,7 +23,7 @@ const ListadoProductos = () => {
 
 
   const [paisSeleccionado, setPaisSeleccionado] = useState({
-    id: '',
+    // id: '',
     nombre: '',
     precio: ''
   });
@@ -48,15 +40,16 @@ const ListadoProductos = () => {
       [name]: value
     }));
   }
-  const editar=()=>{
-    var productoNuevo=productos;
-    productoNuevo.map(pais=>{
-      if(pais.id===paisSeleccionado.id){
-        pais.precio=paisSeleccionado.precio;
-        pais.nombre=paisSeleccionado.nombre;
+  const editar=(productoSeleccionado)=>{
+    var productosNuevos=productos;
+    productosNuevos.map(producto=>{
+      if(producto._id===productoSeleccionado._id){
+        producto.precio=productoSeleccionado.precio;
+        producto.nombre=productoSeleccionado.nombre;
+        setProductos(productosNuevos);
+
       }
     });
-    setProductos(productoNuevo);
     setModalEditar(false);
   }
 
@@ -180,7 +173,7 @@ const ListadoProductos = () => {
               readOnly
               type="text"
               name="id"
-              value={paisSeleccionado.id}
+              value={paisSeleccionado._id}
             />
             <br />
 
@@ -206,7 +199,7 @@ const ListadoProductos = () => {
           </div>
         </ModalBody>
         <ModalFooter>
-          <button className="btn btn-primary" onClick={()=>editar()}>
+          <button className="btn btn-primary" onClick={()=>editar(paisSeleccionado)}>
             Actualizar
           </button>
           <button
@@ -216,7 +209,7 @@ const ListadoProductos = () => {
             Cancelar
           </button>
         </ModalFooter>
-        {console.log(paisSeleccionado)}
+        
       </Modal>
 
 
