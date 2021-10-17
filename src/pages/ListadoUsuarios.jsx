@@ -2,7 +2,8 @@ import Header from "components/Header";
 import Paginador from "components/Paginador";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { popup } from "../js/popup"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ListadoUsuarios = () => {
 
@@ -165,8 +166,8 @@ export const ListadoUsuarios = () => {
 
 const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEditar,editar}) => {
 
-  useEffect(()=>{console.log("voy a auncualizar")}, [usuariosAc])
-  
+  useEffect(()=>{console.log("Ingreso a actualizar Usuario")}, [usuariosAc])
+  const notify = () => toast("Usuario Actualizado");
   return (
     <div>
       
@@ -244,9 +245,19 @@ const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEdit
           </div>
         </div>
         <div className="margen">
-          <button onClick={()=>editar(usuariosAc)}  className="boton-venta button-g x " id="open">
+          <button onClick={editar}  className="boton-venta button-g x " id="open">
             Actualizar
           </button>
+          <ToastContainer 
+          position="bottom-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable 
+          pauseOnHover/>
 
           
 
@@ -254,7 +265,7 @@ const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEdit
         </div>
       </body>
       <script src="js/popup.js"></script>
-      <Paginador />
+      
     </div>
   );
 };

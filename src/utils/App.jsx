@@ -10,9 +10,15 @@ import ListadoVentas from "pages/LIstadoVentas";
 import { NuevoProducto } from "pages/NuevoProducto";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "styles/styles.css";
+import { UserContext } from "Context/userContex";
+import React, { useState, useEffect } from 'react';
 
 const App = () => {
+  const [userData, setUserData] = useState({});
   return (
+    <UserContext.Provider value={{ userData, setUserData }}>
+
+    
     <Router>
       <Switch>
         <Route path="/index">
@@ -21,7 +27,7 @@ const App = () => {
         <Route path="/NuevaVenta">
           <NuevaVenta />
         </Route>
-        <Route path="/NuevoProducto">
+          <Route path="/NuevoProducto">
           <NuevoProducto />
         </Route>
         <Route path="/ListadoVentas">
@@ -47,6 +53,7 @@ const App = () => {
         </Route>
       </Switch>
     </Router>
+    </UserContext.Provider>
   );
 };
 
