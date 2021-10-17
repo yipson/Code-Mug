@@ -1,9 +1,12 @@
 import Header from "components/Header";
 import Paginador from "components/Paginador";
 import popup from "js/popup";
-import React from "react";
+import React,{useState} from "react";
+import { useEffect } from "react";
 
-export const ActualizarUsuario = () => {
+const ActualizarUsuario = () => {
+  
+  
   return (
     <div>
       <Header />
@@ -77,7 +80,7 @@ export const ActualizarUsuario = () => {
           </div>
         </div>
         <div className="margen">
-          <button onClick={popup} className="boton-venta button-g x " id="open">
+          <button onClick={()=>console.log("actulizado")} className="boton-venta button-g x " id="open">
             Actualizar
           </button>
 
