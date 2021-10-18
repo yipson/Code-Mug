@@ -3,12 +3,12 @@ import Paginador from "components/Paginador";
 import React, { useState, useEffect } from "react";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import axios from "axios";
+import axios from "axios";
 
 const ListadoVentas = () => {
   const [vendedores, setVendedores] = useState([]);
   const [ventas, setVentas] = useState([]);
-  const [listaventas, setListaventas] = useState([]);
+  const [listaVentas, setListaVentas] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
   const url = "http://localhost:3030/ventas";
@@ -194,7 +194,7 @@ const ListadoVentas = () => {
                   <td>
                     <button
                       className="btn btn-primary"
-                      onClick={() => seleccionarPais(dato, "Editar")}
+                      onClick={() => ventaSeleccionada(dato, "Editar")}
                     >
                       Editar
                     </button>{" "}
