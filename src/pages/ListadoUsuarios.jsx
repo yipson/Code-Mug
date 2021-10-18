@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 
 export const ListadoUsuarios = () => {
 
@@ -81,7 +82,7 @@ export const ListadoUsuarios = () => {
           </button>
         </div>
         <section className="section-ventas">
-          <table className="ventas">
+          <table className="table table-bordered">
             <thead>
               <tr>
                 <th scope="row">No°</th>
@@ -104,8 +105,9 @@ export const ListadoUsuarios = () => {
                   <td>{dato.rol}</td>
                   <td>{dato.estado}</td>
                   <td>
-                    <button onClick={()=>setUsuariosAc(dato)} >Editar</button>
-                    {/*{console.log(dato)}*/}
+                    <button className="btn btn-primary" >Editar</button>
+                    <button className="btn btn-primary"> Eliminar</button>
+                    
                     </td>
                   
                 </tr>
