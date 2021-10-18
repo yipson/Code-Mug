@@ -176,7 +176,7 @@ const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEdit
           <div className="contenido">
             <h1 className="centrar">Editar Usuario</h1>
 
-            <h2 className="centrar">Id #</h2>
+            <h2 className="centrar">Rol {usuariosAc.rol} Estado {usuariosAc.estado}</h2>
           </div>
 
           <div className="contenedor4x5">
@@ -214,8 +214,7 @@ const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEdit
                   type="email"
                   className="input1"
                   placeholder={"Digite su Email"}
-                  value={usuariosAc.email}
-                />
+                  value={usuariosAc.email}/>
               </div>
 
               <div className="C3 R2">
@@ -235,17 +234,18 @@ const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEdit
               </div>
 
               <div className="C4 R4">
-                <select autoFocus={usuariosAc.rol}>
-                  <option>administrador</option>
-                  <option >vendedor</option>
-                </select>
+              <input
+                  className="input"
+                  placeholder={"Digite su Rol"}
+                  value={usuariosAc.rol}
+                />
 
               </div>
             </div>
           </div>
         </div>
         <div className="margen">
-          <button onClick={editar}  className="boton-venta button-g x " id="open">
+          <button onClick={()=>editar}  className="boton-venta button-g x " id="open">
             Actualizar
           </button>
           <ToastContainer 
