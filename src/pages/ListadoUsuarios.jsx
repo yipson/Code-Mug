@@ -223,8 +223,11 @@ const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEdit
 
               <div className="C4 R2">
                 <select value={usuariosAc.estado}>
-                  <option>Activo</option>
-                  <option>Inactivo</option>
+                  {/*
+                    usuariosAc.estado=="Activo"?() :()
+                  }*/}
+                  <option value="activo">Activo</option>
+                  <option value="inactivo">Inactivo</option>
                   
                 </select>
               </div>
@@ -234,10 +237,10 @@ const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEdit
               </div>
 
               <div className="C4 R4">
-              <input
-                  className="input"
-                  placeholder={"Digite su Rol"}
-                  value={usuariosAc.rol}
+              <input                
+                  className="input1"
+                  type='text'
+                  name="rol"
                 />
 
               </div>
