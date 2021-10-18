@@ -1,10 +1,55 @@
 import Paginador from "components/Paginador";
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import Header from "../components/Header";
 // import "../styles/styles.css";
 import popup from "js/popup";
+import axios from 'axios';
 
 const ActualizarProducto = () => {
+
+  // const queryParams = new URLSearchParams(window.location.search);  //esto es nuevo
+
+  // const id = queryParams.get('id'); //esto es nuevo
+  // const name = queryParams.get('nombre');//esto es nuevo
+  // const type = queryParams.get('precio');//esto es nuevo
+  
+  // console.log(id, name, type);//esto es nuevo
+
+
+
+  const [usuarios, setUsuarios] = useState([])
+  const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [busqueda, setBusqueda] = useState("")
+
+  const url = "http://localhost:3030/usuarios"
+
+  useEffect(()=>{
+    const fetchData = async () =>{
+      await axios(`${url}`)
+      .then(response => {
+        setUsuarios(response.data);
+        setListaUsuarios(response.data);
+      })
+      .catch(error => console.log(error))
+    }
+    fetchData()
+  }, [])
+
+  const buscadorDiv = (e) =>{
+    setBusqueda(e.target.value)
+    filtrar(e.target.value)
+    console.log('busqueda: '+e.target.value);
+  }
+
+  const filtrar = (terminoBusqueda) =>{
+    let ResultadoBusqueda = listaUsuarios.filter((elemento=>{
+      if(elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) 
+      ||elemento._id.includes(terminoBusqueda)){
+        return elemento;
+      }
+    }))
+    setUsuarios(ResultadoBusqueda)
+  }
   return (
     <div>
       <Header />;
@@ -13,15 +58,20 @@ const ActualizarProducto = () => {
           <h1 className="titulo-actualizar-producto">Actualizar Producto</h1>
           <div className="Cuadro-de-datos">
             <p className="p1">Id</p>
-            <p className="extra">#####</p>
+            <input
+                  readOnly
+                  className="input1 extra"
+                  placeholder={"AQUI VA LA ID"}
+                />
+            {/* <p className="extra">#####</p> */}
           </div>
           <div className="Cuadro-de-datos">
             <p className="p2">Nombre</p>
-            <input type="Nombre" placeholder="Escriba el nombre" />
+            <input type="Nombre" className="input1" value={busqueda} onChange={buscadorDiv} placeholder="Escriba el nombre" />
           </div>
           <div className="Cuadro-de-datos">
             <p className="p3">Precio</p>
-            <input type="Precio" placeholder="Escriba el precio" />
+            <input type="Precio" className="input1"  placeholder="Escriba el precio" />  
           </div>
           <div className="margen">
             <button
@@ -57,7 +107,9 @@ const ActualizarProducto = () => {
                 <a href="/ListadoProductos">Ver Productos</a>
               </button>
                 <button className="boton-nueva-venta">Nuevo Producto</button>
+
                 {/* <!-- boton X eliminado --> */}
+               
                 <button id="cerrar" className="cerrar-pop-venta"></button>
               </div>
             </div>
