@@ -1,39 +1,31 @@
+import Header from "components/Header";
+import Paginador from "components/Paginador";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import popup from "js/popup";
-import React from "react";
-import { useRef } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import Header from "../components/Header";
-import Paginador from "../components/Paginador";
+import { popup } from "../js/popup";
 
 export const NuevaVenta = () => {
+  const [mostrarTabla, setMostrarTabla] = useState(true);
+  const [ventas, setVentas] = useState([]);
 
+  const url = "http://localhost:3030/productos";
 
-    const [mostrarTabla, setMostrarTabla] = useState(true);
-  const [productos, setProductos] = useState([]);
-    const [listaProductos, setListaProductos] = useState([]);
-
-    const url = "http://localhost:3030/productos"
-
-  useEffect(()=>{
-    const fetchData = async () =>{
+  useEffect(() => {
+    const fetchData = async () => {
       await axios(`${url}`)
-      .then(response => {
-        setProductos(response.data);
-        setListaProductos(response.data);
-      })
-      .catch(error => console.log(error))
-    }
-    fetchData()
-  }, [])
-
+        .then((response) => {
+          setVentas(response.data);
+          // setListaProductos(response.data);
+        })
+        .catch((error) => console.log(error));
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     //obtener lista de productos desde el backend
     // setProductos(productosBackend);
   }, []);
-
 
   const dataForm = useRef("null");
 
@@ -67,7 +59,6 @@ export const NuevaVenta = () => {
 
     setMostrarTabla(true);
   };
-
 
   return (
     <div>
@@ -103,8 +94,8 @@ export const NuevaVenta = () => {
                 </svg>
               </h1>
               <button className="boton-ver-ventas">
-                  <a href="/ListadoVentas">Ver Ventas</a>
-                </button>
+                <a href="/ListadoVentas">Ver Ventas</a>
+              </button>
               <button className="boton-nueva-venta">Nueva Venta</button>
               {/* <!-- boton X eliminado --> */}
               <button id="cerrar" className="cerrar-pop-venta"></button>
@@ -150,17 +141,13 @@ export const NuevaVenta = () => {
                   <input type="Num" placeholder="Escriba el numero" />
                 </td>
                 <td>
-                <input placeholder='Descripcion'></input>
+                  <input placeholder="Descripcion"></input>
                 </td>
 
-                <td>
-
-                </td>
-                <td>
-                  
-                </td>
+                <td></td>
+                <td></td>
               </tr>
-            {/* seccion total y subtotal */}
+              {/* seccion total y subtotal */}
             </tbody>
             {/* </form> */}
             <tfoot className="alinear">
@@ -181,8 +168,8 @@ export const NuevaVenta = () => {
 
 export default NuevaVenta;
 
-
-            {/* <div className="section-ventas nueva-venta-tabla ">
+{
+  /* <div className="section-ventas nueva-venta-tabla ">
                   <table className="ventas ">
                     <thead>
                       <tr>
@@ -220,4 +207,5 @@ export default NuevaVenta;
                       </tr>
                     </tfoot>
                   </table>
-                </div> */}
+                </div> */
+}

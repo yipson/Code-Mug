@@ -6,94 +6,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
 const ListadoVentas = () => {
-  const [vendedores, setVendedores] = useState([]);
-  const [ventas, setVentas] = useState([]);
   const [listaVentas, setListaVentas] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
+  const [ventas, setVentas] = useState([]);
 
   const url = "http://localhost:3030/ventas";
-
-  const [modalEditar, setModalEditar] = useState(false);
-  const [modalEliminar, setModalEliminar] = useState(false);
-  const [modalInsertar, setModalInsertar] = useState(false);
-
-  const [ventaSeleccionada, setVentaSeleccionada] = useState({
-    // id: '',
-    fecha: "",
-    vendedor: "",
-    cliente: "",
-    productos: "",
-  });
-
-  const seleccionarVenta = (dato, caso) => {
-    setVentaSeleccionada(dato);
-    caso === "Editar" ? setModalEditar(true) : setModalEliminar(true);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setVentaSeleccionada((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  const envioDatosActualizados = async (venta) => {
-    const options = {
-      method: "PUT",
-      url: "http://localhost:3030/ventas/" + venta._id,
-      headers: { "Content-Type": "application/json" },
-      data: {
-        fecha: venta.fecha,
-        vendedor: venta.vendedor,
-        cliente: venta.cliente,
-        productos: venta.productos,
-      },
-    };
-    await axios //
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
-        //llamar pop-up nueva venta
-      })
-      .catch(function (error) {
-        console.error(error);
-        //lamar pop-up error nueva venta
-      });
-  };
-
-  const editar = (ventaSeleccionada) => {
-    var ventasNuevas = ventas;
-    ventasNuevas.map((venta) => {
-      if (venta._id === ventaSeleccionada._id) {
-        venta.fecha = ventaSeleccionada.fecha;
-        venta.vendedor = ventaSeleccionada.vendedor;
-        venta.cliente = ventaSeleccionada.cliente;
-        venta.productos = ventaSeleccionada.productos;
-        setVentas(ventasNuevas);
-        envioDatosActualizados(venta);
-      }
-    });
-    setModalEditar(false);
-  };
-
-  const eliminar = () => {
-    setVentas(ventas.filter((venta) => venta.id !== ventaSeleccionada.id));
-    setModalEliminar(false);
-  };
-
-  const abrirModalInsertar = () => {
-    setVentaSeleccionada(null);
-    setModalInsertar(true);
-  };
-
-  const insertar = () => {
-    var valorInsertar = ventaSeleccionada;
-    valorInsertar.id = ventas[ventas.length - 1].id + 1;
-    var ventaNueva = ventas;
-    ventaNueva.push(valorInsertar);
-    setVentas(ventaNueva);
-    setModalInsertar(false);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -107,26 +23,34 @@ const ListadoVentas = () => {
     fetchData();
   }, []);
 
-  const buscadorDiv = (e) => {
-    setBusqueda(e.target.value);
-    filtrar(e.target.value);
-    console.log("busqueda: " + e.target.value);
+  const totalventa = (dato) => {
+    let total = 0;
+    dato.forEach((element) => {
+      total += element.precio;
+    });
+    return total;
   };
 
-  const filtrar = (terminoBusqueda) => {
-    let ResultadoBusqueda = listaVentas.filter((elemento) => {
-      if (
-        elemento.cliente
-          .toString()
-          .toLowerCase()
-          .includes(terminoBusqueda.toLowerCase()) ||
-        elemento._id.includes(terminoBusqueda)
-      ) {
-        return elemento;
-      }
-    });
-    setVentas(ResultadoBusqueda);
-  };
+  // const buscadorDiv = (e) => {
+  //   setBusqueda(e.target.value);
+  //   filtrar(e.target.value);
+  //   console.log("busqueda: " + e.target.value);
+  // };
+
+  // const filtrar = (terminoBusqueda) => {
+  //   let ResultadoBusqueda = listaVentas.filter((elemento) => {
+  //     if (
+  //       elemento.cliente
+  //         .toString()
+  //         .toLowerCase()
+  //         .includes(terminoBusqueda.toLowerCase()) ||
+  //       elemento._id.includes(terminoBusqueda)
+  //     ) {
+  //       return elemento;
+  //     }
+  //   });
+  //   setVentas(ResultadoBusqueda);
+  // };
 
   return (
     <>
@@ -154,7 +78,7 @@ const ListadoVentas = () => {
                 <option value="">Cliente</option>
               </select> */}
             </div>
-            <input type="text" value={busqueda} onChange={buscadorDiv} />
+            {/* <input type="text" value={busqueda} onChange={buscadorDiv} /> */}
           </div>
         </div>
 
@@ -189,21 +113,17 @@ const ListadoVentas = () => {
                   <td> {id + 1} </td>
                   <td>{dato.fecha}</td>
                   <td>{dato.vendedor}</td>
-                  <td>{dato.cliente}</td>
-                  <td>{dato.productos}</td>
+                  <td>$ {totalventa(dato.productos)}</td>
+                  <td>{}</td>
                   <td>
+                    {/* {console.log(dato.productos[id].precio)} */}
                     <button
-                      className="btn btn-primary"
-                      onClick={() => ventaSeleccionada(dato, "Editar")}
+                    //   className="btn btn-primary"
+                    //   onClick={() => ventaSeleccionada(dato, "Editar")}
                     >
                       Editar
                     </button>{" "}
                     {"   "}
-                    <button
-                      className="btn btn-danger" /*onClick={()=>seleccionarPais(dato, 'Eliminar')}*/
-                    >
-                      Eliminar
-                    </button>
                   </td>
                   {/* <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button>
                    </td> */}
@@ -213,7 +133,8 @@ const ListadoVentas = () => {
             {/* {console.log(listaProductos)} */}
             <tfoot className="alinear"></tfoot>
           </table>
-          <Modal isOpen={modalEditar}>
+        </section>
+        {/* <Modal isOpen={modalEditar}>
             <ModalHeader>
               <div>
                 <h3>Editar Venta</h3>
@@ -376,7 +297,7 @@ const ListadoVentas = () => {
               </button>
             </ModalFooter>
           </Modal>
-        </section>
+        </section> */}
         {/* <!-- Estados de las ventas: -->
   <!-- Creacion, embalaje, despacho, ruta, ubicacion, recepcion --> */}
 
