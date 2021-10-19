@@ -49,21 +49,7 @@ const NuevaVenta = () => {
       }
     });
     setVentas(ResultadoBusqueda);
-  };
-
-  const listaProductos = Object.keys(formData)
-    .map((el) => {
-      if (el.includes("producto")) {
-        return filasTabla.filter((v) => v._id === formData[el])[0];
-      } else return null;
-    })
-    .filter((v) => v);
-
-  const infoConsolidada = {
-    valor: formData.valor,
-    vendedor: vendedores.filter((v) => v._id === formData.vendedor)[0],
-    productos: listaProductos,
-  };
+  };;
 
   const RepetidorTabla = ({
     productos,
@@ -84,27 +70,6 @@ const NuevaVenta = () => {
       setProductos([...productos, v]);
     };
 
-    const submitForm = async (e) => {
-      e.preventDefault();
-      const fd = new FormData(form.current);
-      formData[key] = value;
-    };
-
-    const infoConsolidada = {
-      valor: formData.valor,
-      vendedor: vendedores.filter((v) => v._id === formData.vendedor)[0],
-      productos: listaproductos,
-    };
-    await crearVenta(
-      infoConsolidada,
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  };
   return (
     <div>
       <Header />
@@ -242,11 +207,6 @@ const NuevaVenta = () => {
                     <select
                       className="estilizar"
                       value={productoSeleccionado._id ?? ""}
-                      onChange={(e) =>
-                        setProductoSeleccionado(
-                          v.filter((v) => v._id === e.target.value)[0]
-                        )
-                      }
                     >
                       <option disabled value="">
                         Seleccione un Producto
@@ -302,19 +262,23 @@ const NuevaVenta = () => {
       <Paginador />
     </div>
   );
-  const FilaVehiculo = ({ cantidad, productoSeleccionado, deleteFila }) => {
-    return (
-      <tr>
-        <td>{productoSeleccionado._id.slice(20) ?? ""}</td>
-        <td>{productoSeleccionado.nombre ?? ""}</td>
-        <td>{productoSeleccionado.precio ?? ""}</td>
-        <td> className='fas fa-minus cursor-pointer hover:text-red-500'</td>
-        <td className="hidden">
-          <input hidden defaultValue={productoSeleccionado._id} name={nombre} />
-        </td>
-      </tr>
-    );
-  };
+                      }
+                    }
+
+  export default NuevaVenta;
+  // const FilaVehiculo = ({ cantidad, productoSeleccionado, deleteFila }) => {
+  //   return (
+  //     <tr>
+  //       <td>{productoSeleccionado._id.slice(20) ?? ""}</td>
+  //       <td>{productoSeleccionado.nombre ?? ""}</td>
+  //       <td>{productoSeleccionado.precio ?? ""}</td>
+  //       <td> className='fas fa-minus cursor-pointer hover:text-red-500'</td>
+  //       <td className="hidden">
+  //         <input hidden defaultValue={productoSeleccionado._id} name={nombre} />
+  //       </td>
+  //     </tr>
+  //   );
+  // };
 
   /* <div className="section-ventas nueva-venta-tabla ">
                   <table className="ventas ">
@@ -355,5 +319,4 @@ const NuevaVenta = () => {
                     </tfoot>
                   </table>
                 </div> */
-};
-export default NuevaVenta;
+

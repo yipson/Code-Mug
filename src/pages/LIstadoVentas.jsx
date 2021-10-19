@@ -8,6 +8,7 @@ import axios from "axios";
 const ListadoVentas = () => {
   const [listaVentas, setListaVentas] = useState([]);
   const [ventas, setVentas] = useState([]);
+  const [busqueda, setBusqueda] = useState("")
 
   const url = "http://localhost:3030/ventas";
 
@@ -31,26 +32,26 @@ const ListadoVentas = () => {
     return total;
   };
 
-  // const buscadorDiv = (e) => {
-  //   setBusqueda(e.target.value);
-  //   filtrar(e.target.value);
-  //   console.log("busqueda: " + e.target.value);
-  // };
+  const buscadorDiv = (e) => {
+    setBusqueda(e.target.value);
+    filtrar(e.target.value);
+    console.log("busqueda: " + e.target.value);
+  };
 
-  // const filtrar = (terminoBusqueda) => {
-  //   let ResultadoBusqueda = listaVentas.filter((elemento) => {
-  //     if (
-  //       elemento.cliente
-  //         .toString()
-  //         .toLowerCase()
-  //         .includes(terminoBusqueda.toLowerCase()) ||
-  //       elemento._id.includes(terminoBusqueda)
-  //     ) {
-  //       return elemento;
-  //     }
-  //   });
-  //   setVentas(ResultadoBusqueda);
-  // };
+  const filtrar = (terminoBusqueda) => {
+    let ResultadoBusqueda = listaVentas.filter((elemento) => {
+      if (
+        elemento.cliente
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase()) ||
+        elemento._id.includes(terminoBusqueda)
+      ) {
+        return elemento;
+      }
+    });
+    setVentas(ResultadoBusqueda);
+  };
 
   return (
     <>
@@ -78,7 +79,7 @@ const ListadoVentas = () => {
                 <option value="">Cliente</option>
               </select> */}
             </div>
-            {/* <input type="text" value={busqueda} onChange={buscadorDiv} /> */}
+            <input type="text" value={busqueda} onChange={buscadorDiv} />
           </div>
         </div>
 
