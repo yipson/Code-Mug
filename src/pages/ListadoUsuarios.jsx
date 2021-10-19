@@ -5,6 +5,8 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export const ListadoUsuarios = () => {
 
@@ -13,14 +15,34 @@ export const ListadoUsuarios = () => {
   const [mostarEditar, setMostarEditar] = useState(false)
   const [listaUsuarios, setListaUsuarios] = useState([]);
   const [busqueda, setBusqueda] = useState("")
-  
-  useEffect(() => {
-    console.log(usuariosAc)
-    setMostarEditar(!mostarEditar)
-  }, [usuariosAc]);
-
   const url = "http://localhost:3030/usuarios"
+  const [modalEditar, setModalEditar] = useState(false);
+  const [modalEliminar, setModalEliminar] = useState(false);
+  const [modalInsertar, setModalInsertar] = useState(false);
 
+  const [usuarioSeleccionado, setUsuarioSeleccionado] = useState({
+    email: "",
+    estado: "",
+    nombre: "",
+    numero: "",
+    rol: "",
+    id: ""
+  });
+
+  const seleccionarUsuario=(elemento, caso)=>{
+    setUsuarioSeleccionado(elemento);
+    (caso==='Editar')?setModalEditar(true):setModalEliminar(true)
+      }
+
+    const handleChange=e=>{
+        const {name, value}=e.target;
+        setUsuarioSeleccionado((prevState)=>({
+          ...prevState,
+          [name]: value
+        }));
+      }
+
+// Cargar datos del backend 
   useEffect(()=>{
     const fetchData = async () =>{
       await axios(`${url}`)
@@ -34,37 +56,32 @@ export const ListadoUsuarios = () => {
     }
     fetchData()
   }, [])
+
   
-  const editar= async (usuariosAc)=>{ 
-    const urlEditarusuario="http://localhost:3030/usuarios/"+usuariosAc._id
-    console.log(urlEditarusuario)
+  const envioDatosActualizados = async (usuario)=>{
+
     const options = {
-      method: "PUT",
-      url: urlEditarusuario,
+      method: "PUT",//put
+      url: "http://localhost:3030/usuarios/"+usuario._id,
       headers: { "Content-Type": "application/json" },
-      data: { estado: usuariosAc.estado, rol: usuariosAc.rol},
+      data: { email: usuario.email,
+      estado: usuario.estado,
+      nombre: usuario.nombre,
+      numero: usuario.numero,
+      rol: usuario.rol,
+      id: usuario._id},
     };
-
-    await axios
-      .request(options)
-      .then(function (response) {
-        console.log("Usuario Actualizado",response.data);
-        //llamar pop-up usuario
-      
-
-      })
-      .catch(function (error) {
-        console.error("Error Actualización",error);
-        //lamar pop-up error nuevo producto
-      }
-      
-      );
-
-      
-
-  
-   }
-  
+    await axios//
+    .request(options)
+    .then(function (response) {
+      console.log(response.data);
+      //llamar pop-up nuevo producto
+    })
+    .catch(function (error) {
+      console.error(error);
+      //lamar pop-up error nuevo producto
+    });
+}
   
   return (
     <div>
@@ -72,16 +89,13 @@ export const ListadoUsuarios = () => {
       <body className="ventas">
        
        
-       {mostarEditar?
        
         <div>
           <h1>LISTA DE USUARIOS </h1>
        ( <div className="titulo-contenedor">
-          <button id="open" className="boton-venta button-g">
-            <a href="/ActualizarUsuario">Nuevo Usuario </a>
-          </button>
+          
         </div>
-        <section className="section-ventas">
+        <section>
           <table className="table table-bordered">
             <thead>
               <tr>
@@ -97,16 +111,16 @@ export const ListadoUsuarios = () => {
 
             <tbody>
                 {usuarios.map((dato, id)=>(
-                <tr key={dato._id}>
-                  <td> # {id + 1} </td>
+                <tr >
+                  <td> {dato._id} </td>
                   <td>{dato.nombre}</td>
                   <td>{dato.numero}</td>
                   <td>{dato.email}</td>
                   <td>{dato.rol}</td>
                   <td>{dato.estado}</td>
                   <td>
-                    <button className="btn btn-primary" >Editar</button>
-                    <button className="btn btn-primary"> Eliminar</button>
+                    <button className="btn btn-primary" onClick={()=>seleccionarUsuario(dato, 'Editar')}>Editar</button>{"   "}
+
                     
                     </td>
                   
@@ -117,15 +131,89 @@ export const ListadoUsuarios = () => {
           </table>
         </section>)
         </div>
-       : 
-         <ActualizarUsuario 
-         usuariosAc={usuariosAc} 
-         setUsuariosAc={usuariosAc}
-         mostarEditar={mostarEditar}
-         setMostarEditar={setMostarEditar}
-         editar={editar}
-         ></ActualizarUsuario>
-        }
+       
+      <Modal isOpen={modalEditar}>
+        <ModalHeader> Editar Usaurios </ModalHeader>
+        <ModalBody>
+        
+        <div className="form-group">
+            <label>Nombre</label>
+        <input
+              className="form-control"
+              type="text"
+              name="nombre"
+              value={usuarioSeleccionado&&usuarioSeleccionado.nombre}
+              onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>Numero</label>
+        <input
+              className="form-control"
+              type="text"
+              name="nombre"
+              value={usuarioSeleccionado&&usuarioSeleccionado.numero}
+              onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>Correo</label>
+        <input
+              className="form-control"
+              type="text"
+              name="email"
+              value={usuarioSeleccionado&&usuarioSeleccionado.email}
+              onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>Rol</label>
+        <select
+              className="form-control"
+              type="text"
+              name="rol"
+              value={usuarioSeleccionado&&usuarioSeleccionado.rol}
+              onChange={handleChange}
+            >
+                <option value="adminstrador">adminstrador</option>
+                <option value="vendedor">vendedor</option>
+          </select>
+          </div>
+
+          <div className="form-group">
+            <label>Estado</label>
+        <select
+              className="form-control"
+              type="text"
+              name="estado"
+              value={usuarioSeleccionado&&usuarioSeleccionado.estado}
+              onChange={handleChange}
+            >
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+          </select>
+
+        </div>
+        </ModalBody>
+        <ModalFooter col-auto>
+          <button className="btn btn-primary" 
+           onClick={()=>envioDatosActualizados(usuarioSeleccionado)}
+          >
+            Editar
+          </button>
+
+          <button className="btn btn-danger" 
+           onClick={()=>setModalEditar(false)}>
+            Cancelar
+          </button>
+
+
+        </ModalFooter>
+      </Modal>
+
 
 
       <div id="contenedorpopup" className="contenedor-pop">
@@ -160,120 +248,13 @@ export const ListadoUsuarios = () => {
 
         
       </body>
-      <Paginador />
-    </div>
-  );
-};
-
-
-const ActualizarUsuario = ({usuariosAc, setUsuariosAc,mostarEditar,setMostarEditar,editar}) => {
-
-  useEffect(()=>{console.log("Ingreso a actualizar Usuario")}, [usuariosAc])
-  const notify = () => toast("Usuario Actualizado");
-  return (
-    <div>
-      
-      <body className="ventas">
-        <div className="main-div">
-          <div className="contenido">
-            <h1 className="centrar">Editar Usuario</h1>
-
-            <h2 className="centrar">Rol {usuariosAc.rol} Estado {usuariosAc.estado}</h2>
-          </div>
-
-          <div className="contenedor4x5">
-            <div className="C1 R1">
-              <p className="p2">Nombre:</p>
-
-              <div className="C2 R1">
-                <input
-                  type="text"
-                  className="input1"
-                  placeholder={"Digite su nombre"}
-                  value={usuariosAc.nombre}
-                />
-              </div>
-
-              <div className="C1 R3">
-                <p className="p2">Numero:</p>
-              </div>
-
-              <div className="C2 R3">
-                <input
-                  type="text"
-                  className="input1"
-                  placeholder={"Digite Numero"}
-                  value={usuariosAc.numero}
-                />
-              </div>
-
-              <div className="C1 R5">
-                <p className="p2">Email:</p>
-              </div>
-
-              <div className="C2 R5">
-                <input
-                  type="email"
-                  className="input1"
-                  placeholder={"Digite su Email"}
-                  value={usuariosAc.email}/>
-              </div>
-
-              <div className="C3 R2">
-                <p className="p2">Estado:</p>
-              </div>
-
-              <div className="C4 R2">
-                <select value={usuariosAc.estado}>
-                  {/*
-                    usuariosAc.estado=="Activo"?() :()
-                  }*/}
-                  <option value="activo">Activo</option>
-                  <option value="inactivo">Inactivo</option>
-                  
-                </select>
-              </div>
-
-              <div className="C3 R4">
-                <p className="p2">Rol:</p>
-              </div>
-
-              <div className="C4 R4">
-              <input                
-                  className="input1"
-                  type='text'
-                  name="rol"
-                />
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="margen">
-          <button onClick={()=>editar}  className="boton-venta button-g x " id="open">
-            Actualizar
-          </button>
-          <ToastContainer 
-          position="bottom-right"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable 
-          pauseOnHover/>
-
-          
-
-          
-        </div>
-      </body>
-      <script src="js/popup.js"></script>
       
     </div>
   );
 };
+
+
+
 
 
 
