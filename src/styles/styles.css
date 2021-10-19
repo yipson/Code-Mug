@@ -208,6 +208,11 @@ input {
   margin-top: -15px;
   
 }
+.boton-editar{
+  padding: 0.6rem 2.7rem ;
+  font-size: medium;
+  margin: 0rem ;
+}
 /*hipervinculo*/
 .x {
   border-bottom-style: solid ;

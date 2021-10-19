@@ -2,6 +2,7 @@ import Header from "components/Header";
 import Paginador from "components/Paginador";
 import React,{ useState, useEffect } from "react";
 import ActualizarUsuario from "./ActualizarUsuario";
+import axios from 'axios';
 
 // export const ListadoUsuarios = () => {
 //   return (
@@ -72,22 +73,27 @@ import ActualizarUsuario from "./ActualizarUsuario";
 // };
 const ListadoUsuarios = () => {
 
+  const [usuarios, setUsuarios] = useState([])
   const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [busqueda, setBusqueda] = useState("")
 
   const url = "http://localhost:3030/usuarios"
 
+  
   useEffect(()=>{
     const fetchData = async () =>{
-      await fetch(`${url}`)
-      .then(response => response.json())
-      .then(json => setListaUsuarios(json))
+      await axios(`${url}`)
+      .then(response => {
+        setUsuarios(response.data);
+        setListaUsuarios(response.data);
+      })
       .catch(error => console.log(error))
     }
     fetchData()
   }, [])
 
   const actualizarUsuario = (e) =>{
-    let arregloUsuarios = listaUsuarios;
+    let arregloUsuarios = usuarios;
     let usuarioModificar ;
     arregloUsuarios.map((registro)=> {
       if(e.target.id === registro._id ) {
@@ -96,6 +102,21 @@ const ListadoUsuarios = () => {
         <ActualizarUsuario usuario={usuarioModificar}/>
       }
     })
+  }
+  const buscadorDiv = (e) =>{
+    setBusqueda(e.target.value)
+    filtrar(e.target.value)
+    console.log('busqueda: '+e.target.value);
+  }
+
+  const filtrar = (terminoBusqueda) =>{
+    let ResultadoBusqueda = listaUsuarios.filter((elemento=>{
+      if(elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) 
+      || elemento._id.includes(terminoBusqueda)){
+        return elemento;
+      }
+    }))
+    setUsuarios(ResultadoBusqueda)
   }
 
   return (
@@ -114,7 +135,7 @@ const ListadoUsuarios = () => {
 
           <div className="contenedor-busqueda">
             <p className="text-buscar">Buscar:</p>
-            <div className="select">
+            {/* <div className="select">
               <select>
                 <option value="" selected disabled>
                   Buscar por:
@@ -122,8 +143,8 @@ const ListadoUsuarios = () => {
                 <option value="">Id</option>
                 <option value="">Descripcion</option>
               </select>
-            </div>
-            <input type="text" />
+            </div> */}
+            <input type="text" value={busqueda} onChange={buscadorDiv} />
           </div>
         </div>
 
@@ -141,20 +162,20 @@ const ListadoUsuarios = () => {
             </thead>
 
             <tbody>
-                {listaUsuarios.map((dato, id)=>(
+                {usuarios.map((dato, id)=>(
                 <tr key={dato._id}>
                   <td> {id + 1} </td>
                   <td>{dato.nombre}</td>
                   <td>{dato.numero}</td>
                   <td>{dato.email}</td>
                   <td>{dato.rol}</td>
-                  <td><button id={dato._id}  onClick={actualizarUsuario} >
+                  <td><button id={dato._id}  onClick={actualizarUsuario} className="btn btn-primary boton-editar"> 
                     <a  href = "/ActualizarUsuario" >Editar</a>
                     </button></td>
                 </tr> 
                 ))}
             </tbody>
-            {console.log(listaUsuarios)}
+           
 
             <tfoot className="alinear"></tfoot>
           </table>

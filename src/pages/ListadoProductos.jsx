@@ -171,8 +171,9 @@ const ListadoProductos = () => {
                   {/* <td>#{dato.id}</td> */}
                   <td>{dato.nombre}</td>
                   <td>{dato.precio}</td>
-                  <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato,'Editar')}>Editar</button> {"   "} 
-                  <button className="btn btn-danger" /*onClick={()=>seleccionarPais(dato, 'Eliminar')}*/>Eliminar</button></td>
+                  <td><button className="btn btn-primary boton-editar" onClick={()=>seleccionarPais(dato,'Editar')}>Editar</button> {/*{"   "} 
+                  <button className="btn btn-danger" onClick={()=>seleccionarPais(dato, 'Eliminar')}>Eliminar</button>*/}
+                  </td>
                   {/* <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button>
                    </td> */}
                 </tr>
