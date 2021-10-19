@@ -95,6 +95,7 @@ export const ListadoUsuarios = () => {
       console.error(error);
       //lamar pop-up error nuevo producto
     });
+    setModalEditar(false);
 }
   
   return (
@@ -149,7 +150,7 @@ export const ListadoUsuarios = () => {
                   <td>{dato.rol}</td>
                   <td>{dato.estado}</td>
                   <td>
-                    <button className="btn btn-primary" onClick={()=>seleccionarUsuario(dato, 'Editar')}>Editar</button>{"   "}
+                    <button className="btn btn-primary boton-editar" onClick={()=>seleccionarUsuario(dato, 'Editar')}>Editar</button>{"   "}
 
                     
                     </td>
@@ -232,7 +233,7 @@ export const ListadoUsuarios = () => {
           <button className="btn btn-primary" 
            onClick={()=>envioDatosActualizados(usuarioSeleccionado)}
           >
-            Editar
+            Actualizar
           </button>
 
           <button className="btn btn-danger" 
