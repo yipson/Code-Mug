@@ -108,9 +108,11 @@ const ListadoProductos = () => {
         },
       };
       const fetchData = async () => {
-        await fetch(`${url}`, requestOptions)
-          .then((response) => response.json())
-          .then((json) => setListaProductos(json))
+        await axios(`${url}`, requestOptions)
+          .then(response => {
+            setProductos(response.data);
+            setListaProductos(response.data);
+          })
           .catch((error) => console.log(error));
       };
       fetchData();
