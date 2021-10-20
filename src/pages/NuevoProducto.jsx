@@ -13,6 +13,7 @@ export const NuevoProducto = () => {
     // setProductos(productosBackend);
   }, []);
 
+
   const dataForm = useRef("null");
 
   const enviarFormulario = async (e) => {
@@ -26,13 +27,13 @@ export const NuevoProducto = () => {
     console.log(nuevoProducto);
 
     const options = {
-      method: "POST",
-      url: "http://localhost:3030/productos",
+      method: "POST",//put
+      url: "http://localhost:3030/productos",//igual+/id(...._id)
       headers: { "Content-Type": "application/json" },
       data: { nombre: nuevoProducto.nombre, precio: nuevoProducto.precio },
     };
 
-    await axios
+    await axios//
       .request(options)
       .then(function (response) {
         console.log(response.data);
@@ -41,7 +42,7 @@ export const NuevoProducto = () => {
       .catch(function (error) {
         console.error(error);
         //lamar pop-up error nuevo producto
-      });
+    });
 
     setMostrarTabla(true);
   };
@@ -117,7 +118,9 @@ export const NuevoProducto = () => {
                   <path d="M2 12l5 5m5 -5l5 -5" />
                 </svg>
               </h1>
-              <button className="boton-ver-ventas">Ver Producto</button>
+              <button  className="boton-ver-ventas">
+                <a href="/ListadoProductos">Ver Productos</a>
+              </button>
               <button className="boton-nueva-venta">Nuevo Producto</button>
               {/* <!-- boton X eliminado --> */}
               <button id="cerrar" className="cerrar-pop-venta"></button>

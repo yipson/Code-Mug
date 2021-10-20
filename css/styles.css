@@ -155,6 +155,9 @@ input {
   transform: scale(1.05);
   box-shadow: 1.5px 1.5px var(--azulOscuro);
 }
+.boton-editar{
+  padding: 15px;
+}
 
 /*hipervinculo*/
 .x {

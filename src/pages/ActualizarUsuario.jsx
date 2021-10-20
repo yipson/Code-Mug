@@ -1,9 +1,46 @@
 import Header from "components/Header";
 import Paginador from "components/Paginador";
 import popup from "js/popup";
-import React from "react";
+import React, { useState, useEffect }  from "react";
+import axios from 'axios';
+// import actualizarUsuario from "ListadoUsuarios";{/* esto es nuevo */}
 
-export const ActualizarUsuario = () => {
+export const ActualizarUsuario = ({usuarioModificar}) => {
+
+  const [usuarios, setUsuarios] = useState([])
+  const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [busqueda, setBusqueda] = useState("")
+
+  const url = "http://localhost:3030/usuarios"
+
+  useEffect(()=>{
+    const fetchData = async () =>{
+      await axios(`${url}`)
+      .then(response => {
+        setUsuarios(response.data);
+        setListaUsuarios(response.data);
+      })
+      .catch(error => console.log(error))
+    }
+    fetchData()
+  }, [])
+
+  const buscadorDiv = (e) =>{
+    setBusqueda(e.target.value)
+    filtrar(e.target.value)
+    console.log('busqueda: '+e.target.value);
+  }
+
+  const filtrar = (terminoBusqueda) =>{
+    let ResultadoBusqueda = listaUsuarios.filter((elemento=>{
+      if(elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) 
+      ||elemento._id.includes(terminoBusqueda)){
+        return elemento;
+      }
+    }))
+    setUsuarios(ResultadoBusqueda)
+  }
+
   return (
     <div>
       <Header />
@@ -11,18 +48,35 @@ export const ActualizarUsuario = () => {
         <div className="main-div">
           <div className="contenido">
             <h1 className="centrar">Editar Usuario</h1>
-
-            <h2 className="centrar">Id #</h2>
+            {/* <h2 className="centrar">Id <input readonly></input></h2> */}
           </div>
 
           <div className="contenedor4x5">
             <div className="C1 R1">
+
+              <div className="C1 R3">
+                <p className="p2">ID:</p>
+              </div>
+              <div className="C2 R1">
+                <input
+                  readOnly
+                  className="input1"
+                  placeholder={"AQUI VA LA ID"}
+                />
+              </div>
+                {/* <div className="contenedor-busqueda">
+                  <p className="text-buscar ">Buscar:</p>
+                  <input type="text" value={busqueda} onChange={buscadorDiv} />
+                </div> */}
+
               <p className="p2">Nombre:</p>
 
               <div className="C2 R1">
                 <input
                   type="text"
                   className="input1"
+                  value={busqueda} 
+                  onChange={buscadorDiv}
                   placeholder={"Digite su nombre"}
                 />
               </div>
@@ -102,7 +156,9 @@ export const ActualizarUsuario = () => {
                   <path d="M2 12l5 5m5 -5l5 -5" />
                 </svg>
               </h1>
-              <button className="boton-ver-ventas">Ver Usuario</button>
+              <button className="boton-ver-ventas">
+                <a href="/ListadoUsuarios">Ver Usuarios</a>
+              </button>
               <button className="boton-nueva-venta">Nuevo Usuario</button>
               {/* <!-- boton X eliminado --> */}
               <button id="cerrar" className="cerrar-pop-venta"></button>
