@@ -1,24 +1,43 @@
 import Header from "components/Header";
 import Paginador from "components/Paginador";
 import React, { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useHistory } from "react-router";
+import { getAuth } from "firebase/auth";
 // import { obtenerProductos } from "../utils/api";
 
 
 const ListadoProductos = () => {
+
+  const auth = getAuth();
+  const [user, loading, error] = useAuthState(auth);
+  const history = useHistory();
 
   const [listaProductos, setListaProductos] = useState([]);
 
   const url = "http://localhost:3030/productos"
 
   useEffect(()=>{
-    const fetchData = async () =>{
-      await fetch(`${url}`)
-      .then(response => response.json())
-      .then(json => setListaProductos(json))
-      .catch(error => console.log(error))
+    if (!user) {
+      return history.replace("/");
     }
-    fetchData()
-  }, [])
+    user.getIdToken(true).then(token => {
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const fetchData = async () =>{
+        await fetch(`${url}`, requestOptions)
+        .then(response => response.json())
+        .then(json => setListaProductos(json))
+        .catch(error => console.log(error))
+      }
+      fetchData()
+    });
+  }, []);
 
   return (
     <div>

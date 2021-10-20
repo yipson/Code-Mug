@@ -30,7 +30,7 @@ function Login() {
       // maybe trigger a loading screen
       return;
     }
-    if (user) { history.replace("/users"); }
+    if (user) { history.replace("/ListadoProductos"); }
   }, [user, loading]);
   
 

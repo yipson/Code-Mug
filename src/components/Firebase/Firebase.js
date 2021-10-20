@@ -18,7 +18,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebaseconst
-app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 const googleProvider = new GoogleAuthProvider();
@@ -53,6 +53,7 @@ const signInEmailAndPassword = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
+      console.log(user);
       //const token = userCredential.accessToken;
       // The signed-in user info.
       //localStorage.setItem('user', JSON.stringify(user));

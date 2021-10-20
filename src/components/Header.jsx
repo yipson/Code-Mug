@@ -1,4 +1,5 @@
 import React from "react";
+import {logout} from "./Firebase/Firebase";
 
 const Header = () => {
   return (
@@ -15,8 +16,8 @@ const Header = () => {
             <button className="button-ventas button-g">Ventas</button>
           </a>
           <a href="/">
-            <button className="button_logout button-g">
-              <a href="/Index">Logout</a>
+            <button className="button_logout button-g" onClick={logout}>
+              Logout
             </button>
           </a>
         </ul>
