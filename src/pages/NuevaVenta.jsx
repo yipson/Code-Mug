@@ -5,13 +5,15 @@ import axios from "axios";
 import { popup } from "../js/popup";
 
 const NuevaVenta = () => {
+  // useStates
   const [ventas, setVentas] = useState("");
   const [listaVentas, setListaVentas] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const dataForm = useRef("null");
 
-  const url = "http://localhost:3030/ventas";
 
+// conexion bd
+  const url = "http://localhost:3030/ventas";
   useEffect(() => {
     const fetchData = async () => {
       await axios(`${url}`)
@@ -24,18 +26,21 @@ const NuevaVenta = () => {
     fetchData();
   }, []);
 
+
+  // onSubmit funcion 
   const enviarFormulario = async (e) => {
     e.preventDefault();
     const datos = new FormData(dataForm.current);
     console.log(datos);
   };
 
+
+  // buscardor div
   const buscadorDiv = (e) => {
     setBusqueda(e.target.value);
     filtrar(e.target.value);
     console.log("busqueda: " + e.target.value);
   };
-
   const filtrar = (terminoBusqueda) => {
     let ResultadoBusqueda = listaVentas.filter((elemento) => {
       if (
@@ -49,26 +54,9 @@ const NuevaVenta = () => {
       }
     });
     setVentas(ResultadoBusqueda);
-  };;
+  };
 
-  const RepetidorTabla = ({
-    productos,
-    productoSeleccionado,
-    setProductoSeleccionado,
-    filasTabla,
-    setFilasTabla,
-    setProductos,
-  }) => {
-    const agregarNuevoProducto = () => {
-      setFilasTabla([...filasTabla, productoSeleccionado]);
-      setProductos(productos.filter((el) => el !== productoSeleccionado));
-      setProductoSeleccionado("");
-    };
-
-    const deleteFila = (v) => {
-      setFilasTabla(filasTabla.filter((el) => el !== v));
-      setProductos([...productos, v]);
-    };
+  //agregar ventas
 
   return (
     <div>
@@ -203,46 +191,6 @@ const NuevaVenta = () => {
                       placeholder="Digite cantidad"
                     ></input>
                   </td>
-                  <td>
-                    <select
-                      className="estilizar"
-                      value={productoSeleccionado._id ?? ""}
-                    >
-                      <option disabled value="">
-                        Seleccione un Producto
-                      </option>
-                      {productos
-                        .filter((el) => !filasTabla.includes(el._id))
-                        .map((el) => {
-                          return (
-                            <option
-                              value={el._id}
-                            >{`${el.nombre} ${el.precio}`}</option>
-                          );
-                        })}
-                    </select>
-                  </td>
-                  <td>
-                    <input type="text" />
-                  </td>
-                  <td>
-                    <input type="text" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    {" "}
-                    <input />
-                  </td>
-                  <td>
-                    <input type="text" />
-                  </td>
-                  <td>
-                    <input type="text" />
-                  </td>
-                  <td>
-                    <input type="text" />
-                  </td>
                 </tr>
                 {/* seccion total y subtotal */}
               </tbody>
@@ -262,10 +210,13 @@ const NuevaVenta = () => {
       <Paginador />
     </div>
   );
-                      }
-                    }
+      }
+
 
   export default NuevaVenta;
+
+
+  
   // const FilaVehiculo = ({ cantidad, productoSeleccionado, deleteFila }) => {
   //   return (
   //     <tr>
