@@ -1,11 +1,7 @@
-import { 
-  BrowserRouter as Router, 
-  Switch, 
-  Route 
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Login from 'components/Login/Login';
-import Register from 'components/Register/Register';
+import Login from "components/Login/Login";
+import Register from "components/Register/Register";
 import NuevaVenta from "pages/NuevaVenta";
 import ActualizarProducto from "pages/ActualizarProducto";
 import ActualizarUsuario from "pages/ActualizarUsuario";
@@ -19,16 +15,14 @@ import { NuevoProducto } from "pages/NuevoProducto";
 
 import "styles/styles.css";
 
-
-
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/registro">
+        <Route path="/register">
           <Register />
         </Route>
-          
+
         <Route path="/NuevaVenta">
           <NuevaVenta />
         </Route>

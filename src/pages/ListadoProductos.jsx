@@ -4,12 +4,16 @@ import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { getAuth } from "firebase/auth";
+
 // import { obtenerProductos } from "../utils/api";
 
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 // import axios from "axios";
+
+const BASE_URL = process.env.REACT_APP_API_URL;
+const PATH_PRODUCTOS = "productos";
 
 const ListadoProductos = () => {
   const auth = getAuth();
@@ -108,8 +112,8 @@ const ListadoProductos = () => {
         },
       };
       const fetchData = async () => {
-        await axios(`${url}`, requestOptions)
-          .then(response => {
+        await axios(`${BASE_URL}${PATH_PRODUCTOS}`, requestOptions)
+          .then((response) => {
             setProductos(response.data);
             setListaProductos(response.data);
           })
