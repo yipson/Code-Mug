@@ -36,6 +36,13 @@ function Login() {
 
   return (
     <Container>
+      <div className="izquierda">
+        <h1 className="texto-izquierda">Code Mug</h1>
+        <h2 className="sub-texto-izquierda">
+          "Ofrecemos el mejor servicio, variedad, calidad 
+          y valor en nuestros productos"
+        </h2>
+      </div>
         <FormGroup>
           <label>
             Email:
@@ -59,35 +66,37 @@ function Login() {
             name="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
             value={password}
             required
           />
+         <ListGroup>
+          <ListGroupItem tag="a" href="/reset">Olvide mi clave</ListGroupItem>
+          <ListGroupItem tag="a" href="/register">Crea tu cuenta</ListGroupItem>
+        </ListGroup>
         </FormGroup>
-
-        <ButtonGroup>
-          <Button
-            color="primary"
-            type="submit"
-            onClick={() => signInEmailAndPassword(email, password)}
-          >
-            Login
-          </Button>
-
-          <Button
-            color="danger"
-            onClick={signInWithGoogle}
-          >
-            Login con Google
-          </Button>
-        </ButtonGroup>
-
+            <div className="botones">
+              <ButtonGroup>
+                <Button
+                  color="primary"
+                  type="submit"
+                  onClick={() => signInEmailAndPassword(email, password)}
+                >
+                  Login
+                </Button>
+                <div className="or"><p>or</p></div>
+                <Button
+                  color="danger"
+                  onClick={signInWithGoogle}
+                >
+                  Login con Google
+                </Button>
+              </ButtonGroup>
+          </div>
 
       <br />
 
-      <ListGroup>
-        <ListGroupItem tag="a" href="/reset">Olvide mi clave</ListGroupItem>
-        <ListGroupItem tag="a" href="/register">Crea tu cuenta</ListGroupItem>
-      </ListGroup>
+      
 
     </Container>
   );
