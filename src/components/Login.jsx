@@ -1,5 +1,4 @@
 import React from "react";
-import GoogleLogin from "react-google-login";
 import loginEnter from "components/Login";
 
 export const Login = () => {
@@ -27,34 +26,48 @@ export const Login = () => {
               <div className="derecha-form">
                 <div className="forma">
                   <form className="from">
-
                     <label className="simbolos-login">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder={"Email or Username"} required />
+                      <i class="fas fa-envelope"></i>
+                      <input
+                        type="email"
+                        placeholder={"Email or Username"}
+                        required
+                      />
                     </label>
 
                     <div className="linea"></div>
 
                     <label className="simbolos-login">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder={"Password"} required />
+                      <i class="fas fa-lock"></i>
+                      <input
+                        type="password"
+                        placeholder={"Password"}
+                        required
+                      />
                     </label>
 
                     <div className="linea"></div>
 
                     <div className="remember-and-forgot">
                       <div className="checkbox2">
-                        <input type="checkbox" name={"checkbox2"} id={"checkbox2"} />
-                        <label htmlForm="checkbox2" className="checkbox2-text">Remember Username</label>
+                        <input
+                          type="checkbox"
+                          name={"checkbox2"}
+                          id={"checkbox2"}
+                        />
+                        <label htmlForm="checkbox2" className="checkbox2-text">
+                          Remember Username
+                        </label>
                       </div>
 
                       <div className="enlace">
                         <button className="button">
                           <a href="hipervinculo.html" className="x enlace">
-                          &lsaquo; Forgot your Password ?</a>
+                            &lsaquo; Forgot your Password ?
+                          </a>
                         </button>
                       </div>
-                   </div>
+                    </div>
                   </form>
                 </div>
 
@@ -62,16 +75,17 @@ export const Login = () => {
                   <button onClick={loginEnter} className="botonLogin">
                     <a href="/LIstadoVentas"> login</a>
                   </button>
-                  <div className="or"><p>or</p></div>
-                  <div class="button-google" >
-                    <GoogleLogin
-                      
+                  <div className="or">
+                    <p>or</p>
+                  </div>
+                  <div class="button-google">
+                    {/* <GoogleLogin
                       clientId="451355320708-5s48t28g525l19p64jhu0m08jhginp5s.apps.googleusercontent.com"
                       buttonText="continue with Google"
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}
                       cookiePolicy={"single_host_origin"}
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>
