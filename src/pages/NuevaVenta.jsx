@@ -1,273 +1,282 @@
 import Header from "components/Header";
-import Paginador from "components/Paginador";
 import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
 import { popup } from "../js/popup";
+import { nanoid } from "nanoid";
+import { crearVenta } from "utils/api";
+import { obtenerProductos } from "utils/api";
 
-const NuevaVenta = () => {
-  // useStates
-  const [ventas, setVentas] = useState("");
-  const [listaVentas, setListaVentas] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
-  const dataForm = useRef("null");
+const Ventas = () => {
+  const form = useRef(null);
 
+  const [productos, setproductos] = useState([]);
+  const [productosTabla, setproductosTabla] = useState([]);
 
-// conexion bd
-  const url = "http://localhost:3030/ventas";
+  const [formVenta, setformVenta] = useState({
+    cliente: "",
+    vendedor: "",
+    fecha: "",
+  });
+
   useEffect(() => {
-    const fetchData = async () => {
-      await axios(`${url}`)
-        .then((response) => {
-          setVentas(response.data);
-          setListaVentas(response.data);
-        })
-        .catch((error) => console.log(error));
+    const fetchProductos = async () => {
+      await obtenerProductos(
+        (response) => {
+          setproductos(response.data);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
     };
-    fetchData();
+    fetchProductos();
   }, []);
 
-
-  // onSubmit funcion 
   const enviarFormulario = async (e) => {
     e.preventDefault();
-    const datos = new FormData(dataForm.current);
-    console.log(datos);
-  };
+    const fd = new FormData(form.current);
 
-
-  // buscardor div
-  const buscadorDiv = (e) => {
-    setBusqueda(e.target.value);
-    filtrar(e.target.value);
-    console.log("busqueda: " + e.target.value);
-  };
-  const filtrar = (terminoBusqueda) => {
-    let ResultadoBusqueda = listaVentas.filter((elemento) => {
-      if (
-        elemento.nombre
-          .toString()
-          .toLowerCase()
-          .includes(terminoBusqueda.toLowerCase()) ||
-        elemento._id.includes(terminoBusqueda)
-      ) {
-        return elemento;
-      }
+    const formData = {};
+    fd.forEach((value, key) => {
+      formData[key] = value;
     });
-    setVentas(ResultadoBusqueda);
+
+    // console.log("form data", formData);
+
+    const listaProductos = [
+      Object.keys(formData)
+        .map((k) => {
+          if (k.includes("Producto")) {
+            return productosTabla.filter((v) => v._id === formData[k])[0];
+          }
+          return null;
+        })
+        .filter((v) => v),
+    ];
+
+    const datosVenta = {
+      // datosVenta: formVenta,
+      fecha: formVenta.fecha,
+      vendedor: formVenta.vendedor,
+      cliente: formVenta.cliente,
+      total: formData.valor,
+      productos: listaProductos,
+    };
+
+    console.log("datosVenta", datosVenta);
+
+    await crearVenta(
+      datosVenta,
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   };
 
-  //agregar ventas
+  const Inputdatos = (e) => {
+    setformVenta({
+      ...formVenta,
+      [e.target.name]: e.target.value,
+    });
+    // console.log(e.target.value);
+  };
 
   return (
     <div>
       <Header />
-      <body className="ventas">
-        <form ref={dataForm} onSubmit={enviarFormulario}>
-          <div className="info">
-            <div className="titulo-contenedor">
-              {/* <div className="nueva-venta-div"> */}
-              <h1>NUEVA VENTA</h1>
-              <button
-                onClick={popup}
-                id="open"
-                className="boton-venta button-g"
-              >
-                Guardar
-              </button>
-            </div>
-            {/* <div className="contenedor-busqueda">
-            <p className="text-buscar">Buscar:</p> */}
-            {/* <div className="select">
-              <select>
-                <option value="" selected disabled>
-                  Buscar por:
-                </option>
-                <option value="">Id</option>
-                <option value="">Descripcion</option>
-              </select>
-            </div> */}
-            {/* <input type="text" value={busqueda} onChange={buscadorDiv} />
-          </div> */}
-            <div id="contenedorpopup" className="contenedor-pop">
-              <div className="popup">
-                <h1>
-                  Venta Agregada{" "}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="icon icon-tabler icon-tabler-checks"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#2c3e50"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M7 12l5 5l10 -10" />
-                    <path d="M2 12l5 5m5 -5l5 -5" />
-                  </svg>
-                </h1>
-                <button className="boton-ver-ventas">
-                  <a href="/ListadoVentas">Ver Ventas</a>
-                </button>
-                <button className="boton-nueva-venta">Nueva Venta</button>
-                {/* <!-- boton X eliminado --> */}
-                <button id="cerrar" className="cerrar-pop-venta"></button>
-              </div>
-              {/* </div> */}
-            </div>
-            <div>
-              {/* Seccion info cliente */}
-              <form cellspacing="6">
-                <div className="controls">
-                  <label>
-                    <span>Cliente</span>
-                    <input
-                      className="estilizar"
-                      type="text"
-                      name="clienteNombre"
-                    />
-                  </label>
-                  <label>
-                    <span>Direccion</span>
-                    <input
-                      className="estilizar"
-                      type="text"
-                      name="clienteDireccion"
-                    />
-                  </label>
-                  <label>
-                    <span>Contacto</span>
-                    <input
-                      className="estilizar"
-                      type="text"
-                      name="clienteContacto"
-                    />
-                  </label>
-                </div>
-              </form>
-            </div>
-          </div>
+      <form ref={form} onSubmit={enviarFormulario}>
+        <h1>Crear una nueva venta</h1>
 
-          {/* seccion tabla */}
-          <section className="section-ventas">
-            <table className="ventas">
-              <thead>
-                <tr>
-                  <th scope="row">Cantidad</th>
-                  <th>Descripcion</th>
-                  <th>Precio</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
+        {/* form cliente */}
+        <div>
+          <input
+            type="date"
+            placeholder="Fecha"
+            required
+            name="fecha"
+            onChange={Inputdatos}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Nombre Cliente"
+            required
+            name="cliente"
+            onChange={Inputdatos}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Nombre Vendedor"
+            required
+            name="vendedor"
+            onChange={Inputdatos}
+          />
+        </div>
 
-              <tbody>
-                {/* <form cellspacing="6" ref={dataForm} onSubmit={enviarFormulario}> */}
-                {/* <tr>
-                  <td className="separacion">
-                    <input type="num" placeholder="Cantidad" />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      value={busqueda}
-                      onChange={buscadorDiv}
-                      placeholder="Buscar"
-                    />
-                  </td>
+        <TablaProductos
+          productos={productos}
+          setproductos={setproductos}
+          setproductosTabla={setproductosTabla}
+        />
 
-                  <td></td>
-                  <td></td>
-                </tr> */}
-                <tr>
-                  <td>
-                    <input
-                      className="estilizar"
-                      type="number"
-                      name="cantidad"
-                      required="required"
-                      placeholder="Digite cantidad"
-                    ></input>
-                  </td>
-                </tr>
-                {/* seccion total y subtotal */}
-              </tbody>
-
-              <tfoot className="alinear">
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td>Total:</td>
-                </tr>
-              </tfoot>
-            </table>
-          </section>
-        </form>
-      </body>
-      <script src="js/popup.js"></script>
-      <Paginador />
+        <label>
+          <span>Valor Total Venta</span>
+          <input type="number" name="valor" required />
+        </label>
+        <button type="submit">Crear Venta</button>
+      </form>
     </div>
   );
-      }
+};
 
+const TablaProductos = ({ productos, setproductos, setproductosTabla }) => {
+  const [productoAAgregar, setproductoAAgregar] = useState({});
+  const [filasTabla, setFilasTabla] = useState([]);
 
-  export default NuevaVenta;
+  useEffect(() => {
+    setproductosTabla(filasTabla);
+  }, [filasTabla, setproductosTabla]);
 
+  const AgregarNuevoProducto = () => {
+    setFilasTabla([...filasTabla, productoAAgregar]);
+    setproductos(productos.filter((v) => v._id !== productoAAgregar._id));
+    setproductoAAgregar({});
+  };
 
-  
-  // const FilaVehiculo = ({ cantidad, productoSeleccionado, deleteFila }) => {
-  //   return (
-  //     <tr>
-  //       <td>{productoSeleccionado._id.slice(20) ?? ""}</td>
-  //       <td>{productoSeleccionado.nombre ?? ""}</td>
-  //       <td>{productoSeleccionado.precio ?? ""}</td>
-  //       <td> className='fas fa-minus cursor-pointer hover:text-red-500'</td>
-  //       <td className="hidden">
-  //         <input hidden defaultValue={productoSeleccionado._id} name={nombre} />
-  //       </td>
-  //     </tr>
-  //   );
-  // };
+  const eliminarProducto = (productoAEliminar) => {
+    setFilasTabla(filasTabla.filter((v) => v._id !== productoAEliminar._id));
+    setproductos([...productos, productoAEliminar]);
+  };
 
-  /* <div className="section-ventas nueva-venta-tabla ">
-                  <table className="ventas ">
-                    <thead>
-                      <tr>
-                        <th scope="row">Cantidad</th>
-                        <th>Descripcion</th>
-                        <th>Precio</th>
-                        <th>Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>123412</td>
-                        <td>
-                          <selection>
-                            <select name="Descripcion">
-                              <option>"1"</option>
+  const modificarProducto = (producto, cantidad) => {
+    setFilasTabla(
+      filasTabla.map((ft) => {
+        if (ft._id === producto.id) {
+          ft.cantidad = cantidad;
+          ft.total = producto.valor * cantidad;
+        }
+        return ft;
+      })
+    );
+  };
 
-                              <option>"2"</option>
+  return (
+    <div>
+      <div>
+        <label htmlFor="producto">
+          <select
+            className="p-2"
+            value={productoAAgregar._id ?? ""}
+            onChange={(e) =>
+              setproductoAAgregar(
+                productos.filter((v) => v._id === e.target.value)[0]
+              )
+            }
+          >
+            <option disabled value="">
+              Seleccione un Articulo
+            </option>
+            {productos.map((el) => {
+              return (
+                <option
+                  key={nanoid()}
+                  value={el._id}
+                >{`${el.nombre} ${el.precio}`}</option>
+              );
+            })}
+          </select>
+        </label>
+        <button type="button" onClick={() => AgregarNuevoProducto()}>
+          Agregar Producto
+        </button>
+      </div>
+      <table className="tabla">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Valor Unitario</th>
+            <th>Cantidad</th>
+            <th className="hidden">Input</th>
+            <th>Total</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filasTabla.map((el, index) => {
+            return (
+              <FilaProducto
+                key={el._id}
+                veh={el}
+                index={index}
+                eliminarProducto={eliminarProducto}
+                modificarProducto={modificarProducto}
+              />
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-                              <option>"3"</option>
-                            </select>
-                          </selection>
-                        </td>
+const FilaProducto = ({ veh, index, eliminarProducto, modificarProducto }) => {
+  const [producto, setproducto] = useState(veh);
+  useEffect(() => {
+    console.log("veh", producto);
+  }, [producto]);
+  return (
+    <>
+      <tr>
+        <td>{producto._id}</td>
+        <td>{producto.nombre}</td>
+        <td>{producto.precio}</td>
+        <td>
+          <label htmlFor={`valor_${index}`}>
+            <input
+              type="number"
+              name={`cantidad_${index}`}
+              value={producto.cantidad}
+              onChange={(e) => {
+                // console.log(producto, e.target.value === '' ? '0' : e.target.value);
+                modificarProducto(
+                  producto,
+                  e.target.value === "" ? "0" : e.target.value
+                );
+                setproducto({
+                  ...producto,
+                  cantidad: e.target.value === "" ? "0" : e.target.value,
+                  total:
+                    parseFloat(producto.precio) *
+                    parseFloat(e.target.value === "" ? "0" : e.target.value),
+                });
+              }}
+            />
+          </label>
+        </td>
+        <td>{producto.valor}</td>
+        <td>{parseFloat(producto.total ?? 0)}</td>
+        <td>
+          <i
+            onClick={() => eliminarProducto(producto)}
+            className="fas fa-minus text-red-500 cursor-pointer"
+          />
+        </td>
+        <td className="hidden">
+          <input
+            hidden
+            defaultValue={producto._id}
+            name={`Producto_${index}`}
+          />
+        </td>
+      </tr>
+    </>
+  );
+};
 
-                        <td>Price</td>
-                        <td>Total</td>
-                      </tr>
-                    </tbody>
-                    <tfoot className="alinear">
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td>Total:</td>
-                        <td>Sub-Total</td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div> */
-
+export default Ventas;

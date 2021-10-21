@@ -68,8 +68,9 @@ export const crearVenta = async (data, successCallback, errorCallback) => {
   const options = {
     method: "POST",
     url: "http://localhost:3030/ventas",
-    headers: { "Content-Type": "application/json", Authorization: getToken() },
-    data,
+    headers: { "Content-Type": "application/json" },
+    data: data,
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
+// Authorization: getToken();

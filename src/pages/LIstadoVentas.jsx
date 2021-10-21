@@ -8,7 +8,7 @@ import axios from "axios";
 const ListadoVentas = () => {
   const [listaVentas, setListaVentas] = useState([]);
   const [ventas, setVentas] = useState([]);
-  const [busqueda, setBusqueda] = useState("")
+  const [busqueda, setBusqueda] = useState("");
 
   const url = "http://localhost:3030/ventas";
 

@@ -11,7 +11,7 @@ const Header = () => {
           <a href="/">
             <button className="button-ventas button-g">Vendedores</button>
           </a>
-          <a href="/">
+          <a href="/ListadoVentas">
             <button className="button-ventas button-g">Ventas</button>
           </a>
           <a href="/">
