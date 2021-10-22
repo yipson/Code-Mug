@@ -11,10 +11,10 @@ import popup from "js/popup";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-// import axios from "axios";
+
 
 const BASE_URL = process.env.REACT_APP_API_URL;
-const PATH_PRODUCTOS = "productos";
+const PATH_PRODUCTOS = "productos/";
 
 const ListadoProductos = () => {
   const auth = getAuth();
@@ -25,11 +25,10 @@ const ListadoProductos = () => {
   const [listaProductos, setListaProductos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
-  const url = "http://localhost:3030/productos";
+  // const url = "http://localhost:3030/productos";
 
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
-  // const [modalInsertar, setModalInsertar] = useState(false);
 
   const [productoSeleccionado, setProductoSeleccionado] = useState({
     // id: '',
@@ -50,12 +49,18 @@ const ListadoProductos = () => {
     }));
   };
   const envioDatosActualizados = async (producto) => {
+
+    const url = BASE_URL + PATH_PRODUCTOS + producto._id
+
     const options = {
       method: "PUT", //put
-      url: "http://localhost:3030/productos/" + producto._id,
+      url:url,
+      // url: "http://localhost:3030/productos/" + producto._id,
+      // url: `${BASE_URL}${PATH_PRODUCTOS}${producto._id}`,
       headers: { "Content-Type": "application/json" },
       data: { nombre: producto.nombre, precio: producto.precio },
     };
+    
     await axios //
       .request(options)
       .then(function (response) {

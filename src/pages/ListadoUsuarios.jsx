@@ -12,11 +12,17 @@ export const ListadoUsuarios = () => {
   const [mostarEditar, setMostarEditar] = useState(false);
   const [listaUsuarios, setListaUsuarios] = useState([]);
   const [busqueda, setBusqueda] = useState("");
-  const url = "http://localhost:3030/usuarios";
+
+  // const url = "http://localhost:3030/usuarios";
+ 
+  
+
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
  
-
+  const BASE_URL = process.env.REACT_APP_API_URL;
+  const PATH_USUARIOS = "usuarios/";
+  
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState({
     email: "",
     estado: "",
@@ -42,7 +48,7 @@ export const ListadoUsuarios = () => {
   // Cargar datos del backend
   useEffect(() => {
     const fetchData = async () => {
-      await axios(`${url}`)
+      await axios(`${BASE_URL}${PATH_USUARIOS}`)
         .then((response) => {
           setUsuarios(response.data);
           setListaUsuarios(response.data);
@@ -75,9 +81,13 @@ export const ListadoUsuarios = () => {
   };
 
   const envioDatosActualizados = async (usuario) => {
+
+    const url = BASE_URL + PATH_USUARIOS + usuario._id
+
     const options = {
       method: "PUT", //put
-      url: "http://localhost:3030/usuarios/" + usuario._id,
+      url:url,
+      // url: "http://localhost:3030/usuarios/" + usuario._id,
       headers: { "Content-Type": "application/json" },
       data: {
         email: usuario.email,
@@ -164,7 +174,6 @@ export const ListadoUsuarios = () => {
                     <td>{dato.email}</td>
                     <td>{dato.rol}</td>
                     <td>{dato.estado}</td>
-                    {console.log(dato)}
                     <td>
                       <button
                         className="btn btn-primary boton-editar"
