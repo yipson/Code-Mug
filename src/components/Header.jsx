@@ -9,9 +9,9 @@ const Header = () => {
           <a href="/ListadoUsuarios">
             <button className="button-ventas button-g">Usuarios</button>
           </a>
-          {/* <a href="/">
-            <button className="button-ventas button-g">Vendedores</button>
-          </a> */}
+          <a href="/ListadoProductos">
+            <button className="button-ventas button-g">Productos</button>
+          </a>
           <a href="/ListadoVentas">
             <button className="button-ventas button-g">Ventas</button>
           </a>
