@@ -1,13 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import {
-//   Button,
-//   Container,
-//   Form,
-//   FormGroup,
-//   ButtonGroup,
-//   ListGroup,
-//   ListGroupItem
-// } from "reactstrap";
 import {
   auth,
   signInEmailAndPassword,
@@ -109,11 +100,6 @@ function Login() {
                         
 
                       {/* </FormGroup> */}
-
-                      {/* <ListGroup> */}
-                        {/* <ListGroupItem tag="a" href="/reset">Olvide mi clave</ListGroupItem> */}
-                        {/* <ListGroupItem tag="a" href="/register">Crea tu cuenta</ListGroupItem> */}
-                      {/* </ListGroup> */}
 
                       <div className="botones">
                         {/* <ButtonGroup className="botones"> */}

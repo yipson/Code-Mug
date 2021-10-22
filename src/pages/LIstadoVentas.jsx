@@ -1,5 +1,4 @@
 import Header from "components/Header";
-import Paginador from "components/Paginador";
 import React, { useState, useEffect } from "react";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,27 +8,28 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { getAuth } from "firebase/auth";
 
+// const url conexion
   const BASE_URL = process.env.REACT_APP_API_URL;
   const PATH_USUARIOS = "ventas/";
 
 const ListadoVentas = () => {
+  // auth users
   const auth = getAuth();
   const [user, loading, error] = useAuthState(auth);
   const history = useHistory();
-
+// busqueda e insercion datos tabla
   const [vendedor, setVendedor] = useState([]);
   const [TablaVentas, setTablaVentas] = useState([]);
   const [busqueda, setBusqueda] = useState("");
-
+// busqueda id
   const [ventas, setVentas] = useState([]);
   const [listaVentas, setListaVentas] = useState([]);
 
-  // const url = "http://localhost:3030/ventas";
-
+// modales pop up editar
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
   const [modalInsertar, setModalInsertar] = useState(false);
-
+// info a recibir modales
   const [paisSeleccionado, setPaisSeleccionado] = useState({
     // id: '',
     vendedor: "",
@@ -50,17 +50,19 @@ const ListadoVentas = () => {
   };
 
   const envioDatosActualizados = async (venta) => {
+    const url = BASE_URL + PATH_USUARIOS + venta._id
+
     const options = {
       method: "PUT", //put
-      url: "http://localhost:3030/ventas/" + venta._id,
+      url:url,
       headers: { "Content-Type": "application/json" },
       data: { vendedor: venta.vendedor, total: venta.total },
     };
+
     await axios //
       .request(options)
       .then(function (response) {
         console.log(response.data);
-        //llamar pop-up nuevo producto
         popup();
       })
       .catch(function (error) {
@@ -115,29 +117,7 @@ const ListadoVentas = () => {
     fetchData();
   }, [modalEditar]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await axios(`${url}`)
-  //       .then((response) => {
-  //         setVendedor(response.data); //muestra tabla
-  //         setTablaVentas(response.data); //busqueda
-  //       })
-  //       .catch((error) => console.log(error));
-  //   };
-  //   fetchData();
-  // },[] );
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await axios(`${url}`)
-  //       .then((response) => {
-  //         setVendedor(response.data); //muestra tabla
-  //         setTablaVentas(response.data); //busqueda
-  //       })
-  //       .catch((error) => console.log(error));
-  //   };
-  //   fetchData();
-  // }, [{ modalEditar }]); 
 
   const totalventa = (dato) => {
     let total = 0;
@@ -185,14 +165,6 @@ const ListadoVentas = () => {
           <div className="contenedor-busqueda">
             <h2 className="center"> Buscar</h2>
             <div className="select">
-              {/* <select>
-                <option value="" selected disabled>
-                  Buscar por:
-                </option>
-                <option value="">Id Venta</option>
-                <option value="">Id Cliente</option>
-                <option value="">Cliente</option>
-              </select> */}
             </div>
             <input type="text" value={busqueda} onChange={buscadorDiv} />
           </div>
@@ -241,8 +213,7 @@ const ListadoVentas = () => {
                     </button>{" "}
                     {"   "}
                   </td>
-                  {/* <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button>
-                   </td> */}
+
                 </tr>
               ))}
             </tbody>
@@ -377,180 +348,8 @@ const ListadoVentas = () => {
 
         <script src="js/popup.js"></script>
       </body>
-      <Paginador />
     </>
   );
 };
 
 export default ListadoVentas;
-
-{
-  /* <Modal isOpen={modalEditar}>
-    <ModalHeader>
-      <div>
-        <h3>Editar Venta</h3>
-      </div>
-    </ModalHeader>
-    <ModalBody>
-      <div className="form-group">
-        <label>ID</label>
-        <input
-          className="form-control"
-          readOnly
-          type="text"
-          name="id"
-          value={ventaSeleccionada._id}
-        />
-        <br />
-
-        <label>Fecha</label>
-        <input
-          className="form-control"
-          type="text"
-          name="fecha"
-          value={ventaSeleccionada && ventaSeleccionada.fecha}
-          onChange={handleChange}
-        />
-        <br />
-
-        <label>Vendedor</label>
-        <input
-          className="form-control"
-          type="text"
-          name="vendedor"
-          value={ventaSeleccionada && ventaSeleccionada.vendedor}
-          onChange={handleChange}
-        />
-        <br />
-
-        <label>Cliente</label>
-        <input
-          className="form-control"
-          type="text"
-          name="cliente"
-          value={ventaSeleccionada && ventaSeleccionada.cliente}
-          onChange={handleChange}
-        />
-        <br />
-
-        <label>Producto</label>
-        <input
-          className="form-control"
-          type="text"
-          name="producto"
-          value={ventaSeleccionada && ventaSeleccionada.producto}
-          onChange={handleChange}
-        />
-        <br />
-      </div>
-    </ModalBody>
-    <ModalFooter>
-      <button
-        className="btn btn-primary"
-        onClick={() => editar(ventaSeleccionada)}
-      >
-        Actualizar
-      </button>
-      <button
-        className="btn btn-danger"
-        onClick={() => setModalEditar(false)}
-      >
-        Cancelar
-      </button>
-    </ModalFooter>
-  </Modal>
-
-  <Modal isOpen={modalEliminar}>
-    <ModalBody>
-      Estás Seguro que deseas eliminar la venta{" "}
-      {ventaSeleccionada && ventaSeleccionada.vendedor}
-    </ModalBody>
-    <ModalFooter>
-      <button className="btn btn-danger" onClick={() => eliminar()}>
-        Sí
-      </button>
-      <button
-        className="btn btn-secondary"
-        onClick={() => setModalEliminar(false)}
-      >
-        No
-      </button>
-    </ModalFooter>
-  </Modal>
-
-  <Modal isOpen={modalInsertar}>
-    <ModalHeader>
-      <div>
-        <h3>Insertar Venta</h3>
-      </div>
-    </ModalHeader>
-    <ModalBody>
-      <div className="form-group">
-        <label>ID</label>
-        <input
-          className="form-control"
-          readOnly
-          type="text"
-          name="id"
-        />
-        <br />
-
-        <label>Fecha</label>
-        <input
-          className="form-control"
-          type="text"
-          name="fecha"
-          value={ventaSeleccionada ? ventaSeleccionada.fecha : ""}
-          onChange={handleChange}
-        />
-        <br />
-
-        <label>Vendedor</label>
-        <input
-          className="form-control"
-          type="text"
-          name="vendedor"
-          value={ventaSeleccionada ? ventaSeleccionada.vendedor : ""}
-          onChange={handleChange}
-        />
-        <br />
-
-        <label>Cliente</label>
-        <input
-          className="form-control"
-          type="text"
-          name="cliente"
-          value={ventaSeleccionada ? ventaSeleccionada.cliente : ""}
-          onChange={handleChange}
-        />
-        <br />
-
-        <label>Producto</label>
-        <input
-          className="form-control"
-          type="text"
-          name="producto"
-          value={ventaSeleccionada ? ventaSeleccionada.producto : ""}
-          onChange={handleChange}
-        />
-        <br />
-      </div>
-    </ModalBody>
-    <ModalFooter>
-      <button className="btn btn-primary" onClick={() => insertar()}>
-        Insertar
-      </button>
-      <button
-        className="btn btn-danger"
-        onClick={() => setModalInsertar(false)}
-      >
-        Cancelar
-      </button>
-    </ModalFooter>
-  </Modal>
-</section> */
-}
-{
-  /* <!-- Estados de las ventas: -->
-<!-- Creacion, embalaje, despacho, ruta, ubicacion, recepcion --> */
-}

@@ -13,9 +13,6 @@ export const ListadoUsuarios = () => {
   const [listaUsuarios, setListaUsuarios] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
-  // const url = "http://localhost:3030/usuarios";
- 
-  
 
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
@@ -87,7 +84,7 @@ export const ListadoUsuarios = () => {
     const options = {
       method: "PUT", //put
       url:url,
-      // url: "http://localhost:3030/usuarios/" + usuario._id,
+
       headers: { "Content-Type": "application/json" },
       data: {
         email: usuario.email,
@@ -144,13 +141,8 @@ export const ListadoUsuarios = () => {
           </div>
         </div>
 
-        {/* <section className="section-ventas">
-          <table className="ventas"> */}
-
         <div>
-          {/* <h1>LISTA DE USUARIOS </h1> */}
-          {/* ( <div className="titulo-contenedor"> */}
-          {/* </div> */}
+
           <section>
             <table className="table table-bordered">
               <thead>

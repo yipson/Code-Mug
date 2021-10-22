@@ -79,13 +79,7 @@ export const Login = () => {
                     <p>or</p>
                   </div>
                   <div class="button-google">
-                    {/* <GoogleLogin
-                      clientId="451355320708-5s48t28g525l19p64jhu0m08jhginp5s.apps.googleusercontent.com"
-                      buttonText="continue with Google"
-                      onSuccess={responseGoogle}
-                      onFailure={responseGoogle}
-                      cookiePolicy={"single_host_origin"}
-                    /> */}
+
                   </div>
                 </div>
               </div>

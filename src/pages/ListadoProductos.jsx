@@ -1,5 +1,4 @@
 import Header from "components/Header";
-import Paginador from "components/Paginador";
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
@@ -25,7 +24,7 @@ const ListadoProductos = () => {
   const [listaProductos, setListaProductos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
-  // const url = "http://localhost:3030/productos";
+
 
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
@@ -55,8 +54,6 @@ const ListadoProductos = () => {
     const options = {
       method: "PUT", //put
       url:url,
-      // url: "http://localhost:3030/productos/" + producto._id,
-      // url: `${BASE_URL}${PATH_PRODUCTOS}${producto._id}`,
       headers: { "Content-Type": "application/json" },
       data: { nombre: producto.nombre, precio: producto.precio },
     };
@@ -272,7 +269,6 @@ const ListadoProductos = () => {
         </div>
         <script src="js/popup.js"></script>
       </body>
-      <Paginador />
     </div>
   );
 };

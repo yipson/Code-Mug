@@ -1,5 +1,4 @@
 import Header from "components/Header";
-import Paginador from "components/Paginador";
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { popup } from "../js/popup";
@@ -46,21 +45,6 @@ export const NuevoProducto = () => {
 
     setMostrarTabla(true);
   };
-
-  // await crearProducto(
-  //   {
-  //     nombre: nuevoProducto.nombre,
-  //     precio: nuevoProducto.precio,
-  //   },
-  //   (response) => {
-  //     console.log(response.data);
-  //     //llamar al pop-up de nuevo producto **
-  //   },
-  //   (error) => {
-  //     console.error(error);
-  //     //llamar al pop-up de error nuevo producto
-  //   }
-  // );
 
   return (
     <div>
@@ -126,34 +110,10 @@ export const NuevoProducto = () => {
               <button id="cerrar" className="cerrar-pop-venta"></button>
             </div>
           </div>
-          {/* <section className="section-ventas">
-            <table className="ventas">
-              <thead>
-                <tr>
-                  <th> Id </th>
-                  <th>Descripcion</th>
-                  <th>Precio</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {productos.map((producto) => {
-                  return (
-                    <tr>
-                      <td>{producto.id}</td>
-                      <td>{producto.nombre}</td>
-                      <td>{producto.precio}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-
-              <tfoot className="alinear"></tfoot>
-            </table>
-          </section> */}
+        
         </div>
       </body>
-      <Paginador />
+
     </div>
   );
 };
