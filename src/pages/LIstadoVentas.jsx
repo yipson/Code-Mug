@@ -50,7 +50,6 @@ const ListadoVentas = () => {
       url: "http://localhost:3030/ventas/" + venta._id,
       headers: { "Content-Type": "application/json" },
       data: { vendedor: venta.vendedor, total: venta.total },
-      
     };
 
     await axios //
@@ -63,7 +62,7 @@ const ListadoVentas = () => {
         console.error(error);
         //lamar pop-up error nuevo producto
       });
-      setModalEditar(false);
+    setModalEditar(false);
   };
 
   const editar = (productoSeleccionado) => {
@@ -120,7 +119,7 @@ const ListadoVentas = () => {
         .catch((error) => console.log(error));
     };
     fetchData();
-  }, [{modalEditar}]);
+  }, [{ modalEditar }]);
 
   const totalventa = (dato) => {
     let total = 0;
@@ -209,7 +208,7 @@ const ListadoVentas = () => {
             <tbody>
               {vendedor.map((dato, id) => (
                 <tr key={dato._id}>
-                  <td> {id + 1} </td>
+                  <td> {dato._id} </td>
                   <td>{dato.fecha}</td>
                   <td>{dato.vendedor}</td>
                   <td>$ {dato.total} </td>
@@ -274,14 +273,16 @@ const ListadoVentas = () => {
             <ModalFooter>
               <button
                 className="btn btn-primary"
-                onClick={() => envioDatosActualizados(paisSeleccionado)}>
+                onClick={() => envioDatosActualizados(paisSeleccionado)}
+              >
                 Actualizar
               </button>
 
               <button
                 className="btn btn-danger"
                 onClick={() => setModalEditar(false)}
-              >Cancelar
+              >
+                Cancelar
               </button>
             </ModalFooter>
           </Modal>
