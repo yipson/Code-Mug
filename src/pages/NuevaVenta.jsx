@@ -1,6 +1,6 @@
 import Header from "components/Header";
 import React, { useState, useRef, useEffect } from "react";
-import { popup } from "../js/popup";
+import popup from "js/popup";
 import { nanoid } from "nanoid";
 import { crearVenta } from "utils/api";
 import { obtenerProductos } from "utils/api";
@@ -68,6 +68,7 @@ const Ventas = () => {
       datosVenta,
       (response) => {
         console.log(response);
+        popup();
       },
       (error) => {
         console.error(error);
@@ -130,6 +131,35 @@ const Ventas = () => {
         </label>
         <button type="submit">Crear Venta</button>
       </form>
+      <div id="contenedorpopup" className="contenedor-pop">
+          <div className="popup">
+            <h1>
+              Venta Creada Exitosamente{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-checks"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#2c3e50"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 12l5 5l10 -10" />
+                <path d="M2 12l5 5m5 -5l5 -5" />
+              </svg>
+            </h1>
+            <button className="boton-ver-ventas">
+              <a>Ver Ventas</a>
+            </button>
+            <button className="boton-nueva-venta">
+              <a href="/NuevaVenta">Nueva Venta</a>
+            </button>
+          </div>
+        </div>
     </div>
   );
 };
@@ -275,6 +305,7 @@ const FilaProducto = ({ veh, index, eliminarProducto, modificarProducto }) => {
           />
         </td>
       </tr>
+      <script src="js/popup.js"></script>
     </>
   );
 };
