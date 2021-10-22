@@ -10,7 +10,7 @@ import ActualizarVenta from "pages/ActualizarVenta";
 // import Index from "pages/Index";
 import ListadoProductos from "pages/ListadoProductos";
 import ListadoUsuarios from "pages/ListadoUsuarios";
-import ListadoVentas from "pages/ListadoVentas";
+import ListadoVentas from "pages/LIstadoVentas";
 import { NuevoProducto } from "pages/NuevoProducto";
 
 import "styles/styles.css";
