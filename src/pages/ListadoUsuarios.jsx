@@ -15,7 +15,7 @@ export const ListadoUsuarios = () => {
   const url = "http://localhost:3030/usuarios";
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
-  const [modalInsertar, setModalInsertar] = useState(false);
+ 
 
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState({
     email: "",
@@ -98,6 +98,19 @@ export const ListadoUsuarios = () => {
         console.error(error);
         //lamar pop-up error nuevo producto
       });
+    
+  };
+
+  const editar = (usuarioSeleccionado) =>{
+    var usuariosNuevos = usuarios;
+    usuariosNuevos.map((usuario) => {
+      if (usuario._id === usuarioSeleccionado._id ){
+        usuario.estado = usuarioSeleccionado.estado;
+        usuario.rol = usuarioSeleccionado.rol;
+        setUsuarios(usuariosNuevos);
+        envioDatosActualizados(usuario);
+      }
+    });
     setModalEditar(false);
   };
 
@@ -151,6 +164,7 @@ export const ListadoUsuarios = () => {
                     <td>{dato.email}</td>
                     <td>{dato.rol}</td>
                     <td>{dato.estado}</td>
+                    {console.log(dato)}
                     <td>
                       <button
                         className="btn btn-primary boton-editar"
@@ -174,6 +188,7 @@ export const ListadoUsuarios = () => {
             <div className="form-group">
               <label>Nombre</label>
               <input
+                readOnly
                 className="form-control"
                 type="text"
                 name="nombre"
@@ -185,6 +200,7 @@ export const ListadoUsuarios = () => {
             <div className="form-group">
               <label>Numero</label>
               <input
+                readOnly
                 className="form-control"
                 type="text"
                 name="nombre"
@@ -196,6 +212,7 @@ export const ListadoUsuarios = () => {
             <div className="form-group">
               <label>Correo</label>
               <input
+                readOnly
                 className="form-control"
                 type="text"
                 name="email"
@@ -235,7 +252,7 @@ export const ListadoUsuarios = () => {
           <ModalFooter col-auto>
             <button
               className="btn btn-primary"
-              onClick={() => envioDatosActualizados(usuarioSeleccionado)}
+              onClick={() => editar(usuarioSeleccionado)}
             >
               Actualizar
             </button>
@@ -271,11 +288,8 @@ export const ListadoUsuarios = () => {
               </svg>
             </h1>
             <button className="boton-ver-ventas">
-              <a href="/ListadoUsuarios">Ver Usuarios</a>
+              <a>Ver Usuarios</a>
             </button>
-            <button className="boton-nueva-venta">Nuevo Usuario</button>
-            {/* <!-- boton X eliminado --> */}
-            <button id="cerrar" className="cerrar-pop-venta"></button>
           </div>
         </div>
       </body>
