@@ -9,8 +9,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { getAuth } from "firebase/auth";
 
-  const BASE_URL = process.env.REACT_APP_API_URL;
-  const PATH_USUARIOS = "ventas/";
+const BASE_URL = process.env.REACT_APP_API_URL;
+const PATH_USUARIOS = "ventas/";
 
 const ListadoVentas = () => {
   const auth = getAuth();
@@ -102,7 +102,7 @@ const ListadoVentas = () => {
     setModalInsertar(false);
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       await axios(`${BASE_URL}${PATH_USUARIOS}`)
         .then((response) => {
@@ -137,7 +137,7 @@ const ListadoVentas = () => {
   //       .catch((error) => console.log(error));
   //   };
   //   fetchData();
-  // }, [{ modalEditar }]); 
+  // }, [{ modalEditar }]);
 
   const totalventa = (dato) => {
     let total = 0;
@@ -197,7 +197,6 @@ const ListadoVentas = () => {
             <input type="text" value={busqueda} onChange={buscadorDiv} />
           </div>
         </div>
-
         <div className="fecha-contenedor">
           <div className="filtro-fecha">
             <p className="espacio">Desde: </p>
@@ -209,7 +208,6 @@ const ListadoVentas = () => {
             <input type="date" className="fecha" />
           </div>
         </div>
-
         <section className="section-ventas">
           <table className="ventas">
             <thead>
@@ -239,7 +237,6 @@ const ListadoVentas = () => {
                     >
                       Editar
                     </button>{" "}
-                    {"   "}
                   </td>
                   {/* <td><button className="btn btn-primary" onClick={()=>seleccionarPais(dato, 'Editar')}>Editar</button>
                    </td> */}
@@ -374,7 +371,36 @@ const ListadoVentas = () => {
             </ModalFooter>
           </Modal>
         </section>
-
+        s{" "}
+        <div id="contenedorpopup" className="contenedor-pop">
+          <div className="popup">
+            <h1>
+              Venta Actualizada Exitosamente{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-checks"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#2c3e50"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 12l5 5l10 -10" />
+                <path d="M2 12l5 5m5 -5l5 -5" />
+              </svg>
+            </h1>
+            <button className="boton-ver-ventas">
+              <a>Ver Ventas</a>
+            </button>
+            <button className="boton-nueva-venta">
+              <a href="/NuevoProducto">Nueva Venta</a>
+            </button>
+          </div>
+        </div>
         <script src="js/popup.js"></script>
       </body>
       <Paginador />
