@@ -4,16 +4,17 @@ import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { getAuth } from "firebase/auth";
+import popup from "js/popup";
 
 // import { obtenerProductos } from "../utils/api";
 
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-// import axios from "axios";
+
 
 const BASE_URL = process.env.REACT_APP_API_URL;
-const PATH_PRODUCTOS = "productos";
+const PATH_PRODUCTOS = "productos/";
 
 const ListadoProductos = () => {
   const auth = getAuth();
@@ -24,42 +25,47 @@ const ListadoProductos = () => {
   const [listaProductos, setListaProductos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
-  const url = "http://localhost:3030/productos";
+  // const url = "http://localhost:3030/productos";
 
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
-  const [modalInsertar, setModalInsertar] = useState(false);
 
-  const [paisSeleccionado, setPaisSeleccionado] = useState({
+  const [productoSeleccionado, setProductoSeleccionado] = useState({
     // id: '',
     nombre: "",
     precio: "",
   });
 
-  const seleccionarPais = (dato, caso) => {
-    setPaisSeleccionado(dato);
+  const seleccionarProducto = (dato, caso) => {
+    setProductoSeleccionado(dato);
     caso === "Editar" ? setModalEditar(true) : setModalEliminar(true);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPaisSeleccionado((prevState) => ({
+    setProductoSeleccionado((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
   const envioDatosActualizados = async (producto) => {
+
+    const url = BASE_URL + PATH_PRODUCTOS + producto._id
+
     const options = {
       method: "PUT", //put
-      url: "http://localhost:3030/productos/" + producto._id,
+      url:url,
+      // url: "http://localhost:3030/productos/" + producto._id,
+      // url: `${BASE_URL}${PATH_PRODUCTOS}${producto._id}`,
       headers: { "Content-Type": "application/json" },
       data: { nombre: producto.nombre, precio: producto.precio },
     };
+    
     await axios //
       .request(options)
       .then(function (response) {
         console.log(response.data);
-        //llamar pop-up nuevo producto
+        popup();
       })
       .catch(function (error) {
         console.error(error);
@@ -80,25 +86,7 @@ const ListadoProductos = () => {
     setModalEditar(false);
   };
 
-  const eliminar = () => {
-    setProductos(productos.filter((pais) => pais.id !== paisSeleccionado.id));
-    setModalEliminar(false);
-  };
-
-  const abrirModalInsertar = () => {
-    setPaisSeleccionado(null);
-    setModalInsertar(true);
-  };
-
-  const insertar = () => {
-    var valorInsertar = paisSeleccionado;
-    valorInsertar.id = productos[productos.length - 1].id + 1;
-    var productoNuevo = productos;
-    productoNuevo.push(valorInsertar);
-    setProductos(productoNuevo);
-    setModalInsertar(false);
-  };
-
+  
   useEffect(() => {
     if (!user) {
       return history.replace("/");
@@ -186,12 +174,10 @@ const ListadoProductos = () => {
                   <td>
                     <button
                       className="btn btn-primary boton-editar"
-                      onClick={() => seleccionarPais(dato, "Editar")}
+                      onClick={() => seleccionarProducto(dato, "Editar")}
                     >
                       Editar
                     </button>{" "}
-                    {/*{"   "} 
-                  <button className="btn btn-danger" onClick={()=>seleccionarPais(dato, 'Eliminar')}>Eliminar</button>*/}
                   </td>
                 </tr>
               ))}
@@ -212,7 +198,7 @@ const ListadoProductos = () => {
                   readOnly
                   type="text"
                   name="id"
-                  value={paisSeleccionado._id}
+                  value={productoSeleccionado._id}
                 />
                 <br />
 
@@ -221,7 +207,7 @@ const ListadoProductos = () => {
                   className="form-control"
                   type="text"
                   name="nombre"
-                  value={paisSeleccionado && paisSeleccionado.nombre}
+                  value={productoSeleccionado && productoSeleccionado.nombre}
                   onChange={handleChange}
                 />
                 <br />
@@ -231,7 +217,7 @@ const ListadoProductos = () => {
                   className="form-control"
                   type="text"
                   name="precio"
-                  value={paisSeleccionado && paisSeleccionado.precio}
+                  value={productoSeleccionado && productoSeleccionado.precio}
                   onChange={handleChange}
                 />
                 <br />
@@ -240,7 +226,7 @@ const ListadoProductos = () => {
             <ModalFooter>
               <button
                 className="btn btn-primary"
-                onClick={() => editar(paisSeleccionado)}
+                onClick={() => editar(productoSeleccionado)}
               >
                 Actualizar
               </button>
@@ -252,78 +238,38 @@ const ListadoProductos = () => {
               </button>
             </ModalFooter>
           </Modal>
-
-          <Modal isOpen={modalEliminar}>
-            <ModalBody>
-              Estás Seguro que deseas eliminar el país{" "}
-              {paisSeleccionado && paisSeleccionado.nombre}
-            </ModalBody>
-            <ModalFooter>
-              <button className="btn btn-danger" onClick={() => eliminar()}>
-                Sí
-              </button>
-              <button
-                className="btn btn-secondary"
-                onClick={() => setModalEliminar(false)}
-              >
-                No
-              </button>
-            </ModalFooter>
-          </Modal>
-
-          <Modal isOpen={modalInsertar}>
-            <ModalHeader>
-              <div>
-                <h3>Insertar País</h3>
-              </div>
-            </ModalHeader>
-            <ModalBody>
-              <div className="form-group">
-                <label>ID</label>
-                <input
-                  className="form-control"
-                  readOnly
-                  type="text"
-                  name="id"
-                />
-                <br />
-
-                <label>Nombre</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="nombre"
-                  value={paisSeleccionado ? paisSeleccionado.nombre : ""}
-                  onChange={handleChange}
-                />
-                <br />
-
-                <label>Precio</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="Precio"
-                  value={paisSeleccionado ? paisSeleccionado.precio : ""}
-                  onChange={handleChange}
-                />
-                <br />
-              </div>
-            </ModalBody>
-            <ModalFooter>
-              <button className="btn btn-primary" onClick={() => insertar()}>
-                Insertar
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => setModalInsertar(false)}
-              >
-                Cancelar
-              </button>
-            </ModalFooter>
-          </Modal>
         </section>
+        
         {/* <!-- Estados de las ventas: -->
   <!-- Creacion, embalaje, despacho, ruta, ubicacion, recepcion --> */}
+        <div id="contenedorpopup" className="contenedor-pop">
+          <div className="popup">
+            <h1>
+              Producto Actualizado Exitosamente{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-checks"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#2c3e50"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 12l5 5l10 -10" />
+                <path d="M2 12l5 5m5 -5l5 -5" />
+              </svg>
+            </h1>
+            <button className="boton-ver-ventas">
+              <a >Ver Productos</a>
+            </button>
+            <button className="boton-nueva-venta"> 
+            <a href="/NuevoProducto">Nuevo Producto</a></button>
+          </div>
+        </div>
         <script src="js/popup.js"></script>
       </body>
       <Paginador />

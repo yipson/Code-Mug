@@ -3,11 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "components/Login/Login";
 import Register from "components/Register/Register";
 import NuevaVenta from "pages/NuevaVenta";
-import ActualizarProducto from "pages/ActualizarProducto";
-import ActualizarUsuario from "pages/ActualizarUsuario";
 import ActualizarVenta from "pages/ActualizarVenta";
-// import Layout from "Layout/Layout";
-// import Index from "pages/Index";
 import ListadoProductos from "pages/ListadoProductos";
 import ListadoUsuarios from "pages/ListadoUsuarios";
 import ListadoVentas from "pages/LIstadoVentas";
@@ -23,28 +19,22 @@ const App = () => {
           <Register />
         </Route>
 
-        <Route path="/NuevaVenta">
+        <Route path="/nuevaVenta">
           <NuevaVenta />
         </Route>
-        <Route path="/NuevoProducto">
+        <Route path="/nuevoProducto">
           <NuevoProducto />
         </Route>
-        <Route path="/ListadoVentas">
+        <Route path="/listadoVentas">
           <ListadoVentas />
         </Route>
-        <Route path="/ListadoUsuarios">
+        <Route path="/listadoUsuarios">
           <ListadoUsuarios />
         </Route>
-        <Route path="/ListadoProductos">
+        <Route path="/listadoProductos">
           <ListadoProductos />
         </Route>
-        <Route path="/ActualizarProducto">
-          <ActualizarProducto />
-        </Route>
-        <Route path="/ActualizarUsuario">
-          <ActualizarUsuario />
-        </Route>
-        <Route path="/ActualizarVenta">
+        <Route path="/actualizarVenta">
           <ActualizarVenta />
         </Route>
         <Route path="/login">

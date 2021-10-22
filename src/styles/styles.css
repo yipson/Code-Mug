@@ -120,9 +120,15 @@ input {
   text-align: left;
   padding-left: -1rem;
   outline: none;
+  
 }
 ::placeholder{
   color: rgb(126, 123, 123);
+  background: transparent;
+}
+::placeholder:checked{
+  color: rgb(126, 123, 123);
+  background: transparent;
 }
 
 .linea {
@@ -164,49 +170,77 @@ input {
 }
 .simbolos-login{
   display: flex;
+  background: transparent;
 }
 .fas{
   display: flex;
   margin-left: 2rem;
   margin-top: 10px;
-  padding: 0px;
+  padding: 5px;
+  font-size: 20px;
+  /* color: black; */
 }
 /*Botones*/
 .botones{
   display: flex;
-  justify-content: space-evenly;
+  justify-content:space-around;
   justify-items: center;
   align-items: center; 
 }
 
 .button-google{
-  margin-right: 2rem; 
+  justify-items: center;
+  align-items: center; 
+  font-size: 15px;
+  /* margin-right: 2rem;  */
+  background:rgb(240, 55, 55);
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  font-weight: bolder;
   /* width: auto;
   margin: 0px 20px 10px 20px ;  */
 }
+.button-google:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  /* box-shadow: 1.5px 1.5px var(--azulOscuro); */
+}
 
 .botonLogin {
+  justify-items: center;
+  align-items: center; 
   font-size: 15px;
-  color: var(--gris);
-  background: var(--verde);
+  color: white;
+  background: rgb(61, 61, 245);
+  align-items: center;
   border: 0px;
-  border-radius: 2px;
-  padding: 1rem 7.5rem 1rem;
+  border-radius: 5px;
+  padding: 1rem 4rem;
   /* margin-top: 2rem;*/
-  margin-left: 2rem; 
+  margin-left: 1.5rem; 
   font-weight: bolder;
+  
 }
 .botonLogin:hover {
   cursor: pointer;
   transform: scale(1.05);
-  box-shadow: 1.5px 1.5px var(--azulOscuro);
+  /* box-shadow: 1.5px 1.5px var(--azulOscuro); */
+}
+.inputsLogin{
+  background: transparent;
+  cursor: pointer;
+  font-size:medium ;
+}
+.inputsLogin:checked{
+  background: transparent;
 }
 .remember-and-forgot{
   display: flex;
-  justify-content:space-evenly;
+  justify-content:space-between;
   align-items: center;
-  margin-top: -15px;
-  
+  margin-top: 5px;
 }
 .boton-editar{
   padding: 0.6rem 2.7rem ;
@@ -214,11 +248,13 @@ input {
   margin: 0px ;
 }
 /*hipervinculo*/
-.x {
-  border-bottom-style: solid ;
-  border-bottom-width: 2px;
-  border-bottom-color: var(--blanco);
+.x{
+  color:white;
 }
+.x:hover {
+  border-bottom-style: solid ;
+  border-bottom-width: 1.8px;
+  border-bottom-color: var(--verde);}
 .enlace {
   font-weight: bolder;
   display:flex;
@@ -239,9 +275,7 @@ input {
   color: black;
   font-size: 20px;
 }
-.x:hover {
-  border-bottom-color: var(--verde);
-}
+
 .enlace:hover::before {
   color: var(--verde);
 }
