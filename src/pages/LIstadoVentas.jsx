@@ -4,9 +4,13 @@ import React, { useState, useEffect } from "react";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import popup from "js/popup";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { getAuth } from "firebase/auth";
+
+  const BASE_URL = process.env.REACT_APP_API_URL;
+  const PATH_USUARIOS = "ventas/";
 
 const ListadoVentas = () => {
   const auth = getAuth();
@@ -20,7 +24,7 @@ const ListadoVentas = () => {
   const [ventas, setVentas] = useState([]);
   const [listaVentas, setListaVentas] = useState([]);
 
-  const url = "http://localhost:3030/ventas";
+  // const url = "http://localhost:3030/ventas";
 
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
@@ -52,12 +56,12 @@ const ListadoVentas = () => {
       headers: { "Content-Type": "application/json" },
       data: { vendedor: venta.vendedor, total: venta.total },
     };
-
     await axios //
       .request(options)
       .then(function (response) {
         console.log(response.data);
         //llamar pop-up nuevo producto
+        popup();
       })
       .catch(function (error) {
         console.error(error);
@@ -98,17 +102,30 @@ const ListadoVentas = () => {
     setModalInsertar(false);
   };
 
-  useEffect(() => {
+    useEffect(() => {
     const fetchData = async () => {
-      await axios(`${url}`)
+      await axios(`${BASE_URL}${PATH_USUARIOS}`)
         .then((response) => {
-          setVendedor(response.data); //muestra tabla
-          setTablaVentas(response.data); //busqueda
+          setVendedor(response.data);
+          setTablaVentas(response.data);
+          console.log(response.data);
         })
         .catch((error) => console.log(error));
     };
     fetchData();
-  },[] );
+  }, [modalEditar]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await axios(`${url}`)
+  //       .then((response) => {
+  //         setVendedor(response.data); //muestra tabla
+  //         setTablaVentas(response.data); //busqueda
+  //       })
+  //       .catch((error) => console.log(error));
+  //   };
+  //   fetchData();
+  // },[] );
 
   // useEffect(() => {
   //   const fetchData = async () => {
