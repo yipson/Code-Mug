@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "components/Login/Login";
 import Register from "components/Register/Register";
 import NuevaVenta from "pages/NuevaVenta";
-import ActualizarVenta from "pages/ActualizarVenta";
 import ListadoProductos from "pages/ListadoProductos";
 import ListadoUsuarios from "pages/ListadoUsuarios";
 import ListadoVentas from "pages/LIstadoVentas";
@@ -33,9 +32,6 @@ const App = () => {
         </Route>
         <Route path="/listadoProductos">
           <ListadoProductos />
-        </Route>
-        <Route path="/actualizarVenta">
-          <ActualizarVenta />
         </Route>
         <Route path="/login">
           <Login />

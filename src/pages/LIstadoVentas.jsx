@@ -44,6 +44,7 @@ const ListadoVentas = () => {
       [name]: value,
     }));
   };
+
   const envioDatosActualizados = async (venta) => {
     const options = {
       method: "PUT", //put
@@ -107,19 +108,19 @@ const ListadoVentas = () => {
         .catch((error) => console.log(error));
     };
     fetchData();
-  }, []);
+  },[] );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await axios(`${url}`)
-        .then((response) => {
-          setVendedor(response.data); //muestra tabla
-          setTablaVentas(response.data); //busqueda
-        })
-        .catch((error) => console.log(error));
-    };
-    fetchData();
-  }, [{ modalEditar }]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await axios(`${url}`)
+  //       .then((response) => {
+  //         setVendedor(response.data); //muestra tabla
+  //         setTablaVentas(response.data); //busqueda
+  //       })
+  //       .catch((error) => console.log(error));
+  //   };
+  //   fetchData();
+  // }, [{ modalEditar }]); 
 
   const totalventa = (dato) => {
     let total = 0;
