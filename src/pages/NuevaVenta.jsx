@@ -195,6 +195,8 @@ const TablaProductos = ({ productos, setproductos, setproductosTabla }) => {
     );
   };
 
+let total = 0;
+
   return (
     <div>
       <div>
@@ -282,14 +284,13 @@ const FilaProducto = ({ veh, index, eliminarProducto, modificarProducto }) => {
                   ...producto,
                   cantidad: e.target.value === "" ? "0" : e.target.value,
                   total:
-                    parseFloat(producto.precio) *
-                    parseFloat(e.target.value === "" ? "0" : e.target.value),
+                    parseFloat(producto.precio) * parseFloat(e.target.value === "" ? "0" : e.target.value),    
                 });
               }}
             />
           </label>
         </td>
-        <td>{producto.valor}</td>
+        <td>{(producto.valor += producto.total)}</td> 
         <td>{parseFloat(producto.total ?? 0)}</td>
         <td>
           <i

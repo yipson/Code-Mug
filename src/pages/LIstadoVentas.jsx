@@ -116,6 +116,7 @@ const ListadoVentas = () => {
     };
     fetchData();
   }, [modalEditar]);
+  
   const totalventa = (dato) => {
     let total = 0;
     dato.forEach((element) => {
