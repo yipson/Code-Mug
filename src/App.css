@@ -1,0 +1,693 @@
+:root {
+  --azulOscuro: #416788;
+  --grisClaro: #d5e8ec;
+  --grisOscuro: #4c4c4c;
+  --blanco: white;
+  --verde: turquoise;
+  --azul: #416788;
+  --grisMedio: #516063;
+  --negro: #1b1b1b;
+  /* --fuente-principal: font-family: 'Roboto', sans-serif; */
+  --rojo: red;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: var(--grisClaro);
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+.contenedor {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.6rem;
+}
+h3 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Globales arriba */
+
+/* -------------------------------------------------- */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.mainContainer > nav {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.mainContainer > footer {
+  background-color: red;
+  padding: 10px;
+}
+/* login */
+.login {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8rem;
+  margin-bottom: 20rem;
+}
+
+/* Lado izquierdo */
+.izquierda {
+  margin-top: 5rem;
+  border-radius: 6px;
+  background-color: var(--verde);
+  margin-bottom: 10rem;
+  padding: 10rem;
+}
+
+/* Lado derecho */
+.derecha {
+  margin-top: 5rem;
+  background-color: var(--gris);
+  margin-bottom: 10rem;
+  align-items: center;
+  border-radius: 6px;
+  font-weight: bold;
+  background-color: var(--grisOscuro);
+}
+
+.from {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.derecha-form {
+  margin-top: 5rem;
+  text-align: left;
+}
+
+input {
+  text-align: left;
+  padding-left: -1rem;
+  outline: none;
+}
+
+.linea {
+  background-color: rgba(250, 250, 250, 0.631);
+  border-top: 1px solid var(--blanco);
+  height: 1px;
+  max-width: 80%;
+  padding: 0;
+  margin: 1rem 0 2rem 2rem;
+}
+
+.forma input {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  margin: 1rem 0 1rem 1rem;
+  margin-left: 2rem;
+  color: var(--blanco);
+  font-weight: bold;
+  max-width: 80%;
+}
+
+.email {
+  text-align: left;
+}
+
+.texto-izquierda {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sub-texto-izquierda {
+  text-align: center;
+  font-size: medium;
+  color: var(--gris);
+}
+/*Botones*/
+.botonLogin {
+  font-size: 15px;
+  color: var(--gris);
+  background: var(--verde);
+  border: 0px;
+  border-radius: 15px;
+  padding: 0.5rem 5rem 1rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  font-weight: bolder;
+}
+.botonLogin:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 1.5px 1.5px var(--azulOscuro);
+}
+
+/*hipervinculo*/
+.x {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--blanco);
+}
+.enlace {
+  font-size: 20px;
+  color: var(--blanco);
+  text-decoration: none;
+  font-family: var(--fuente-principal);
+  padding: 5px;
+  margin-left: 0.5rem;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+}
+.enlace::before {
+  color: black;
+  font-size: 20px;
+  font-weight: 900;
+}
+.x:hover {
+  border-bottom-color: var(--verde);
+}
+.enlace:hover::before {
+  color: var(--verde);
+}
+
+/*checkbox*/
+.checkbox2 {
+  justify-content: space-around;
+}
+
+.checkbox2 label {
+  /*texto: Forgot your Password*/
+  padding-left: 1.3em;
+  position: relative;
+  color: var(--blanco);
+  font-size: 15px;
+  font-family: var(--fuente-principal);
+  font-weight: 600;
+  cursor: pointer;
+  left: 25px;
+  top: -20px; /*en esta parte hay se le puede configurar la altura del texto*/
+}
+
+.checkbox2 input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: var(--blanco);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+.checkbox2 input[type="checkbox"]:after {
+  /*se pone la forma junto con sus caracteristicas*/
+  font-family: "Font Awesome 5 free"; /*fuente para que se vea el check*/
+  content: "\f00c";
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--blanco);
+  display: none;
+}
+
+/*color del cuadrito al seleccionar la opcion de : forgot....*/
+.checkbox2 input[type="checkbox"]:checked {
+  background: var(--verde);
+}
+
+.checkbox2 input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Listado Ventas */
+
+/* nav (ventas) */
+nav {
+  text-decoration: none;
+  align-items: center;
+  background-color: var(--negro);
+  margin-bottom: 2.5rem;
+}
+
+.button-g {
+  cursor: pointer;
+  border: none;
+  background-color: var(--negro);
+}
+
+.a-visited:visited {
+  color: var(--blanco);
+}
+
+.button-g:hover {
+  transform: scale(1.04, 1.04);
+  color: rgb(208, 242, 250);
+}
+
+.button-ventas {
+  border: none;
+  font-size: 25px;
+  color: var(--blanco);
+  padding: 20px;
+  background-color: var(--negro);
+  border-right: solid 1px var(--gris);
+  cursor: pointer;
+}
+
+.button_logout {
+  position: absolute;
+  top: 2%;
+  right: 30px;
+  border: none;
+  font-size: 25px;
+  color: var(--negro);
+  padding: 10px 35px;
+  border-radius: 50px;
+  background-color: var(--verde);
+}
+
+/* Titulo y boton (nueva venta) */
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+.titulo-contenedor {
+  display: flex;
+  margin-bottom: 3rem;
+  margin-left: 2rem;
+}
+.titulo-contenedor h1 {
+  width: 50rem;
+  font-size: 5rem;
+}
+.boton-venta {
+  background-color: var(--azul);
+  border: none;
+  border-radius: 1rem;
+  font-size: 3rem;
+  margin-top: 1rem;
+  padding: 10px 25px;
+  width: 15rem;
+  color: var(--blanco);
+  margin-left: 0.2rem;
+  cursor: pointer;
+  color: var(--blanco);
+}
+
+/* Filtro de fecha */
+
+.espacio {
+  margin-right: 10px;
+}
+.fecha-contenedor {
+  display: flex;
+  margin-bottom: 2.5rem;
+  margin-left: 2.5rem;
+}
+.filtro-fecha {
+  display: flex;
+  width: 30rem;
+  align-items: center;
+}
+.fecha {
+  width: 15rem;
+  border-radius: 10px;
+}
+
+/* tabla */
+
+/* body {
+  background-color: var(--blanco);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+/* 
+.section-ventas {
+  width: 85%;
+  margin: auto;
+} */
+
+.ventas {
+  width: 100%;
+  height: 100%;
+  background-color: var(--blanco);
+  text-align: left;
+  border-collapse: collapse;
+}
+.separacion {
+  width: 25%;
+}
+
+th,
+td {
+  padding: 2rem;
+  font-weight: normal;
+  font-size: medium;
+}
+
+thead {
+  background-color: var(--azulOscuro);
+  color: var(--blanco);
+  border-bottom: 8px solid var(--azulOscuro);
+  font-size: large;
+  font-weight: bolder;
+}
+
+tr:nth-child(even) {
+  background-color: var(--grisClaro);
+}
+
+tr:hover td {
+  background-color: var(--grisClaro);
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.actualizarUsuario {
+  display: grid;
+  grid-template-columns: repeat(1fr, 1fr);
+  border: solid red;
+  flex-direction: column;
+}
+.pagination button {
+  color: var(--negro);
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid var(--negro);
+  margin: 0 4px;
+}
+
+.pagination button.active {
+  background-color: var(--verde);
+  color: var(--blanco);
+  border: 1px solid var(--verde);
+}
+
+.pagination button:hover:not(.active) {
+  background-color: rgb(221, 221, 221);
+}
+
+label {
+  display: block;
+}
+
+label span {
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+.producto {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+
+.alinear {
+  text-align: left;
+  border-bottom: 8px solid var(--azulOscuro);
+}
+
+.estilizar {
+  color: var(--theme-button-filled-color);
+  background-color: var(--theme-button-filled-background-color);
+  border-color: var(--theme-button-filled-border-color);
+  box-shadow: inset 0 1px 0 0 hsl(0deg 0% 100% / 70%);
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.controls {
+  position: absolute;
+  right: 90px;
+  font-size: 18px;
+}
+.boton {
+  padding-bottom: 39rem;
+}
+
+/* Creando pop-up VentaAgregada  */
+.contenedor-pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.popup {
+  background-color: var(--blanco);
+  width: 60rem;
+  max-width: 100%;
+  padding: 3rem 5rem;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.boton-ver-ventas,
+.boton-nueva-venta {
+  background-color: var(--verde);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--blanco);
+  font-size: medium;
+  padding: 10px 25px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.contenedor-pop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.boton-ver-ventas:hover,
+.boton-nueva-venta:hover {
+  transform: scale(1.04, 1.04);
+  color: rgb(208, 242, 250);
+}
+
+/* eliminando boton X */
+/* .cerrar-pop-venta{
+  background-color: var(--rojo);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--blanco);
+  font-size: medium;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cerrar-pop-venta:hover{
+  transform: scale(1.04, 1.04); 
+} */
+
+.popup h1 {
+  margin: 10px;
+}
+
+/*Pantalla De Actualizar El Producto*/
+.main-div {
+  /*div general*/
+  font-family: "Roboto", sans-serif;
+}
+.Cuadro-de-datos {
+  /*formato de parrafos e input*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.Cuadro-de-datos2 {
+  /*formato de parrafos e input*/
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  background-color: transparent;
+  padding: 10px;
+}
+.titulo-actualizar-producto {
+  /*titulo-actualizar-producto*/
+  text-align: center;
+  background: transparent;
+  padding-bottom: 55px;
+}
+
+.titulo-actualizar-usuario {
+  /*titulo-actualizar-Usuario*/
+  text-align: center;
+  background: transparent;
+  padding-bottom: 55px;
+}
+
+input {
+  /*inputs generales*/
+  text-align: left;
+  border-radius: 5px;
+  background-color: var(--theme-button-filled-background-color);
+  border-color: var(--theme-button-filled-color);
+  border-width: 1.9px;
+}
+p {
+  background: transparent;
+}
+.p1 {
+  margin-right: 65px;
+  margin-left: -116px;
+}
+.p2 {
+  padding: 0px 20px;
+}
+.p3 {
+  padding: 0px 33px 0px 19px;
+}
+.margen {
+  /*padding button "actualizar" */
+  text-align: center;
+  padding: 100px;
+  padding-bottom: 15.2rem;
+}
+.x {
+  width: 20rem;
+}
+
+/* Busqueda */
+.contenedor-busqueda {
+  align-items: center;
+  border: 1px solid #b1b1b1;
+  border-radius: 0.5rem;
+  height: 13rem;
+  margin-right: 6rem;
+  padding: 0.5rem 1rem;
+}
+.text-buscar {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.select {
+  font-size: 2rem;
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+.contenedor-busqueda > input {
+  height: 2.5rem;
+  width: 20rem;
+  font-size: 2rem;
+}
+
+/* Contenedor Actualizar Usuarios*/
+.contenedor4x5 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.contenedor4x5 > div {
+  /*border: 1px solid;*/
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.centrar {
+  text-align: center;
+  align-items: center;
+}
+
+.C1 {
+  grid-column: 1 / 4;
+}
+.C2 {
+  grid-column: 2 / 4;
+}
+.C3 {
+  grid-column: 3 / 4;
+}
+
+/* GRID ACTUALIZAR USUARIO*/
+.C4 {
+  grid-column: 4 / 4;
+}
+.R1 {
+  grid-row: 1/5;
+}
+.R2 {
+  grid-row: 2/5;
+}
+.R3 {
+  grid-row: 3/5;
+}
+.R4 {
+  grid-row: 4/5;
+}
+.R5 {
+  grid-row: 5/5;
+}
