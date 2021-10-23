@@ -87,49 +87,55 @@ const Ventas = () => {
   return (
     <div>
       <Header />
-      <form ref={form} onSubmit={enviarFormulario}>
-        <h1>Crear una nueva venta</h1>
+      <form ref={form} onSubmit={enviarFormulario} >
+        <div className="productoVenta boton" >
+          <h1>Crear una nueva venta</h1>
 
-        {/* form cliente */}
-        <div>
-          <input
-            type="date"
-            placeholder="Fecha"
-            required
-            name="fecha"
-            onChange={Inputdatos}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Nombre Cliente"
-            required
-            name="cliente"
-            onChange={Inputdatos}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Nombre Vendedor"
-            required
-            name="vendedor"
-            onChange={Inputdatos}
-          />
-        </div>
+          {/* form cliente */}
+          <div>
+            <input
+              className="estilizar"
+              type="date"
+              placeholder="Fecha"
+              required
+              name="fecha"
+              onChange={Inputdatos}
+            />
+          </div>
+          <div>
+            <input
+              className="estilizar"
+              type="text"
+              placeholder="Nombre Cliente"
+              required
+              name="cliente"
+              onChange={Inputdatos}
+            />
+          </div>
+          <div>
+            <input
+              className="estilizar"
+              type="text"
+              placeholder="Nombre Vendedor"
+              required
+              name="vendedor"
+              onChange={Inputdatos}
+            />
+          </div>
 
-        <TablaProductos
-          productos={productos}
-          setproductos={setproductos}
-          setproductosTabla={setproductosTabla}
-        />
+          <TablaProductos
+            productos={productos}
+            setproductos={setproductos}
+            setproductosTabla={setproductosTabla}
+          />
 
-        <label>
-          <span>Valor Total Venta</span>
-          <input type="number" name="valor" required />
-        </label>
-        <button type="submit">Crear Venta</button>
+          <label style={{marginTop:"10px"}} >
+            <span style={{display:"unset",marginRight:"10px"}}>Valor Total Venta</span>
+            <input type="number" name="valor" required />
+          </label>
+          <button type="submit" className="botonesVentas"  style={{display:"unset"}}>
+            Crear Venta</button>
+        </div>
       </form>
       <div id="contenedorpopup" className="contenedor-pop">
           <div className="popup">
@@ -221,11 +227,11 @@ const TablaProductos = ({ productos, setproductos, setproductosTabla }) => {
             })}
           </select>
         </label>
-        <button type="button" onClick={() => AgregarNuevoProducto()}>
+        <button type="button" className="botonesVentas" onClick={() => AgregarNuevoProducto()}>
           Agregar Producto
         </button>
       </div>
-      <table className="tabla">
+      <table className="tabla eNuevaVenta">
         <thead>
           <tr>
             <th>Id</th>

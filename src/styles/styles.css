@@ -181,6 +181,21 @@ input {
   /* color: black; */
 }
 /*Botones*/
+.botonesVentas{
+  background-color: var(--azul);
+  border: none;
+  border-radius: 1rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 5px ;
+  width: 15rem;
+  color: var(--blanco);
+}
+.botonesVentas:hover{
+  transform: scale(1.04, 1.04);
+  background-color: var(--azulOscuro); 
+}
 .botones{
   display: flex;
   justify-content:space-around;
@@ -221,7 +236,7 @@ input {
   /* margin-top: 2rem;*/
   margin-left: 1.5rem; 
   font-weight: bolder;
-  
+
 }
 .botonLogin:hover {
   cursor: pointer;
@@ -454,7 +469,17 @@ nav {
   background-color: var(--blanco);
   text-align: left;
   border-collapse: collapse;
-  
+}
+.eNuevaVenta {
+  width: 100%;
+  background-color: var(--blanco);
+  text-align: left;
+  border-collapse: collapse;
+  margin-left:none;
+  margin-right:none;
+  /* width:min-content; */
+  text-align:justify;
+  justify-content:space-evenly ;
 }
 .controls {
   position: absolute;
@@ -527,7 +552,19 @@ label span {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: fit-content;
+  /* width: fit-content; */
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+.productoVenta {
+  /* display: ; */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /* width: fit-content; */
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 16px;
