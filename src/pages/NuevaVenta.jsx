@@ -87,8 +87,8 @@ const Ventas = () => {
   return (
     <div>
       <Header />
-      <form ref={form} onSubmit={enviarFormulario} >
-        <div className="productoVenta boton" >
+      <form ref={form} onSubmit={enviarFormulario}>
+        <div className="productoVenta boton">
           <h1>Crear una nueva venta</h1>
 
           {/* form cliente */}
@@ -129,43 +129,50 @@ const Ventas = () => {
             setproductosTabla={setproductosTabla}
           />
 
-          <label style={{marginTop:"10px"}} >
-            <span style={{display:"unset",marginRight:"10px"}}>Valor Total Venta</span>
+          <label style={{ marginTop: "10px" }}>
+            <span style={{ display: "unset", marginRight: "10px" }}>
+              Valor Total Venta
+            </span>
             <input type="number" name="valor" required />
           </label>
-          <button type="submit" className="botonesVentas"  style={{display:"unset"}}>
-            Crear Venta</button>
+          <button
+            type="submit"
+            className="botonesVentas"
+            style={{ display: "unset" }}
+          >
+            Crear Venta
+          </button>
         </div>
       </form>
       <div id="contenedorpopup" className="contenedor-pop">
-          <div className="popup">
-            <h1>
-              Venta Creada Exitosamente{" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-checks"
-                width="44"
-                height="44"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="#2c3e50"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M7 12l5 5l10 -10" />
-                <path d="M2 12l5 5m5 -5l5 -5" />
-              </svg>
-            </h1>
-            <button className="boton-ver-ventas">
-              <a>Ver Ventas</a>
-            </button>
-            <button className="boton-nueva-venta">
-              <a href="/NuevaVenta">Nueva Venta</a>
-            </button>
-          </div>
+        <div className="popup">
+          <h1>
+            Venta Creada Exitosamente{" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-checks"
+              width="44"
+              height="44"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#2c3e50"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M7 12l5 5l10 -10" />
+              <path d="M2 12l5 5m5 -5l5 -5" />
+            </svg>
+          </h1>
+          <button className="boton-ver-ventas">
+            <a>Ver Ventas</a>
+          </button>
+          <button className="boton-nueva-venta">
+            <a href="/NuevaVenta">Nueva Venta</a>
+          </button>
         </div>
+      </div>
     </div>
   );
 };
@@ -201,7 +208,7 @@ const TablaProductos = ({ productos, setproductos, setproductosTabla }) => {
     );
   };
 
-let total = 0;
+  let total = 0;
 
   return (
     <div>
@@ -229,7 +236,11 @@ let total = 0;
             })}
           </select>
         </label>
-        <button type="button" className="botonesVentas" onClick={() => AgregarNuevoProducto()}>
+        <button
+          type="button"
+          className="botonesVentas"
+          onClick={() => AgregarNuevoProducto()}
+        >
           Agregar Producto
         </button>
       </div>
@@ -240,7 +251,7 @@ let total = 0;
             <th>Nombre</th>
             <th>Valor Unitario</th>
             <th>Cantidad</th>
-            <th className="hidden">Input</th>
+            <th className="hidden"></th>
             <th>Total</th>
             <th>Eliminar</th>
           </tr>
@@ -290,13 +301,14 @@ const FilaProducto = ({ veh, index, eliminarProducto, modificarProducto }) => {
                   ...producto,
                   cantidad: e.target.value === "" ? "0" : e.target.value,
                   total:
-                    parseFloat(producto.precio) * parseFloat(e.target.value === "" ? "0" : e.target.value),    
+                    parseFloat(producto.precio) *
+                    parseFloat(e.target.value === "" ? "0" : e.target.value),
                 });
               }}
             />
           </label>
         </td>
-        <td>{(producto.valor += producto.total)}</td> 
+        <td>{(producto.valor += producto.total)}</td>
         <td>{parseFloat(producto.total ?? 0)}</td>
         <td>
           <i

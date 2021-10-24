@@ -120,13 +120,12 @@ input {
   text-align: left;
   padding-left: -1rem;
   outline: none;
-  
 }
-::placeholder{
+::placeholder {
   color: rgb(126, 123, 123);
   background: transparent;
 }
-::placeholder:checked{
+::placeholder:checked {
   color: rgb(126, 123, 123);
   background: transparent;
 }
@@ -165,14 +164,14 @@ input {
   font-size: medium;
   color: var(--gris);
 }
-.or{
-  color: rgb(126, 123, 123)
+.or {
+  color: rgb(126, 123, 123);
 }
-.simbolos-login{
+.simbolos-login {
   display: flex;
   background: transparent;
 }
-.fas{
+.fas {
   display: flex;
   margin-left: 2rem;
   margin-top: 10px;
@@ -181,34 +180,34 @@ input {
   /* color: black; */
 }
 /*Botones*/
-.botonesVentas{
+.botonesVentas {
   background-color: var(--azul);
   border: none;
   border-radius: 1rem;
   font-size: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding: 5px ;
+  padding: 5px;
   width: 15rem;
   color: var(--blanco);
 }
-.botonesVentas:hover{
+.botonesVentas:hover {
   transform: scale(1.04, 1.04);
-  background-color: var(--azulOscuro); 
+  background-color: var(--azulOscuro);
 }
-.botones{
+.botones {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   justify-items: center;
-  align-items: center; 
+  align-items: center;
 }
 
-.button-google{
+.button-google {
   justify-items: center;
-  align-items: center; 
+  align-items: center;
   font-size: 15px;
   /* margin-right: 2rem;  */
-  background:rgb(240, 55, 55);
+  background: rgb(240, 55, 55);
   color: white;
   border: 0px;
   border-radius: 5px;
@@ -225,7 +224,7 @@ input {
 
 .botonLogin {
   justify-items: center;
-  align-items: center; 
+  align-items: center;
   font-size: 15px;
   color: white;
   background: rgb(61, 61, 245);
@@ -234,45 +233,45 @@ input {
   border-radius: 5px;
   padding: 1rem 4rem;
   /* margin-top: 2rem;*/
-  margin-left: 1.5rem; 
+  margin-left: 1.5rem;
   font-weight: bolder;
-
 }
 .botonLogin:hover {
   cursor: pointer;
   transform: scale(1.05);
   /* box-shadow: 1.5px 1.5px var(--azulOscuro); */
 }
-.inputsLogin{
+.inputsLogin {
   background: transparent;
   cursor: pointer;
-  font-size:medium ;
+  font-size: medium;
 }
-.inputsLogin:checked{
+.inputsLogin:checked {
   background: transparent;
 }
-.remember-and-forgot{
+.remember-and-forgot {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   margin-top: 5px;
 }
-.boton-editar{
-  padding: 0.6rem 2.7rem ;
+.boton-editar {
+  padding: 0.6rem 2.7rem;
   font-size: medium;
-  margin: 0px ;
+  margin: 0px;
 }
 /*hipervinculo*/
-.x{
-  color:white;
+.x {
+  color: white;
 }
 .x:hover {
-  border-bottom-style: solid ;
+  border-bottom-style: solid;
   border-bottom-width: 1.8px;
-  border-bottom-color: var(--verde);}
+  border-bottom-color: var(--verde);
+}
 .enlace {
   font-weight: bolder;
-  display:flex;
+  display: flex;
   font-size: 15px;
   color: var(--blanco);
   text-decoration: none;
@@ -300,8 +299,8 @@ input {
   justify-content: space-evenly;
   margin-right: 9rem;
 }
-.checkbox2-2{
-  margin-left: 19px;/*se da este espacio para poder acceder al*/
+.checkbox2-2 {
+  margin-left: 19px; /*se da este espacio para poder acceder al*/
 }
 .checkbox2 label {
   /*texto: Remember username*/
@@ -341,17 +340,12 @@ input {
 
 /*color del cuadrito al seleccionar la opcion de : forgot....*/
 .checkbox2 input[type="checkbox"]:checked {
-  background: var(--verde);   
+  background: var(--verde);
 }
 
 .checkbox2 input[type="checkbox"]:checked::after {
   display: block;
 }
-
-
-
-
-
 
 /* ----------------------------------------------------------------------- */
 
@@ -429,7 +423,6 @@ nav {
   color: var(--blanco);
   margin-left: 0.2rem;
   cursor: pointer;
-  
 }
 
 /* Filtro de fecha */
@@ -475,11 +468,11 @@ nav {
   background-color: var(--blanco);
   text-align: left;
   border-collapse: collapse;
-  margin-left:none;
-  margin-right:none;
+  margin-left: none;
+  margin-right: none;
   /* width:min-content; */
-  text-align:justify;
-  justify-content:space-evenly ;
+  text-align: justify;
+  justify-content: space-evenly;
 }
 .controls {
   position: absolute;
@@ -767,4 +760,8 @@ p {
 .nueva-venta-tabla {
   width: 180rem;
   background-color: red;
+}
+
+.hidden {
+  display: none;
 }
